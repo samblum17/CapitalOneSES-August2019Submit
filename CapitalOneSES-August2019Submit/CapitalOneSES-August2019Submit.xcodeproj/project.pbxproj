@@ -12,6 +12,10 @@
 		E4D898092293A49B000419B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4D898072293A49B000419B2 /* Main.storyboard */; };
 		E4D8980B2293A49C000419B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4D8980A2293A49C000419B2 /* Assets.xcassets */; };
 		E4D8980E2293A49C000419B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4D8980C2293A49C000419B2 /* LaunchScreen.storyboard */; };
+		E4D898182293B3CD000419B2 /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D898172293B3CD000419B2 /* Park.swift */; };
+		E4D8981A2293B8FA000419B2 /* ParkListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D898192293B8FA000419B2 /* ParkListTableViewController.swift */; };
+		E4D8981C2293B97A000419B2 /* URL+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8981B2293B97A000419B2 /* URL+Helpers.swift */; };
+		E4D8981E2293B983000419B2 /* StoreItemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8981D2293B983000419B2 /* StoreItemsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		E4D8980A2293A49C000419B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4D8980D2293A49C000419B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4D8980F2293A49C000419B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4D898172293B3CD000419B2 /* Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
+		E4D898192293B8FA000419B2 /* ParkListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkListTableViewController.swift; sourceTree = "<group>"; };
+		E4D8981B2293B97A000419B2 /* URL+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Helpers.swift"; sourceTree = "<group>"; };
+		E4D8981D2293B983000419B2 /* StoreItemsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreItemsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +65,10 @@
 				E4D898032293A49B000419B2 /* AppDelegate.swift */,
 				E4D898052293A49B000419B2 /* ViewController.swift */,
 				E4D898072293A49B000419B2 /* Main.storyboard */,
+				E4D898192293B8FA000419B2 /* ParkListTableViewController.swift */,
+				E4D8981B2293B97A000419B2 /* URL+Helpers.swift */,
+				E4D8981D2293B983000419B2 /* StoreItemsController.swift */,
+				E4D898172293B3CD000419B2 /* Park.swift */,
 				E4D8980A2293A49C000419B2 /* Assets.xcassets */,
 				E4D8980C2293A49C000419B2 /* LaunchScreen.storyboard */,
 				E4D8980F2293A49C000419B2 /* Info.plist */,
@@ -136,7 +148,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4D898062293A49B000419B2 /* ViewController.swift in Sources */,
+				E4D8981E2293B983000419B2 /* StoreItemsController.swift in Sources */,
+				E4D8981C2293B97A000419B2 /* URL+Helpers.swift in Sources */,
+				E4D8981A2293B8FA000419B2 /* ParkListTableViewController.swift in Sources */,
 				E4D898042293A49B000419B2 /* AppDelegate.swift in Sources */,
+				E4D898182293B3CD000419B2 /* Park.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
