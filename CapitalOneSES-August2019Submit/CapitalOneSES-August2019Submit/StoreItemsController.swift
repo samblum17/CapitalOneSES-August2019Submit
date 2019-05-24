@@ -8,7 +8,7 @@
 
 import Foundation
 struct StoreItemController {
-    func fetchItems(matching query: [String: String], completion: @escaping ([Park]?) -> Void) {
+    func fetchItems(matching query: [String: String], completion: @escaping ([ParkData]?) -> Void) {
         
         let baseURL = URL(string: "https://developer.nps.gov/api/v1/parks?")!
 
@@ -19,24 +19,20 @@ struct StoreItemController {
             return
         }
         
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            
+        let task = URLSession.shared.dataTask(with: url) { (data,
+            response, error) in
+            let jsonDecoder = JSONDecoder()
             if let data = data,
-                let rawJSON = try? JSONSerialization.jsonObject(with: data),
-                let json = rawJSON as? [String: Any],
-                let resultsArray = json["data"] as? [[String: Any]] {
-                
-                let parkResults = resultsArray.compactMap { Park(json: $0) }
-                completion(parkResults)
+                let parkDecoded = try? jsonDecoder.decode(Parks.self, from: data){
+                completion(parkDecoded.data)
                 
             } else {
-                print("Either no data was returned, or data was not serialized.")
-                
                 completion(nil)
-                return
             }
+            
+            
         }
-        
         task.resume()
+        
     }
 }
