@@ -7,18 +7,22 @@
 //
 
 import Foundation
+
+//Controller for fetching items from server
 struct StoreItemController {
+    
+   //Fetches items from NPS API- called from search tableView controller
     func fetchItems(matching query: [String: String], completion: @escaping ([ParkData]?) -> Void) {
-        
+    
         let baseURL = URL(string: "https://developer.nps.gov/api/v1/parks?")!
 
         guard let url = baseURL.withQueries(query) else {
-            
+         //Accounts for bad query call
             completion(nil)
             print("Unable to build URL with supplied queries. Please try again.")
             return
         }
-        
+    //Decodes JSON returned from API into active Park objects
         let task = URLSession.shared.dataTask(with: url) { (data,
             response, error) in
             let jsonDecoder = JSONDecoder()
@@ -29,8 +33,6 @@ struct StoreItemController {
             } else {
                 completion(nil)
             }
-            
-            
         }
         task.resume()
         

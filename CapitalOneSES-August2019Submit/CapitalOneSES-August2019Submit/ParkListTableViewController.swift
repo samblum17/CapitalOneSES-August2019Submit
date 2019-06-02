@@ -9,20 +9,22 @@
 import UIKit
 
 class ParkListTableViewController: UITableViewController, UINavigationControllerDelegate {
+    
     override func viewDidLoad() {
         navigationController?.navigationBar.prefersLargeTitles = true
         super.viewDidLoad()
+//Keyboard can be swiped down
         tableView.keyboardDismissMode = .interactive
-           
-        
+
     }
         
-
+//Set variables for objects and controllers
     @IBOutlet var parkSearchBar: UISearchBar!
     let itemController = StoreItemController()
+//Array that will hold fetched parks
     var searchItems = [ParkData]()
     
-    
+//Pull park data from NPS API and load into respective variables
     func fetchMatchingItems() {
     
         self.searchItems = []
@@ -32,94 +34,97 @@ class ParkListTableViewController: UITableViewController, UINavigationController
     
         if !parkName.isEmpty {
     
-            // set up query dictionary
+        //Set up query dictionary to search any park
             let query: [String: String] = [
                 "q" : parkName,
                 "api_key" : "0deJt7XudkZrb2wSMFjaLYrHQESBWIQHMNeuM7o1",
-                "fields" : "images"
+                "fields" : "images",
+                "limit" : "100"
             ]
     
-    // use the item controller to fetch items
+//Call the itemController to fetch items
     itemController.fetchItems(matching: query, completion: { (searchItems) in
     
-    
+    //Searches for items on highest priority queue of Grand Central Dispatch for faster results
         DispatchQueue.main.async {
             if let searchItems = searchItems {
                 self.searchItems = searchItems
                 self.tableView.reloadData()
+            //Accounts for bad search
                 if searchItems[0].fullName == ""{
                     let alertController = UIAlertController(title: "No results", message: "Please check your network connection and the spelling of your search term and then try again", preferredStyle: .alert)
                     alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
                     self.present(alertController, animated: true, completion: nil)
                 }
             } else {
-        print("Unable to reload")
-        }
-       }
-     }
-        )
-     }
-    }
+            //Accounts for API load error
+                print("Unable to reload")
+                }
+               }
+             }
+            )
+           }
+          }
 
-
+//Sets properties of cell
     func configure(cell: UITableViewCell, forItemAt indexPath: IndexPath) {
         
             let item = searchItems[indexPath.row]
             cell.textLabel?.text = item.fullName
             cell.detailTextLabel?.text = item.states
+        //Placeholder image for loading
             cell.imageView?.image = #imageLiteral(resourceName: "NewSolid_gray")
-        
-       
-        let currentImageURLString = item.images?[0].urlString ?? ""
-        let imageURL = URL(string: currentImageURLString)!
-        let task = URLSession.shared.dataTask(with: imageURL) { (data,response, error) in
+        //Sets actual cell image
+            let currentImageURLString = item.images?[0].urlString ?? ""
+            let imageURL = URL(string: currentImageURLString)!
+            let task = URLSession.shared.dataTask(with: imageURL) { (data,response, error) in
 
             guard let imageData = data else {
                 return
             }
-
+                
+        //Loads image on highest priority queue of Grand Central Dispatch for faster results
             DispatchQueue.main.async {
 
                 let image = UIImage(data: imageData)
                 cell.imageView?.image = image
+                cell.setNeedsLayout()
+                cell.reloadInputViews()
             }
+                
 
         }
         task.resume()
         
-        
-    
     }
-    // MARK: - Table view data source
+    
+    
+    //MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
 
+//Sets number of tableView rows to number of parks loaded
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return searchItems.count
     }
 
+//Loads cell with proper detail
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultCell", for: indexPath)
-    
-    // Configure the cell...
         configure(cell: cell, forItemAt: indexPath)
         return cell
     }
     
+    //Prepares data to be passed to next viewController by creating variables
+        var parkName: String?
+        var parkDescription: String?
+        var parkImageURLString: String?
+        var parkImageURL: URL?
+        var parkImageCaption: String?
+        var selectedItemDescription: String?
+        var selectedCode: String?
     
-    var parkName: String?
-    var parkDescription: String?
-    var parkImageURLString: String?
-    var parkImageURL: URL?
-    var parkImageCaption: String?
-    var selectedItemDescription: String?
-    var selectedCode: String?
-    
-    
+//Sends data to next viewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let indexPath = self.tableView.indexPathForSelectedRow {
             selectedItemDescription = self.searchItems[indexPath.row].description
@@ -128,18 +133,19 @@ class ParkListTableViewController: UITableViewController, UINavigationController
             parkImageCaption = self.searchItems[indexPath.row].images?[0].caption ?? "Error loading content"
             selectedCode = self.searchItems[indexPath.row].parkCode
         }
+    //Segue called
         if(segue.identifier == "parkSelectedSegue") {
             let vc = segue.destination as! SelectedParkViewController
             vc.title = parkName
             vc.descriptionLabelText = selectedItemDescription
             vc.imageURLString = parkImageURLString ?? " "
             vc.abbreviation = selectedCode
-//            vc.imageCaption.text = parkImageCaption ?? "Error loading content"
         }
     
     }
 }
-    
+
+//Extends controller to load items using UISearchBar
     extension ParkListTableViewController: UISearchBarDelegate {
         
         func searchBarSearchButtonClicked(_ parkSearchBar: UISearchBar) {
@@ -148,6 +154,16 @@ class ParkListTableViewController: UITableViewController, UINavigationController
             parkSearchBar.resignFirstResponder()
         }
     }
+
+        //MARK: - Unused overrides below for future implementation to extend capabilities
+
+
+
+
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -185,13 +201,6 @@ class ParkListTableViewController: UITableViewController, UINavigationController
     */
 
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
     */
 
 

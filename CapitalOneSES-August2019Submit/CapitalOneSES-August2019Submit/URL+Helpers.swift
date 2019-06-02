@@ -7,6 +7,8 @@
 //
 
 import Foundation
+
+//Extends URL object to create custom URLs using custom queries
 extension URL {
     
     func withQueries(_ queries: [String: String]) -> URL? {

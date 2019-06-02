@@ -8,11 +8,11 @@
 
 import UIKit
 
+//Initial default controller- went unused in development
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
 
