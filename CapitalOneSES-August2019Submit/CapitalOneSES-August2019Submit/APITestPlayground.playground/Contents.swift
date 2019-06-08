@@ -5,6 +5,39 @@ import PlaygroundSupport
 
 PlaygroundPage.current.needsIndefiniteExecution = true
 
+//VCData object for VC information returned in each VisitorCenter object
+struct VCData: Codable {
+    var description: String?
+    var name: String?
+    var directions: String?
+    
+    //Enum used because not all JSON returned values are used
+    enum CodingKeys: String, CodingKey {
+        case description
+        case name
+        case directions = "directionsInfo"
+    }
+    //Initializer used because not all JSON returned values are used
+    init(from decoder: Decoder) throws {
+        let valueContainer = try decoder.container(keyedBy:
+            CodingKeys.self)
+        self.description = try valueContainer.decode(String.self, forKey: CodingKeys.description)
+        self.name = try valueContainer.decode(String.self, forKey: CodingKeys.name)
+        self.directions = try valueContainer.decode(String.self, forKey: CodingKeys.directions)
+        
+    }
+}
+
+//VisitorCenter object for parent array returned in JSON that holds other objects creted above
+struct VisitorCenter: Decodable {
+    var total: String?
+    //Data array nests objects created above
+    var data: [VCData]?
+}
+
+
+
+
 struct Images: Codable {
     var caption: String?
     var urlString: String?
@@ -97,21 +130,19 @@ extension URL {
     }
 }
 let query: [String: String] = [
-    "q" : "yellowstone",
-    "api_key" : "0deJt7XudkZrb2wSMFjaLYrHQESBWIQHMNeuM7o1",
-    "fields" : "images"
+    "parkCode" : "acad",
+    "api_key" : "0deJt7XudkZrb2wSMFjaLYrHQESBWIQHMNeuM7o1"
 ]
-let baseURL = URL(string: "https://developer.nps.gov/api/v1/parks?")!
+let baseURL = URL(string: "https://developer.nps.gov/api/v1/visitorcenters?")!
 
 let url = baseURL.withQueries(query)!
-
 let task = URLSession.shared.dataTask(with: url) { (data,
     response, error) in
     let jsonDecoder = JSONDecoder()
     if let data = data,
-        let parkDecoded = try? jsonDecoder.decode(Parks.self, from: data){
-        print([parkDecoded.data?.description])
-       
+        let VCDecoded = try? jsonDecoder.decode(VisitorCenter.self, from: data){
+        print(VCDecoded.data)
+
     } else {
         print("error")
     }

@@ -38,3 +38,35 @@ struct StoreItemController {
         
     }
 }
+
+
+
+struct StoreVCController {
+    //Fetches items from NPS API- called from MoreInfo controller
+    func fetchItems(matching query: [String: String], completion: @escaping ([VCData]?) -> Void) {
+        
+        let baseURL = URL(string: "https://developer.nps.gov/api/v1/visitorcenters?")!
+
+        guard let url = baseURL.withQueries(query) else {
+            //Accounts for bad query call
+            completion(nil)
+            print("Unable to build URL with supplied queries. Please try again.")
+            return
+        }
+        //Decodes JSON returned from API into active Park objects
+       
+        let task = URLSession.shared.dataTask(with: url) { (data,
+            response, error) in
+            let jsonDecoder = JSONDecoder()
+            if let data = data,
+                let VCDecoded = try? jsonDecoder.decode(VisitorCenter.self, from: data){
+                completion(VCDecoded.data)
+            } else {
+                completion(nil)
+            }
+        }
+        task.resume()
+        
+    }
+        
+}

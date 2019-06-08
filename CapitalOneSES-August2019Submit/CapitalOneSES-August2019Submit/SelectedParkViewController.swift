@@ -48,42 +48,86 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate {
         descriptionLabel.text = descriptionLabelText
         super.viewDidLoad()
     }
+    
 
-//Use safariViewControllers to load respective information for each button press
-    @IBAction func visitorButtonPressed(_ sender: Any) {
-        if let url = URL(string: "https://www.nps.gov/" + abbreviation! + "/planyourvisit/visitorcenters.htm") {
-            let safariViewController = SFSafariViewController(url: url)
-            present(safariViewController,animated: true, completion: nil)
-        }
-    }
+////Use safariViewControllers to load respective information for each button press
+//    @IBAction func visitorButtonPressed(_ sender: Any) {
+//        if let url = URL(string: "https://www.nps.gov/" + abbreviation! + "/planyourvisit/visitorcenters.htm") {
+//            let safariViewController = SFSafariViewController(url: url)
+//            present(safariViewController,animated: true, completion: nil)
+//        }
+//    }
+//
+//    @IBAction func campgroundPressed(_ sender: Any) {
+//        if let url = URL(string: "https://www.nps.gov/" + abbreviation! + "/planyourvisit/campgrounds.htm") {
+//            let safariViewController = SFSafariViewController(url: url)
+//            present(safariViewController,animated: true, completion: nil)
+//        }
+//
+//    }
+//    @IBAction func calendarPressed(_ sender: Any) {
+//        if let url = URL(string: "https://www.nps.gov/" + abbreviation! + "/planyourvisit/calendar.htm") {
+//            let safariViewController = SFSafariViewController(url: url)
+//            present(safariViewController,animated: true, completion: nil)
+//        }
+//
+//    }
+//
+//    @IBAction func funInfoPressed(_ sender: Any) {
+//        if let url = URL(string: "https://www.nps.gov/" + abbreviation! + "/planyourvisit/parkfacts.htm") {
+//            let safariViewController = SFSafariViewController(url: url)
+//            present(safariViewController,animated: true, completion: nil)
+//        }
+//
+//    }
+//    @IBAction func alertsPressed(_ sender: Any) {
+//        if let url = URL(string: "https://www.nps.gov/" + abbreviation! + "/planyourvisit/conditions.htm") {
+//            let safariViewController = SFSafariViewController(url: url)
+//            present(safariViewController,animated: true, completion: nil)
+//        }
+//
+//    }
     
-    @IBAction func campgroundPressed(_ sender: Any) {
-        if let url = URL(string: "https://www.nps.gov/" + abbreviation! + "/planyourvisit/campgrounds.htm") {
-            let safariViewController = SFSafariViewController(url: url)
-            present(safariViewController,animated: true, completion: nil)
-        }
-    }
-    @IBAction func calendarPressed(_ sender: Any) {
-        if let url = URL(string: "https://www.nps.gov/" + abbreviation! + "/planyourvisit/calendar.htm") {
-            let safariViewController = SFSafariViewController(url: url)
-            present(safariViewController,animated: true, completion: nil)
-        }
-    }
+    //Prepares data to be passed to next viewController by creating variables
+    var parkName: String?
+    var parkCode: String?
     
-    @IBAction func funInfoPressed(_ sender: Any) {
-        if let url = URL(string: "https://www.nps.gov/" + abbreviation! + "/planyourvisit/parkfacts.htm") {
-            let safariViewController = SFSafariViewController(url: url)
-            present(safariViewController,animated: true, completion: nil)
+    //Sends data to next viewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //Segue called
+        if(segue.identifier == "VCSegue") {
+            let vc = segue.destination as! MoreInfoViewController
+            vc.title = "Visitor Centers"
+            vc.abbreviation = abbreviation
         }
-    }
-    @IBAction func alertsPressed(_ sender: Any) {
-        if let url = URL(string: "https://www.nps.gov/" + abbreviation! + "/planyourvisit/conditions.htm") {
-            let safariViewController = SFSafariViewController(url: url)
-            present(safariViewController,animated: true, completion: nil)
+        if(segue.identifier == "calendarSegue") {
+            let vc = segue.destination as! MoreInfoViewController
+            vc.title = "Events"
+            vc.abbreviation = abbreviation
         }
+        //Segue called
+        if(segue.identifier == "factsSegue") {
+            let vc = segue.destination as! MoreInfoViewController
+            vc.title = "Park Facts"
+            vc.abbreviation = abbreviation
+        }
+        //Segue called
+        if(segue.identifier == "alertsSegue") {
+            let vc = segue.destination as! MoreInfoViewController
+            vc.title = "Alerts"
+            vc.abbreviation = abbreviation
+        }
+        //Segue called
+        if(segue.identifier == "campgroundSegue") {
+            let vc = segue.destination as! MoreInfoViewController
+            vc.title = "Campgroundss"
+            vc.abbreviation = abbreviation
+        }
+        
     }
-    
-    
+
+
     
 
     /*
