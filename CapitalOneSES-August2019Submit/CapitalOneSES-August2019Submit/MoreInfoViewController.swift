@@ -14,6 +14,15 @@ class MoreInfoViewController: UIViewController {
     @IBOutlet var topSectionText: UILabel!
     @IBOutlet var bottomSectionHeader: UILabel!
     @IBOutlet var bottomSectionText: UILabel!
+    @IBOutlet var topSectionH2: UILabel!
+    @IBOutlet var topSectionT2: UILabel!
+    @IBOutlet var bottomSectionH2: UILabel!
+    @IBOutlet var bottomSectionT2: UILabel!
+    @IBOutlet var topSectionH3: UILabel!
+    @IBOutlet var topSectionT3: UILabel!
+    @IBOutlet var bottomSectionH3: UILabel!
+    @IBOutlet var bottomSectionT3: UILabel!
+    
     
     override func viewDidLoad() {
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -58,6 +67,28 @@ class MoreInfoViewController: UIViewController {
         topSectionText.text = returnedData[0].description
         bottomSectionHeader.text = "Directions"
         bottomSectionText.text = returnedData[0].directions
+            if !returnedData[1].name!.isEmpty {
+                topSectionH2.text = returnedData[1].name
+                topSectionT2.text = returnedData[1].description
+                bottomSectionH2.text = "Directions"
+                bottomSectionT2.text = returnedData[1].directions
+            } else {
+                topSectionH2.isHidden = true
+                topSectionT2.isHidden = true
+                bottomSectionH2.isHidden = true
+                bottomSectionT2.isHidden = true
+            }
+            if !returnedData[2].name!.isEmpty {
+                topSectionH3.text = returnedData[2].name
+                topSectionT3.text = returnedData[2].description
+                bottomSectionH3.text = "Directions"
+                bottomSectionT3.text = returnedData[2].directions
+            } else {
+                topSectionH3.isHidden = true
+                topSectionT3.isHidden = true
+                bottomSectionH3.isHidden = true
+                bottomSectionT3.isHidden = true
+            }
         } else {
             topSectionHeader.text = "No Results"
             topSectionText.text = "There was an error with your selection. Either the park you selected does not have visitor center information to display or network connection was lost. Please try again or check the NPS website for more info."
