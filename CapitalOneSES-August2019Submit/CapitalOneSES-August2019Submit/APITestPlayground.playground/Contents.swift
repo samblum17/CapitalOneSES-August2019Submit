@@ -5,6 +5,25 @@ import PlaygroundSupport
 
 PlaygroundPage.current.needsIndefiniteExecution = true
 
+//Alert object to hold nested arrays for alerts
+struct Alerts: Decodable {
+    var total: String?
+    //Data array nests objects created above
+    var data: [AlertData]?
+}
+//AlertData object for data relevant to each alert
+struct AlertData: Codable {
+    var title: String?
+    var description: String?
+    
+    init(from decoder: Decoder) throws {
+        let valueContainer = try decoder.container(keyedBy:
+            CodingKeys.self)
+        self.description = try valueContainer.decode(String.self, forKey: CodingKeys.description)
+        self.title = try valueContainer.decode(String.self, forKey: CodingKeys.title)
+}
+}
+
 //VCData object for VC information returned in each VisitorCenter object
 struct VCData: Codable {
     var description: String?
@@ -133,15 +152,15 @@ let query: [String: String] = [
     "parkCode" : "acad",
     "api_key" : "0deJt7XudkZrb2wSMFjaLYrHQESBWIQHMNeuM7o1"
 ]
-let baseURL = URL(string: "https://developer.nps.gov/api/v1/visitorcenters?")!
+let baseURL = URL(string: "https://developer.nps.gov/api/v1/alerts?")!
 
 let url = baseURL.withQueries(query)!
 let task = URLSession.shared.dataTask(with: url) { (data,
     response, error) in
     let jsonDecoder = JSONDecoder()
     if let data = data,
-        let VCDecoded = try? jsonDecoder.decode(VisitorCenter.self, from: data){
-        print(VCDecoded.data)
+        let alertsDecoded = try? jsonDecoder.decode(Alerts.self, from: data){
+        print(alertsDecoded.data)
 
     } else {
         print("error")

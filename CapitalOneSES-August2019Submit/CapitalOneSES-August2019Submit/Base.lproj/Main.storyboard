@@ -105,7 +105,6 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="alertsPressed:" destination="3ix-Sx-bG3" eventType="touchUpInside" id="40b-Le-Ueu"/>
                                             <segue destination="Fw4-6Q-cxC" kind="show" identifier="alertsSegue" id="399-hq-fWH"/>
                                         </connections>
                                     </button>
@@ -117,7 +116,6 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="funInfoPressed:" destination="3ix-Sx-bG3" eventType="touchUpInside" id="dSC-b9-VfI"/>
                                             <segue destination="Fw4-6Q-cxC" kind="show" identifier="factsSegue" id="4IH-Yw-DNq"/>
                                         </connections>
                                     </button>
@@ -129,7 +127,6 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="calendarPressed:" destination="3ix-Sx-bG3" eventType="touchUpInside" id="lja-Td-d0X"/>
                                             <segue destination="Fw4-6Q-cxC" kind="show" identifier="calendarSegue" id="136-zO-bbL"/>
                                         </connections>
                                     </button>
@@ -141,7 +138,6 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="campgroundPressed:" destination="3ix-Sx-bG3" eventType="touchUpInside" id="vxg-Hr-wz8"/>
                                             <segue destination="Fw4-6Q-cxC" kind="show" identifier="campgroundSegue" id="bIf-7U-UNg"/>
                                         </connections>
                                     </button>
@@ -227,11 +223,11 @@
             <objects>
                 <viewController id="Fw4-6Q-cxC" customClass="MoreInfoViewController" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AT7-MF-jOK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6OO-kE-0Xh">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJN-1V-8Ty">
                                         <rect key="frame" x="11" y="61" width="347" height="21"/>
@@ -348,7 +344,7 @@
                                     <constraint firstItem="vSI-Af-Yzn" firstAttribute="top" secondItem="VJN-1V-8Ty" secondAttribute="bottom" constant="50" id="2MM-2Q-5eJ"/>
                                     <constraint firstItem="dGB-Og-ODB" firstAttribute="top" secondItem="zcd-bZ-k8g" secondAttribute="bottom" constant="19" id="5RA-in-E1Q"/>
                                     <constraint firstItem="kqO-Xs-qWi" firstAttribute="trailing" secondItem="vSI-Af-Yzn" secondAttribute="trailing" constant="-56" id="5YB-6E-7D6"/>
-                                    <constraint firstAttribute="bottom" secondItem="n1z-xN-Ut7" secondAttribute="bottom" constant="643" id="8EA-yy-1Eu"/>
+                                    <constraint firstAttribute="bottom" secondItem="n1z-xN-Ut7" secondAttribute="bottom" id="8EA-yy-1Eu"/>
                                     <constraint firstItem="dGB-Og-ODB" firstAttribute="centerX" secondItem="n1z-xN-Ut7" secondAttribute="centerX" id="8rI-Ct-H2r"/>
                                     <constraint firstItem="Okt-jR-cgU" firstAttribute="trailing" secondItem="ie4-BY-FVC" secondAttribute="trailing" id="9i7-Mn-lhu"/>
                                     <constraint firstItem="Okt-jR-cgU" firstAttribute="leading" secondItem="ie4-BY-FVC" secondAttribute="leading" id="DLv-Mf-8yk"/>
@@ -399,7 +395,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Iqt-Vm-1Kk"/>
                     </view>
-                    <size key="freeformSize" width="375" height="1500"/>
+                    <size key="freeformSize" width="375" height="1200"/>
                     <connections>
                         <outlet property="bottomSectionH2" destination="1Ka-8n-gvy" id="50o-0C-RA7"/>
                         <outlet property="bottomSectionH3" destination="Kcq-LO-eTv" id="SpK-xq-aDA"/>
@@ -417,7 +413,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wGs-jM-H9y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2928.8000000000002" y="-188.42364532019704"/>
+            <point key="canvasLocation" x="3127" y="-201"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vWC-JV-T7z">
@@ -443,6 +439,6 @@
         <image name="Solid_gray" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bIf-7U-UNg"/>
+        <segue reference="399-hq-fWH"/>
     </inferredMetricsTieBreakers>
 </document>

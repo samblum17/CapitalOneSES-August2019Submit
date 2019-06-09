@@ -8,7 +8,7 @@
 
 import Foundation
 
-//Controller for fetching items from server
+//Controller for fetching parks from server
 struct StoreItemController {
     
    //Fetches items from NPS API- called from search tableView controller
@@ -40,7 +40,7 @@ struct StoreItemController {
 }
 
 
-
+//Controller for fetching visitor centers from server
 struct StoreVCController {
     //Fetches items from NPS API- called from MoreInfo controller
     func fetchItems(matching query: [String: String], completion: @escaping ([VCData]?) -> Void) {
@@ -69,4 +69,34 @@ struct StoreVCController {
         
     }
         
+}
+
+//Controller for fetching alerts from server
+struct StoreAlertsController {
+    //Fetches items from NPS API- called from MoreInfo controller
+    func fetchItems(matching query: [String: String], completion: @escaping ([AlertData]?) -> Void) {
+        
+        let baseURL = URL(string: "https://developer.nps.gov/api/v1/alerts?")!
+        
+        guard let url = baseURL.withQueries(query) else {
+            //Accounts for bad query call
+            completion(nil)
+            print("Unable to build URL with supplied queries. Please try again.")
+            return
+        }
+        //Decodes JSON returned from API into active Park objects
+        
+        let task = URLSession.shared.dataTask(with: url) { (data,
+            response, error) in
+            let jsonDecoder = JSONDecoder()
+            if let data = data,
+                let alertDecoded = try? jsonDecoder.decode(Alerts.self, from: data){
+                completion(alertDecoded.data)
+            } else {
+                completion(nil)
+            }
+        }
+        task.resume()
+        
+    }
 }

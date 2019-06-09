@@ -51,12 +51,7 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate {
     
 
 ////Use safariViewControllers to load respective information for each button press
-//    @IBAction func visitorButtonPressed(_ sender: Any) {
-//        if let url = URL(string: "https://www.nps.gov/" + abbreviation! + "/planyourvisit/visitorcenters.htm") {
-//            let safariViewController = SFSafariViewController(url: url)
-//            present(safariViewController,animated: true, completion: nil)
-//        }
-//    }
+
 //
 //    @IBAction func campgroundPressed(_ sender: Any) {
 //        if let url = URL(string: "https://www.nps.gov/" + abbreviation! + "/planyourvisit/campgrounds.htm") {
@@ -101,6 +96,7 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate {
             vc.title = "Visitor Centers"
             vc.abbreviation = abbreviation
         }
+        //Segue called
         if(segue.identifier == "calendarSegue") {
             let vc = segue.destination as! MoreInfoViewController
             vc.title = "Events"

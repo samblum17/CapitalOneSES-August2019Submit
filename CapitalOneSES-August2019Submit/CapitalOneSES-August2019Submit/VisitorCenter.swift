@@ -15,7 +15,7 @@ struct VCData: Codable {
     var name: String?
     var directions: String?
     
-    //Enum used because not all JSON returned values are used
+    //Enum used because directions key does not match JSON return
     enum CodingKeys: String, CodingKey {
         case description
         case name
