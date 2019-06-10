@@ -10,11 +10,21 @@ import UIKit
 
 class ParkListTableViewController: UITableViewController, UINavigationControllerDelegate {
     
+    var activityIndicatorView: UIActivityIndicatorView!
+
     override func viewDidLoad() {
         navigationController?.navigationBar.prefersLargeTitles = true
         super.viewDidLoad()
 //Keyboard can be swiped down
         tableView.keyboardDismissMode = .interactive
+        //When no results after 8 seconds, show alert message
+        DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
+            if self.searchItems.count == 0 {
+                let alertController = UIAlertController(title: "No results", message: "No parks to display. Either the park you searched for does not have available information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
 
     }
         
@@ -49,13 +59,10 @@ class ParkListTableViewController: UITableViewController, UINavigationController
         DispatchQueue.main.async {
             if let searchItems = searchItems {
                 self.searchItems = searchItems
+                self.activityIndicatorView.stopAnimating()
+                self.tableView.separatorStyle = .singleLine
                 self.tableView.reloadData()
-            //Accounts for bad search
-                if searchItems[0].fullName == ""{
-                    let alertController = UIAlertController(title: "No results", message: "Please check your network connection and the spelling of your search term and then try again", preferredStyle: .alert)
-                    alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-                    self.present(alertController, animated: true, completion: nil)
-                }
+           
             } else {
             //Accounts for API load error
                 print("Unable to reload")
@@ -76,6 +83,7 @@ class ParkListTableViewController: UITableViewController, UINavigationController
             cell.imageView?.image = #imageLiteral(resourceName: "NewSolid_gray")
         //Sets actual cell image
             let currentImageURLString = item.images?[0].urlString ?? ""
+        
             let imageURL = URL(string: currentImageURLString)!
             let task = URLSession.shared.dataTask(with: imageURL) { (data,response, error) in
 
@@ -143,13 +151,24 @@ class ParkListTableViewController: UITableViewController, UINavigationController
         }
     
     }
+    
+    //Load network indicator in background
+    override func loadView() {
+        super.loadView()
+        
+        activityIndicatorView = UIActivityIndicatorView(style: .gray)
+        
+        tableView.backgroundView = activityIndicatorView
+    }
+    
 }
 
 //Extends controller to load items using UISearchBar
     extension ParkListTableViewController: UISearchBarDelegate {
         
         func searchBarSearchButtonClicked(_ parkSearchBar: UISearchBar) {
-            
+            activityIndicatorView.startAnimating()
+            tableView.separatorStyle = .none
             fetchMatchingItems()
             parkSearchBar.resignFirstResponder()
         }
