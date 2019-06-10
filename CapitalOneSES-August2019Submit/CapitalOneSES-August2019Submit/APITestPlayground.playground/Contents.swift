@@ -5,6 +5,63 @@ import PlaygroundSupport
 
 PlaygroundPage.current.needsIndefiniteExecution = true
 
+//Campgrounds
+struct Campgrounds: Codable {
+    var total: String?
+    var data: [CampgroundData]?
+    
+}
+
+struct CampgroundData: Codable {
+    var weather: String?
+    var name: String?
+    var description: String?
+    var directions: String?
+    var campsites: CampsiteData?
+    
+    //Enum used because not all JSON returned values are used
+    enum CodingKeys: String, CodingKey {
+        case weather = "weatheroverview"
+        case name
+        case description
+        case directions = "directionsoverview"
+        case campsites
+    }
+    
+    //Initializer used because not all JSON returned values are used
+    init(from decoder: Decoder) throws {
+        let valueContainer = try decoder.container(keyedBy:
+            CodingKeys.self)
+        self.weather = try valueContainer.decode(String.self, forKey: CodingKeys.weather)
+        self.name = try valueContainer.decode(String.self, forKey: CodingKeys.name)
+        self.description = try valueContainer.decode(String.self, forKey: CodingKeys.description)
+        self.directions = try valueContainer.decode(String.self, forKey: CodingKeys.directions)
+        self.campsites = try valueContainer.decode(CampsiteData.self, forKey: CodingKeys.campsites)
+        
+    }
+    
+}
+struct CampsiteData: Codable {
+    var total: String?
+    var tent: String?
+    var rv: String?
+    
+    //Enum used because not all JSON returned values are used
+    enum CodingKeys: String, CodingKey {
+        case total = "totalsites"
+        case tent = "tentonly"
+        case rv = "rvonly"
+    }
+    //Initializer used because not all JSON returned values are used
+    init(from decoder: Decoder) throws {
+        let valueContainer = try decoder.container(keyedBy:
+            CodingKeys.self)
+        self.total = try valueContainer.decode(String.self, forKey: CodingKeys.total)
+        self.tent = try valueContainer.decode(String.self, forKey: CodingKeys.tent)
+        self.rv = try valueContainer.decode(String.self, forKey: CodingKeys.rv)
+    }
+}
+
 //Alert object to hold nested arrays for alerts
 struct Alerts: Decodable {
     var total: String?
@@ -149,19 +206,18 @@ extension URL {
     }
 }
 let query: [String: String] = [
-    "parkCode" : "acad",
+    "parkCode" : "yell",
     "api_key" : "0deJt7XudkZrb2wSMFjaLYrHQESBWIQHMNeuM7o1"
 ]
-let baseURL = URL(string: "https://developer.nps.gov/api/v1/alerts?")!
+let baseURL = URL(string: "https://developer.nps.gov/api/v1/campgrounds?")!
 
 let url = baseURL.withQueries(query)!
 let task = URLSession.shared.dataTask(with: url) { (data,
     response, error) in
     let jsonDecoder = JSONDecoder()
     if let data = data,
-        let alertsDecoded = try? jsonDecoder.decode(Alerts.self, from: data){
-        print(alertsDecoded.data)
-
+        let campgroundDecoded = try? jsonDecoder.decode(Campgrounds.self, from: data){
+        print(campgroundDecoded.data)
     } else {
         print("error")
     }

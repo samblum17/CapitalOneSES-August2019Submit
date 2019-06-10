@@ -10,6 +10,9 @@
 		E40B55FA22AB5AF500EF455C /* VisitorCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40B55F922AB5AF500EF455C /* VisitorCenter.swift */; };
 		E40B55FC22AB5F2800EF455C /* MoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40B55FB22AB5F2800EF455C /* MoreInfoViewController.swift */; };
 		E45FBD0922AD894500A9570F /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FBD0822AD894500A9570F /* Alerts.swift */; };
+		E45FBD0B22ADBE9800A9570F /* Campgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FBD0A22ADBE9800A9570F /* Campgrounds.swift */; };
+		E45FBD0F22ADC6DE00A9570F /* CampgroundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FBD0E22ADC6DE00A9570F /* CampgroundsTableViewController.swift */; };
+		E45FBD1122ADCCED00A9570F /* CampgroundsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FBD1022ADCCED00A9570F /* CampgroundsTableViewCell.swift */; };
 		E49019182297BF3000B42A87 /* SelectedParkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49019172297BF3000B42A87 /* SelectedParkViewController.swift */; };
 		E4D898042293A49B000419B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D898032293A49B000419B2 /* AppDelegate.swift */; };
 		E4D898062293A49B000419B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D898052293A49B000419B2 /* ViewController.swift */; };
@@ -26,6 +29,9 @@
 		E40B55F922AB5AF500EF455C /* VisitorCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorCenter.swift; sourceTree = "<group>"; };
 		E40B55FB22AB5F2800EF455C /* MoreInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoViewController.swift; sourceTree = "<group>"; };
 		E45FBD0822AD894500A9570F /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		E45FBD0A22ADBE9800A9570F /* Campgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campgrounds.swift; sourceTree = "<group>"; };
+		E45FBD0E22ADC6DE00A9570F /* CampgroundsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampgroundsTableViewController.swift; sourceTree = "<group>"; };
+		E45FBD1022ADCCED00A9570F /* CampgroundsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampgroundsTableViewCell.swift; sourceTree = "<group>"; };
 		E49019172297BF3000B42A87 /* SelectedParkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedParkViewController.swift; sourceTree = "<group>"; };
 		E4D898002293A49B000419B2 /* CapitalOneSES-August2019Submit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CapitalOneSES-August2019Submit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4D898032293A49B000419B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,11 +79,14 @@
 				E4D898032293A49B000419B2 /* AppDelegate.swift */,
 				E4D898052293A49B000419B2 /* ViewController.swift */,
 				E4D898072293A49B000419B2 /* Main.storyboard */,
+				E45FBD0E22ADC6DE00A9570F /* CampgroundsTableViewController.swift */,
 				E40B55FB22AB5F2800EF455C /* MoreInfoViewController.swift */,
 				E49019172297BF3000B42A87 /* SelectedParkViewController.swift */,
 				E4D898192293B8FA000419B2 /* ParkListTableViewController.swift */,
+				E45FBD1022ADCCED00A9570F /* CampgroundsTableViewCell.swift */,
 				E4D8981B2293B97A000419B2 /* URL+Helpers.swift */,
 				E4D8981D2293B983000419B2 /* StoreItemsController.swift */,
+				E45FBD0A22ADBE9800A9570F /* Campgrounds.swift */,
 				E4D898172293B3CD000419B2 /* Park.swift */,
 				E40B55F922AB5AF500EF455C /* VisitorCenter.swift */,
 				E45FBD0822AD894500A9570F /* Alerts.swift */,
@@ -162,11 +171,14 @@
 				E4D898062293A49B000419B2 /* ViewController.swift in Sources */,
 				E4D8981E2293B983000419B2 /* StoreItemsController.swift in Sources */,
 				E4D8981C2293B97A000419B2 /* URL+Helpers.swift in Sources */,
+				E45FBD1122ADCCED00A9570F /* CampgroundsTableViewCell.swift in Sources */,
 				E4D8981A2293B8FA000419B2 /* ParkListTableViewController.swift in Sources */,
 				E4D898042293A49B000419B2 /* AppDelegate.swift in Sources */,
+				E45FBD0B22ADBE9800A9570F /* Campgrounds.swift in Sources */,
 				E4D898182293B3CD000419B2 /* Park.swift in Sources */,
 				E45FBD0922AD894500A9570F /* Alerts.swift in Sources */,
 				E40B55FC22AB5F2800EF455C /* MoreInfoViewController.swift in Sources */,
+				E45FBD0F22ADC6DE00A9570F /* CampgroundsTableViewController.swift in Sources */,
 				E49019182297BF3000B42A87 /* SelectedParkViewController.swift in Sources */,
 				E40B55FA22AB5AF500EF455C /* VisitorCenter.swift in Sources */,
 			);
