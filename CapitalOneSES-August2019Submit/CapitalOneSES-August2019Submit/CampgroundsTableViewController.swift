@@ -21,15 +21,6 @@ class CampgroundsTableViewController: UITableViewController {
 //Allow cell to have dynamic height
         tableView.estimatedRowHeight = 260.0
         tableView.rowHeight = UITableView.automaticDimension
-
-//When no results after 8 seconds, show alert message
-        DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
-            if self.returnedCampgroundData.count == 0 {
-                let alertController = UIAlertController(title: "No results", message: "No campgrounds to display. Either the park you selected does not have campground information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-                self.present(alertController, animated: true, completion: nil)
-        }
-        }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -75,6 +66,12 @@ class CampgroundsTableViewController: UITableViewController {
                     self.activityIndicatorView.stopAnimating()
                     self.tableView.separatorStyle = .singleLine
                     self.tableView.reloadData()
+            //When no results, show alert message
+                    if self.returnedCampgroundData.count == 0 {
+                        let alertController = UIAlertController(title: "No results", message: "No campgrounds to display. Either the park you selected does not have campground information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                        self.present(alertController, animated: true, completion: nil)
+                    }
                 } else {
                     //Accounts for API load error
                     print("Unable to reload")

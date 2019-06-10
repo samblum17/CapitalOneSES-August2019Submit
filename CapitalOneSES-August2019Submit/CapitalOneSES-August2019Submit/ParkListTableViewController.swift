@@ -17,16 +17,8 @@ class ParkListTableViewController: UITableViewController, UINavigationController
         super.viewDidLoad()
 //Keyboard can be swiped down
         tableView.keyboardDismissMode = .interactive
-        //When no results after 8 seconds, show alert message
-        DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
-            if self.searchItems.count == 0 {
-                let alertController = UIAlertController(title: "No results", message: "No parks to display. Either the park you searched for does not have available information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-                self.present(alertController, animated: true, completion: nil)
-            }
-        }
 
-    }
+            }
         
 //Set variables for objects and controllers
     @IBOutlet var parkSearchBar: UISearchBar!
@@ -62,6 +54,12 @@ class ParkListTableViewController: UITableViewController, UINavigationController
                 self.activityIndicatorView.stopAnimating()
                 self.tableView.separatorStyle = .singleLine
                 self.tableView.reloadData()
+                //When no results, show alert message
+                if self.searchItems.count == 0 {
+                    let alertController = UIAlertController(title: "No results", message: "No campgrounds to display. Either the park you selected does not have campground information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                    self.present(alertController, animated: true, completion: nil)
+                }
            
             } else {
             //Accounts for API load error
