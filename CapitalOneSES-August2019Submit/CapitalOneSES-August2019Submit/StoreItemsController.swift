@@ -130,3 +130,34 @@ struct StoreCampgroundsController {
         
 }
 }
+
+
+//Controller for fetching events from server
+struct StoreEventsController {
+    //Fetches items from NPS API- called from events controller
+    func fetchItems(matching query: [String: String], completion: @escaping ([EventData]?) -> Void) {
+        
+        let baseURL = URL(string: "https://developer.nps.gov/api/v1/events?")!
+        
+        guard let url = baseURL.withQueries(query) else {
+            //Accounts for bad query call
+            completion(nil)
+            print("Unable to build URL with supplied queries. Please try again.")
+            return
+        }
+        //Decodes JSON returned from API into active Park objects
+        
+        let task = URLSession.shared.dataTask(with: url) { (data,
+            response, error) in
+            let jsonDecoder = JSONDecoder()
+            if let data = data,
+                let eventDecoded = try? jsonDecoder.decode(Events.self, from: data){
+                completion(eventDecoded.data)
+            } else {
+                completion(nil)
+            }
+        }
+        task.resume()
+        
+    }
+}

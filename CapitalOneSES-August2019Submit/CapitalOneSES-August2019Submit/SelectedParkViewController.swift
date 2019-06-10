@@ -97,9 +97,9 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate {
             vc.abbreviation = abbreviation
         }
         //Segue called
-        if(segue.identifier == "calendarSegue") {
-            let vc = segue.destination as! MoreInfoViewController
-            vc.title = "Events"
+        if(segue.identifier == "eventSegue") {
+            let vc = segue.destination as! EventsTableViewController
+            vc.title = "Upcoming Events"
             vc.abbreviation = abbreviation
         }
         //Segue called
