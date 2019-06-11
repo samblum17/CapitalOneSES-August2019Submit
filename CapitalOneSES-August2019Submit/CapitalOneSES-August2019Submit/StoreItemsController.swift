@@ -161,3 +161,93 @@ struct StoreEventsController {
         
     }
 }
+
+//Controller for fetching questions from server
+struct StoreQuestionsController {
+    //Fetches items from NPS API- called from education controller
+    func fetchItems(matching query: [String: String], completion: @escaping ([QuestionData]?) -> Void) {
+        
+        let baseURL = URL(string: "https://developer.nps.gov/api/v1/lessonPlans?")!
+        
+        guard let url = baseURL.withQueries(query) else {
+            //Accounts for bad query call
+            completion(nil)
+            print("Unable to build URL with supplied queries. Please try again.")
+            return
+        }
+        //Decodes JSON returned from API into active Park objects
+        
+        let task = URLSession.shared.dataTask(with: url) { (data,
+            response, error) in
+            let jsonDecoder = JSONDecoder()
+            if let data = data,
+                let questionDecoded = try? jsonDecoder.decode(Questions.self, from: data){
+                completion(questionDecoded.data)
+            } else {
+                completion(nil)
+            }
+        }
+        task.resume()
+        
+    }
+}
+
+//Controller for fetching people from server
+struct StorePeopleController {
+    //Fetches items from NPS API- called from education controller
+    func fetchItems(matching query: [String: String], completion: @escaping ([PeopleData]?) -> Void) {
+        
+        let baseURL = URL(string: "https://developer.nps.gov/api/v1/people?")!
+        
+        guard let url = baseURL.withQueries(query) else {
+            //Accounts for bad query call
+            completion(nil)
+            print("Unable to build URL with supplied queries. Please try again.")
+            return
+        }
+        //Decodes JSON returned from API into active Park objects
+        
+        let task = URLSession.shared.dataTask(with: url) { (data,
+            response, error) in
+            let jsonDecoder = JSONDecoder()
+            if let data = data,
+                let peopleDecoded = try? jsonDecoder.decode(People.self, from: data){
+                completion(peopleDecoded.data)
+            } else {
+                completion(nil)
+            }
+        }
+        task.resume()
+        
+    }
+}
+
+//Controller for fetching places from server
+struct StorePlacesController {
+    //Fetches items from NPS API- called from education controller
+    func fetchItems(matching query: [String: String], completion: @escaping ([PlacesData]?) -> Void) {
+        
+        let baseURL = URL(string: "https://developer.nps.gov/api/v1/places?")!
+        
+        guard let url = baseURL.withQueries(query) else {
+            //Accounts for bad query call
+            completion(nil)
+            print("Unable to build URL with supplied queries. Please try again.")
+            return
+        }
+        //Decodes JSON returned from API into active Park objects
+        
+        let task = URLSession.shared.dataTask(with: url) { (data,
+            response, error) in
+            let jsonDecoder = JSONDecoder()
+            if let data = data,
+                let placesDecoded = try? jsonDecoder.decode(Places.self, from: data){
+                completion(placesDecoded.data)
+            } else {
+                completion(nil)
+            }
+        }
+        task.resume()
+        
+    }
+}

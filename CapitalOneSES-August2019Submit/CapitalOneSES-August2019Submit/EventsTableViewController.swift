@@ -47,7 +47,7 @@ class EventsTableViewController: UITableViewController {
         tableView.backgroundView = activityIndicatorView
     }
     
-    //Pull campground data from NPS API and load into respective variables
+    //Pull event data from NPS API and load into respective variables
     func fetchMatchingEvents() {
         
         self.returnedEventsData = []
@@ -98,20 +98,21 @@ class EventsTableViewController: UITableViewController {
         return UITableView.automaticDimension
     }
     
-    
+//Load respective information into each cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventsCell", for: indexPath) as! EventsTableViewCell
 
         //Configure the cell...
-        //When eventData is returned
         var price = ""
         if returnedEventsData[indexPath.row].isFree == "false" {
             price = "Price: Additional fee. See NPS site for info"
         } else {
             price = "Price: Free"
         }
+    //When eventData is returned
         if !(returnedEventsData.count == 0){
-    //Fix description return from JSON
+            
+    //Remove unecessary text in description return from JSON
            var newDescription =  returnedEventsData[indexPath.row].description?.replacingOccurrences(of: "<p>", with: "")
             newDescription = newDescription?.replacingOccurrences(of: "</p>", with: "")
             newDescription = newDescription?.replacingOccurrences(of: "<em>", with: "")
@@ -126,7 +127,7 @@ class EventsTableViewController: UITableViewController {
             let dateObj = dateFormatterSet.date(from: dateString!)
             dateFormatterSet.dateFormat = "MMM dd, yyyy"
             let dateStartString = dateFormatterSet.string(from: dateObj!)
-            //End date
+        //End date
             let dateString2 = returnedEventsData[indexPath.row].dateEnd
             let dateFormatterSet2 = DateFormatter()
             dateFormatterSet2.dateFormat = "yyyy-MM-dd"

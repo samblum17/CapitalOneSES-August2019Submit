@@ -5,6 +5,96 @@ import PlaygroundSupport
 
 PlaygroundPage.current.needsIndefiniteExecution = true
 
+//Education
+struct Places: Codable {
+    var total: String?
+    var data: [PlacesData]?
+}
+
+struct PlacesData: Codable {
+    var title: String?
+    var description: String?
+    var url: String?
+    
+    //Enum used because not all JSON returned values are used
+    enum CodingKeys: String, CodingKey {
+        case title
+        case description = "listingdescription"
+        case url
+    }
+    
+    //Initializer used because not all JSON returned values are used
+    init(from decoder: Decoder) throws {
+        let valueContainer = try decoder.container(keyedBy:
+            CodingKeys.self)
+        self.title = try valueContainer.decode(String.self, forKey: CodingKeys.title)
+        self.description = try valueContainer.decode(String.self, forKey: CodingKeys.description)
+        self.url = try valueContainer.decode(String.self, forKey: CodingKeys.url)
+        
+    }
+}
+
+struct People: Codable {
+    var total: String?
+    var data: [PeopleData]?
+}
+
+struct PeopleData: Codable {
+    var title: String?
+    var description: String?
+    var url: String?
+    
+    //Enum used because not all JSON returned values are used
+    enum CodingKeys: String, CodingKey {
+        case title
+        case description = "listingdescription"
+        case url
+    }
+    
+    //Initializer used because not all JSON returned values are used
+    init(from decoder: Decoder) throws {
+        let valueContainer = try decoder.container(keyedBy:
+            CodingKeys.self)
+        self.title = try valueContainer.decode(String.self, forKey: CodingKeys.title)
+        self.description = try valueContainer.decode(String.self, forKey: CodingKeys.description)
+        self.url = try valueContainer.decode(String.self, forKey: CodingKeys.url)
+        
+    }
+    
+    
+}
+struct Questions: Codable {
+    var total: String?
+    var data: [QuestionData]?
+}
+
+struct QuestionData: Codable {
+    var title: String?
+    var question: String?
+    var gradeLevel: String?
+    var url: String?
+    
+    //Enum used because not all JSON returned values are used
+    enum CodingKeys: String, CodingKey {
+        case title
+        case question = "questionobjective"
+        case gradeLevel = "gradelevel"
+        case url
+    }
+    
+    //Initializer used because not all JSON returned values are used
+    init(from decoder: Decoder) throws {
+        let valueContainer = try decoder.container(keyedBy:
+            CodingKeys.self)
+        self.title = try valueContainer.decode(String.self, forKey: CodingKeys.title)
+        self.question = try valueContainer.decode(String.self, forKey: CodingKeys.question)
+        self.gradeLevel = try valueContainer.decode(String.self, forKey: CodingKeys.gradeLevel)
+        self.url = try valueContainer.decode(String.self, forKey: CodingKeys.url)
+        
+    }
+    
+}
+
 //Events
 struct Events: Codable {
     var total: String?
@@ -269,15 +359,15 @@ let query: [String: String] = [
     "parkCode" : "yell",
     "api_key" : "0deJt7XudkZrb2wSMFjaLYrHQESBWIQHMNeuM7o1"
 ]
-let baseURL = URL(string: "https://developer.nps.gov/api/v1/events?")!
+let baseURL = URL(string: "https://developer.nps.gov/api/v1/places?")!
 
 let url = baseURL.withQueries(query)!
 let task = URLSession.shared.dataTask(with: url) { (data,
     response, error) in
     let jsonDecoder = JSONDecoder()
     if let data = data,
-        let eventDecoded = try? jsonDecoder.decode(Events.self, from: data){
-        print(eventDecoded.data)
+        let placesDecoded = try? jsonDecoder.decode(Places.self, from: data){
+        print(placesDecoded.data)
     } else {
         print("error")
     }

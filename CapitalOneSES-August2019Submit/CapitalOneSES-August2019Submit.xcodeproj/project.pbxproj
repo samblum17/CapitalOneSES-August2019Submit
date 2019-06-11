@@ -17,6 +17,10 @@
 		E4CFEA0B22AEF307006E5C48 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CFEA0A22AEF307006E5C48 /* Events.swift */; };
 		E4CFEA0D22AEF3E1006E5C48 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CFEA0C22AEF3E1006E5C48 /* EventsTableViewController.swift */; };
 		E4CFEA0F22AEF3EE006E5C48 /* EventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CFEA0E22AEF3EE006E5C48 /* EventsTableViewCell.swift */; };
+		E4D0BC8822B0247100C7AF98 /* Education.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D0BC8722B0247100C7AF98 /* Education.swift */; };
+		E4D0BC9522B0296300C7AF98 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D0BC9422B0296300C7AF98 /* QuestionTableViewCell.swift */; };
+		E4D0BC9722B029D600C7AF98 /* EducationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D0BC9622B029D600C7AF98 /* EducationViewController.swift */; };
+		E4D0BC9922B0524100C7AF98 /* CopyPaste.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D0BC9822B0524100C7AF98 /* CopyPaste.swift */; };
 		E4D898042293A49B000419B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D898032293A49B000419B2 /* AppDelegate.swift */; };
 		E4D898062293A49B000419B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D898052293A49B000419B2 /* ViewController.swift */; };
 		E4D898092293A49B000419B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4D898072293A49B000419B2 /* Main.storyboard */; };
@@ -39,6 +43,10 @@
 		E4CFEA0A22AEF307006E5C48 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		E4CFEA0C22AEF3E1006E5C48 /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		E4CFEA0E22AEF3EE006E5C48 /* EventsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewCell.swift; sourceTree = "<group>"; };
+		E4D0BC8722B0247100C7AF98 /* Education.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Education.swift; sourceTree = "<group>"; };
+		E4D0BC9422B0296300C7AF98 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
+		E4D0BC9622B029D600C7AF98 /* EducationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationViewController.swift; sourceTree = "<group>"; };
+		E4D0BC9822B0524100C7AF98 /* CopyPaste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyPaste.swift; sourceTree = "<group>"; };
 		E4D898002293A49B000419B2 /* CapitalOneSES-August2019Submit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CapitalOneSES-August2019Submit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4D898032293A49B000419B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4D898052293A49B000419B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +71,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E4D0BC8D22B0261200C7AF98 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				E4CFEA0A22AEF307006E5C48 /* Events.swift */,
+				E4CFEA0C22AEF3E1006E5C48 /* EventsTableViewController.swift */,
+				E4CFEA0E22AEF3EE006E5C48 /* EventsTableViewCell.swift */,
+			);
+			name = Events;
+			sourceTree = "<group>";
+		};
+		E4D0BC8F22B0264600C7AF98 /* Campgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				E45FBD0A22ADBE9800A9570F /* Campgrounds.swift */,
+				E45FBD0E22ADC6DE00A9570F /* CampgroundsTableViewController.swift */,
+				E45FBD1022ADCCED00A9570F /* CampgroundsTableViewCell.swift */,
+			);
+			name = Campgrounds;
+			sourceTree = "<group>";
+		};
+		E4D0BC9022B0268800C7AF98 /* VC,Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				E40B55F922AB5AF500EF455C /* VisitorCenter.swift */,
+				E45FBD0822AD894500A9570F /* Alerts.swift */,
+				E40B55FB22AB5F2800EF455C /* MoreInfoViewController.swift */,
+			);
+			name = "VC,Alerts";
+			sourceTree = "<group>";
+		};
+		E4D0BC9122B026B400C7AF98 /* Education */ = {
+			isa = PBXGroup;
+			children = (
+				E4D0BC8722B0247100C7AF98 /* Education.swift */,
+				E4D0BC9622B029D600C7AF98 /* EducationViewController.swift */,
+				E4D0BC9422B0296300C7AF98 /* QuestionTableViewCell.swift */,
+			);
+			name = Education;
+			sourceTree = "<group>";
+		};
 		E4D897F72293A49B000419B2 = {
 			isa = PBXGroup;
 			children = (
@@ -85,20 +133,16 @@
 				E4D898032293A49B000419B2 /* AppDelegate.swift */,
 				E4D898052293A49B000419B2 /* ViewController.swift */,
 				E4D898072293A49B000419B2 /* Main.storyboard */,
-				E4CFEA0C22AEF3E1006E5C48 /* EventsTableViewController.swift */,
-				E4CFEA0E22AEF3EE006E5C48 /* EventsTableViewCell.swift */,
-				E45FBD0E22ADC6DE00A9570F /* CampgroundsTableViewController.swift */,
-				E40B55FB22AB5F2800EF455C /* MoreInfoViewController.swift */,
 				E49019172297BF3000B42A87 /* SelectedParkViewController.swift */,
 				E4D898192293B8FA000419B2 /* ParkListTableViewController.swift */,
-				E45FBD1022ADCCED00A9570F /* CampgroundsTableViewCell.swift */,
 				E4D8981B2293B97A000419B2 /* URL+Helpers.swift */,
 				E4D8981D2293B983000419B2 /* StoreItemsController.swift */,
-				E4CFEA0A22AEF307006E5C48 /* Events.swift */,
-				E45FBD0A22ADBE9800A9570F /* Campgrounds.swift */,
 				E4D898172293B3CD000419B2 /* Park.swift */,
-				E40B55F922AB5AF500EF455C /* VisitorCenter.swift */,
-				E45FBD0822AD894500A9570F /* Alerts.swift */,
+				E4D0BC9822B0524100C7AF98 /* CopyPaste.swift */,
+				E4D0BC9022B0268800C7AF98 /* VC,Alerts */,
+				E4D0BC8F22B0264600C7AF98 /* Campgrounds */,
+				E4D0BC8D22B0261200C7AF98 /* Events */,
+				E4D0BC9122B026B400C7AF98 /* Education */,
 				E4D8980A2293A49C000419B2 /* Assets.xcassets */,
 				E4D8980C2293A49C000419B2 /* LaunchScreen.storyboard */,
 				E4D8980F2293A49C000419B2 /* Info.plist */,
@@ -179,17 +223,21 @@
 			files = (
 				E4D898062293A49B000419B2 /* ViewController.swift in Sources */,
 				E4D8981E2293B983000419B2 /* StoreItemsController.swift in Sources */,
+				E4D0BC9922B0524100C7AF98 /* CopyPaste.swift in Sources */,
 				E4D8981C2293B97A000419B2 /* URL+Helpers.swift in Sources */,
 				E45FBD1122ADCCED00A9570F /* CampgroundsTableViewCell.swift in Sources */,
 				E4CFEA0B22AEF307006E5C48 /* Events.swift in Sources */,
 				E4D8981A2293B8FA000419B2 /* ParkListTableViewController.swift in Sources */,
+				E4D0BC9522B0296300C7AF98 /* QuestionTableViewCell.swift in Sources */,
 				E4D898042293A49B000419B2 /* AppDelegate.swift in Sources */,
 				E45FBD0B22ADBE9800A9570F /* Campgrounds.swift in Sources */,
+				E4D0BC8822B0247100C7AF98 /* Education.swift in Sources */,
 				E4CFEA0D22AEF3E1006E5C48 /* EventsTableViewController.swift in Sources */,
 				E4D898182293B3CD000419B2 /* Park.swift in Sources */,
 				E45FBD0922AD894500A9570F /* Alerts.swift in Sources */,
 				E40B55FC22AB5F2800EF455C /* MoreInfoViewController.swift in Sources */,
 				E4CFEA0F22AEF3EE006E5C48 /* EventsTableViewCell.swift in Sources */,
+				E4D0BC9722B029D600C7AF98 /* EducationViewController.swift in Sources */,
 				E45FBD0F22ADC6DE00A9570F /* CampgroundsTableViewController.swift in Sources */,
 				E49019182297BF3000B42A87 /* SelectedParkViewController.swift in Sources */,
 				E40B55FA22AB5AF500EF455C /* VisitorCenter.swift in Sources */,
