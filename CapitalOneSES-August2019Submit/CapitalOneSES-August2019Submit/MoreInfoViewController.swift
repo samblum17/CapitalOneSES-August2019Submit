@@ -9,46 +9,59 @@
 import UIKit
 
 //VC for visitor center, alerts
-class MoreInfoViewController: UIViewController {
+class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-//Outlets from storyboard
-    @IBOutlet var topSectionHeader: UILabel!
-    @IBOutlet var topSectionText: UILabel!
-    @IBOutlet var bottomSectionHeader: UILabel!
-    @IBOutlet var bottomSectionText: UILabel!
-    @IBOutlet var topSectionH2: UILabel!
-    @IBOutlet var topSectionT2: UILabel!
-    @IBOutlet var bottomSectionH2: UILabel!
-    @IBOutlet var bottomSectionT2: UILabel!
-    @IBOutlet var topSectionH3: UILabel!
-    @IBOutlet var topSectionT3: UILabel!
-    @IBOutlet var bottomSectionH3: UILabel!
-    @IBOutlet var bottomSectionT3: UILabel!
+//Variable set up to hold objects used throughout controller for each VC
+    var activityIndicatorView: UIActivityIndicatorView!
+    var abbreviation: String?
+    @IBOutlet var moreInfoTableView: UITableView!
+    
+    
+
+
     
     override func viewDidLoad() {
         navigationController?.navigationBar.prefersLargeTitles = true
         super.viewDidLoad()
+        //Allow cell to have dynamic height
+        moreInfoTableView.estimatedRowHeight = 260.0
+        moreInfoTableView.rowHeight = UITableView.automaticDimension
+
     }
+
     
     //Pull data before view loads for fastest results
     override func viewWillAppear(_ animated: Bool) {
+        //Show network indicator before data loads and then load data for each segment
+        activityIndicatorView.startAnimating()
+        moreInfoTableView.separatorStyle = .none
         if self.title == "Visitor Centers" {
             fetchMatchingVC()
         } else if self.title == "Alerts" {
             fetchMatchingAlerts()
         }
     }
+    
+    //Load network indicator in background
+    override func loadView() {
+        super.loadView()
+        
+        activityIndicatorView = UIActivityIndicatorView(style: .gray)
+        
+        moreInfoTableView.backgroundView = activityIndicatorView
+    }
+    
  
                         //MARK: - Visitor Center View
 //Main variables to hold VCs returned
     let VCItemController = StoreVCController()
     var returnedData = [VCData]()
-    var abbreviation: String?
 
     //Pull park data from NPS API and load into respective variables
     func fetchMatchingVC() {
         
         self.returnedData = []
+        moreInfoTableView.reloadData()
         
             //Set up query dictionary to search any park
             let query: [String: String] = [
@@ -62,7 +75,15 @@ class MoreInfoViewController: UIViewController {
                 DispatchQueue.main.async {
                     if let returnedData = returnedData {
                         self.returnedData = returnedData
-                        self.updateVCView()
+                        self.activityIndicatorView.stopAnimating()
+                        self.moreInfoTableView.separatorStyle = .singleLine
+                        self.moreInfoTableView.reloadData()
+                        //When no results, show alert message
+                        if self.returnedData.count == 0 {
+                            let alertController = UIAlertController(title: "No results", message: "No visitor centers to display. Either the park you selected does not have visitor center information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
+                            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                            self.present(alertController, animated: true, completion: nil)
+                        }
                     } else {
                         //Accounts for API load error
                         print("Unable to reload")
@@ -71,56 +92,7 @@ class MoreInfoViewController: UIViewController {
         }
         )
     }
-    
- //Handle updates to VC labels in each case
-    func updateVCView(){
-//When VC data is returned
-        if !returnedData.isEmpty{
-        topSectionHeader.text = returnedData[0].name
-        topSectionText.text = returnedData[0].description
-        bottomSectionHeader.text = "Directions"
-        bottomSectionText.text = returnedData[0].directions
-    //Two VCs are returned
-            if returnedData.indices.contains(1){
-                topSectionH2.text = returnedData[1].name
-                topSectionT2.text = returnedData[1].description
-                bottomSectionH2.text = "Directions"
-                bottomSectionT2.text = returnedData[1].directions
-            } else {
-                topSectionH2.isHidden = true
-                topSectionT2.isHidden = true
-                bottomSectionH2.isHidden = true
-                bottomSectionT2.isHidden = true
-            }
-    //Three VCs are returned
-            if returnedData.indices.contains(2) {
-                topSectionH3.text = returnedData[2].name
-                topSectionT3.text = returnedData[2].description
-                bottomSectionH3.text = "Directions"
-                bottomSectionT3.text = returnedData[2].directions
-            } else {
-                topSectionH3.isHidden = true
-                topSectionT3.isHidden = true
-                bottomSectionH3.isHidden = true
-                bottomSectionT3.isHidden = true
-            }
-    //No VCs returned or API doesnt load in properly
-        } else {
-            topSectionHeader.text = "No Results"
-            topSectionText.text = "There was an error with your selection. Either the park you selected does not have visitor center information to display or network connection was lost. Please try again or check the NPS website for more info."
-            bottomSectionHeader.text = ""
-            bottomSectionText.text = ""
-            topSectionH2.isHidden = true
-            topSectionT2.isHidden = true
-            bottomSectionH2.isHidden = true
-            bottomSectionT2.isHidden = true
-            topSectionH3.isHidden = true
-            topSectionT3.isHidden = true
-            bottomSectionH3.isHidden = true
-            bottomSectionT3.isHidden = true
-        }
-    }
-    
+ 
                         //MARK: - Alerts View
     
     
@@ -132,6 +104,7 @@ class MoreInfoViewController: UIViewController {
     func fetchMatchingAlerts() {
         
         self.returnedAlertsData = []
+        moreInfoTableView.reloadData()
         
         //Set up query dictionary to search any park
         let query: [String: String] = [
@@ -145,7 +118,15 @@ class MoreInfoViewController: UIViewController {
             DispatchQueue.main.async {
                 if let returnedAlertsData = returnedAlertsData {
                     self.returnedAlertsData = returnedAlertsData
-                    self.updateAlertsView()
+                    self.activityIndicatorView.stopAnimating()
+                    self.moreInfoTableView.separatorStyle = .singleLine
+                    self.moreInfoTableView.reloadData()
+                    //When no results, show alert message
+                    if self.returnedAlertsData.count == 0 {
+                        let alertController = UIAlertController(title: "No results", message: "No alerts to display. Either the park you selected does not have alert information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                        self.present(alertController, animated: true, completion: nil)
+                    }
                 } else {
                     //Accounts for API load error
                     print("Unable to reload")
@@ -154,57 +135,67 @@ class MoreInfoViewController: UIViewController {
         }
         )
     }
+
     
-    //Handle updates to alert labels in each case
-    func updateAlertsView(){
-        bottomSectionHeader.isHidden = true
-        bottomSectionText.isHidden = true
-        bottomSectionH2.isHidden = true
-        bottomSectionT2.isHidden = true
-        bottomSectionH3.isHidden = true
-        bottomSectionT3.isHidden = true
-        //When alertsData is returned
-        if !returnedAlertsData.isEmpty{
-            topSectionHeader.textColor = .red
-            topSectionHeader.text = returnedAlertsData[0].title
-            topSectionText.text = returnedAlertsData[0].description
-            //Two alerts are returned
-            if returnedAlertsData.indices.contains(1){
-                topSectionH2.textColor = .red
-                topSectionH2.text = returnedAlertsData[1].title
-                topSectionT2.text = returnedAlertsData[1].description
-            } else {
-                topSectionH2.isHidden = true
-                topSectionT2.isHidden = true
+                        //Mark:- Table view data source
+    //Load data into cells
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = moreInfoTableView.dequeueReusableCell(withIdentifier: "moreInfoCell", for: indexPath) as! MoreInfoTableViewCell
+        
+        
+        //Visitor Centers shown
+        if self.title == "Visitor Centers" {
+            //When data returned
+            if !(returnedData.count == 0){
+                var VCItem = returnedData[indexPath.row]
+                
+                //Load in attributes
+                cell.topSectionHeaderLabel.text = VCItem.name
+                cell.topSectionTextLabel.text = VCItem.description
+                cell.bottomSectionHeaderLabel.text = "Directions"
+                cell.bottomSectionTextLabel.text = VCItem.directions
+                
             }
-            //Three alerts are returned
-            if returnedAlertsData.indices.contains(2) {
-                topSectionH3.textColor = .red
-                topSectionH3.text = returnedAlertsData[2].title
-                topSectionT3.text = returnedAlertsData[2].description
-            } else {
-                topSectionH3.isHidden = true
-                topSectionT3.isHidden = true
+            
+            //Alerts shown
+        } else if self.title == "Alerts" {
+            //When data returned
+            if !(returnedAlertsData.count == 0){
+                var alertItem = returnedAlertsData[indexPath.row]
+                
+                //Load in attributes
+                cell.topSectionHeaderLabel.textColor = .red
+                cell.topSectionHeaderLabel.text = alertItem.title
+                cell.topSectionTextLabel.text = alertItem.description
+                cell.bottomSectionHeaderLabel.isHidden = true
+                cell.bottomSectionTextLabel.isHidden = true
+            
             }
-            //No alerts returned or API doesnt load in properly
-        } else {
-            topSectionHeader.textColor = .red
-            topSectionHeader.text = "No Results"
-            topSectionText.text = "No alerts to display. Either the park you selected does not have alert information to display or network connection was lost. Please try again or check the NPS website for more info."
-            topSectionH2.isHidden = true
-            topSectionT2.isHidden = true
-           
-            topSectionH3.isHidden = true
-            topSectionT3.isHidden = true
-          
         }
+        return cell
     }
+    
 
-
+    //Number of rows corresponds to array item count in each segment
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.title == "Visitor Centers" {
+            return returnedData.count
+            
+        } else if self.title == "Alerts" {
+            return returnedAlertsData.count
+        } else {
+            return 0
+        }
+        
+    }
     
     
     
     
+    //Height of cells is dynamic
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
     
     
     
