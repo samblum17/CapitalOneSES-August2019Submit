@@ -1,5 +1,5 @@
 //
-//  QuestionTableViewCell.swift
+//  NewsTableViewCell.swift
 //  CapitalOneSES-August2019Submit
 //
 //  Created by Sam Blum on 6/11/19.
@@ -8,24 +8,22 @@
 
 import UIKit
 
-class QuestionTableViewCell: UITableViewCell {
+class NewsTableViewCell: UITableViewCell {
 
-//Cell attribute labels
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var gradeLevelLabel: UILabel!
-    @IBOutlet var questionLabel: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var urlButton: UIButton!
     
-//Closure so button is tap enabled inside cell
+  //Closure so button is tap enabled inside cell
     @objc var urlButtonAction: (() -> ())?
-
     
-    override func awakeFromNib() {
+    
+   override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+
         //Enable URL button
-        self.urlButton.addTarget(self, action: #selector(getter: urlButtonAction), for: .touchUpInside)
+    self.urlButton.addTarget(self, action: #selector(getter: urlButtonAction), for: .touchUpInside)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -38,4 +36,5 @@ class QuestionTableViewCell: UITableViewCell {
         urlButtonAction?()
     }
     
+
 }

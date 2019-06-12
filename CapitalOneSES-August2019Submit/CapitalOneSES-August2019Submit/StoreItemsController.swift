@@ -251,3 +251,63 @@ struct StorePlacesController {
         
     }
 }
+
+//Controller for fetching news from server
+struct StoreNewsController {
+    //Fetches items from NPS API- called from news controller
+    func fetchItems(matching query: [String: String], completion: @escaping ([NewsReleaseData]?) -> Void) {
+        
+        let baseURL = URL(string: "https://developer.nps.gov/api/v1/newsReleases?")!
+        
+        guard let url = baseURL.withQueries(query) else {
+            //Accounts for bad query call
+            completion(nil)
+            print("Unable to build URL with supplied queries. Please try again.")
+            return
+        }
+        //Decodes JSON returned from API into active Park objects
+        
+        let task = URLSession.shared.dataTask(with: url) { (data,
+            response, error) in
+            let jsonDecoder = JSONDecoder()
+            if let data = data,
+                let newsDecoded = try? jsonDecoder.decode(NewsReleases.self, from: data){
+                completion(newsDecoded.data)
+            } else {
+                completion(nil)
+            }
+        }
+        task.resume()
+        
+    }
+}
+
+//Controller for fetching articles from server
+struct StoreArticlesController {
+    //Fetches items from NPS API- called from news controller
+    func fetchItems(matching query: [String: String], completion: @escaping ([ArticleData]?) -> Void) {
+        
+        let baseURL = URL(string: "https://developer.nps.gov/api/v1/articles?")!
+        
+        guard let url = baseURL.withQueries(query) else {
+            //Accounts for bad query call
+            completion(nil)
+            print("Unable to build URL with supplied queries. Please try again.")
+            return
+        }
+        //Decodes JSON returned from API into active Park objects
+        
+        let task = URLSession.shared.dataTask(with: url) { (data,
+            response, error) in
+            let jsonDecoder = JSONDecoder()
+            if let data = data,
+                let articleDecoded = try? jsonDecoder.decode(Articles.self, from: data){
+                completion(articleDecoded.data)
+            } else {
+                completion(nil)
+            }
+        }
+        task.resume()
+        
+    }
+}

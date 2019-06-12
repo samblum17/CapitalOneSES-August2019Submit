@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 /*This VC loads information for lesson plans, people, and places using a segmented control and the same tableView layout for each API pull
 */
@@ -216,8 +217,15 @@ class EducationViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.titleLabel.text = questionItem.title
             cell.questionLabel.text = questionItem.question
             cell.gradeLevelLabel.text = grade
-            cell.urlLabel.text = questionItem.url
-                     
+            cell.urlButton.setTitle(questionItem.url, for: .normal)
+            
+            //Open safari view controller on url button tap
+            cell.urlButtonAction = { [unowned self] in
+                if let url = URL(string: questionItem.url ?? "nps.gov/") {
+                    let safariViewController = SFSafariViewController(url: url)
+                    self.present(safariViewController,animated: true, completion: nil)
+                }
+            }
             }
             
     //People segment
@@ -230,8 +238,15 @@ class EducationViewController: UIViewController, UITableViewDelegate, UITableVie
                 cell.titleLabel.text = peopleItem.title
                 cell.questionLabel.text = peopleItem.description
                 cell.gradeLevelLabel.isHidden = true
-                cell.urlLabel.text = peopleItem.url
+                cell.urlButton.setTitle(peopleItem.url, for: .normal)
                 
+                //Open safari view controller on url button tap
+                cell.urlButtonAction = { [unowned self] in
+                    if let url = URL(string: peopleItem.url ?? "nps.gov/") {
+                        let safariViewController = SFSafariViewController(url: url)
+                        self.present(safariViewController,animated: true, completion: nil)
+                    }
+                }
             }
     //Places segment
         } else if educationSegmentControl.selectedSegmentIndex == 2 {
@@ -243,8 +258,15 @@ class EducationViewController: UIViewController, UITableViewDelegate, UITableVie
                 cell.titleLabel.text = placesItem.title
                 cell.questionLabel.text = placesItem.description
                 cell.gradeLevelLabel.isHidden = true
-                cell.urlLabel.text = placesItem.url
+                cell.urlButton.setTitle(placesItem.url, for: .normal)
                 
+                //Open safari view controller on url button tap
+                cell.urlButtonAction = { [unowned self] in
+                    if let url = URL(string: placesItem.url ?? "nps.gov/") {
+                        let safariViewController = SFSafariViewController(url: url)
+                        self.present(safariViewController,animated: true, completion: nil)
+                    }
+                }
         }
         }
         return cell

@@ -121,6 +121,13 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate {
             vc.abbreviation = abbreviation
         }
         
+        //Segue called
+        if(segue.identifier == "newsSegue") {
+            let vc = segue.destination as! NewsViewController
+            vc.title = "News"
+            vc.abbreviation = abbreviation
+        }
+        
     }
 
 

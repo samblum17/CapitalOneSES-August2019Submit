@@ -3,7 +3,76 @@
 import UIKit
 import PlaygroundSupport
 
+/*
+This playground used to test pulling data from NPS API before implementing each model object into final project. Remember to use enum CodingKeys when variable doesnt match JSON key and use initializer when model object does not use all returned keys. Adjust baseURL when testing each model. Models are copied and pasted once successfully pulling and displaying data.
+ */
+
+
 PlaygroundPage.current.needsIndefiniteExecution = true
+
+//Related News
+//Articles
+struct Articles: Codable {
+    var total: String?
+    var data: [ArticleData]?
+}
+
+struct ArticleData: Codable {
+    var title: String?
+    var description: String?
+    var url: String?
+    
+    //Enum used because not all JSON returned values are used
+    enum CodingKeys: String, CodingKey {
+        case title
+        case description = "listingdescription"
+        case url
+    }
+    
+    //Initializer used because not all JSON returned values are used
+    init(from decoder: Decoder) throws {
+        let valueContainer = try decoder.container(keyedBy:
+            CodingKeys.self)
+        self.title = try valueContainer.decode(String.self, forKey: CodingKeys.title)
+        self.description = try valueContainer.decode(String.self, forKey: CodingKeys.description)
+        self.url = try valueContainer.decode(String.self, forKey: CodingKeys.url)
+        
+    }
+    
+}
+
+//Releases
+struct NewsReleases: Codable {
+    var total: String?
+    var data: [NewsReleaseData]?
+}
+
+struct NewsReleaseData: Codable {
+    var title: String?
+    var description: String?
+    var url: String?
+    
+    //Enum used because not all JSON returned values are used
+    enum CodingKeys: String, CodingKey {
+        case title
+        case description = "abstract"
+        case url
+    }
+    
+    //Initializer used because not all JSON returned values are used
+    init(from decoder: Decoder) throws {
+        let valueContainer = try decoder.container(keyedBy:
+            CodingKeys.self)
+        self.title = try valueContainer.decode(String.self, forKey: CodingKeys.title)
+        self.description = try valueContainer.decode(String.self, forKey: CodingKeys.description)
+        self.url = try valueContainer.decode(String.self, forKey: CodingKeys.url)
+        
+    }
+    
+    
+}
+
+
 
 //Education
 struct Places: Codable {
@@ -315,34 +384,9 @@ struct Parks: Decodable {
     
    
 }
-//struct Park: Decodable {
-//    var fullName: String?
-//    var states: String?
-//    var imageURLString: String?
-//
-//    init(from decoder: Decoder) throws {
-//        let rawPark = try ParkData(from: decoder)
-//
-//        fullName = rawPark.fullName
-//        states = rawPark.states
-//        imageURLString = rawPark.imageURLString
-//    }
-//}
 
 
-   
-    //Swift 2 and 3 only
-//    init?(json: [String: Any]) {
-//
-//        guard let fullName = json["fullName"] as? String,
-//            let stateCode = json["stateCode"] as? String,
-//            let imageURLString = json["url"] as? String,
-//            let imageURL = URL(string: imageURLString) else { return nil }
-//
-//        self.fullName = fullName
-//        self.stateCode = stateCode
-//        self.imageURL = imageURL
-    
+
 
 
 
@@ -359,15 +403,15 @@ let query: [String: String] = [
     "parkCode" : "yell",
     "api_key" : "0deJt7XudkZrb2wSMFjaLYrHQESBWIQHMNeuM7o1"
 ]
-let baseURL = URL(string: "https://developer.nps.gov/api/v1/places?")!
+let baseURL = URL(string: "https://developer.nps.gov/api/v1/articles?")!
 
 let url = baseURL.withQueries(query)!
 let task = URLSession.shared.dataTask(with: url) { (data,
     response, error) in
     let jsonDecoder = JSONDecoder()
     if let data = data,
-        let placesDecoded = try? jsonDecoder.decode(Places.self, from: data){
-        print(placesDecoded.data)
+        let articleDecoded = try? jsonDecoder.decode(Articles.self, from: data){
+        print(articleDecoded.data)
     } else {
         print("error")
     }
@@ -375,6 +419,8 @@ let task = URLSession.shared.dataTask(with: url) { (data,
    
 }
 task.resume()
+
+    //Old Swift decoding- not used in Swift 4
 //    let task = URLSession.shared.dataTask(with: url) { (data, response, error)  in
 
 //    if let data = data,
@@ -394,5 +440,18 @@ task.resume()
 
 
 //task.resume()
+
+
+//Swift 2 and 3 only
+//    init?(json: [String: Any]) {
+//
+//        guard let fullName = json["fullName"] as? String,
+//            let stateCode = json["stateCode"] as? String,
+//            let imageURLString = json["url"] as? String,
+//            let imageURL = URL(string: imageURLString) else { return nil }
+//
+//        self.fullName = fullName
+//        self.stateCode = stateCode
+//        self.imageURL = imageURL
 
 
