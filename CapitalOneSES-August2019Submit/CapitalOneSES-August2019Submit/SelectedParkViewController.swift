@@ -9,7 +9,7 @@
 import UIKit
 import SafariServices
 
-class SelectedParkViewController: UIViewController, UIScrollViewDelegate {
+class SelectedParkViewController: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
   
 //Outlets for UIStoryboard objects
     @IBOutlet var descriptionLabel: UILabel!
@@ -17,111 +17,124 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var imageCaption: UILabel!
     @IBOutlet var visitorCentersButton: UIButton!
     @IBOutlet var campgroundButton: UIButton!
-    @IBOutlet var calendarButton: UIButton!
-    @IBOutlet var funInfoButton: UIButton!
+    @IBOutlet var calendarButton: UIButton! //Renamed to events
+    @IBOutlet var funInfoButton: UIButton! //Renamed to education
     @IBOutlet var alertsButton: UIButton!
+    
+    
+/*Collection View is used to show UIImageView rather than just a UIImageView on top of the scroll view for possible implementation of a slideshow feature in the future. The API data pulling coupled with standard loading images from URL resulted in laggy, unattractive implementation of a slide show throughout testing. For now, a single park image will highlight the selectionViewController but implementation in future should be looked into.
+ */
+    @IBOutlet var slideshowCollectionView: UICollectionView!
+    var activityIndicatorView: UIActivityIndicatorView!
+    
     
 //Variables for segue to pass data into from table view
     var descriptionLabelText: String?
     var imageURLString: String = ""
     var abbreviation: String?
-   
-    override func viewDidLoad() {
+    let imageCache = NSCache<AnyObject, AnyObject>()
+
+        override func viewDidLoad() {
         
         navigationController?.navigationBar.prefersLargeTitles = true
-    //Load primary image of selected park
-        var imageURL = URL(string: imageURLString)
-        let task = URLSession.shared.dataTask(with: imageURL!) { (data,response, error) in
-
-            guard let imageData = data else {
-                return
-            }
-
-            DispatchQueue.main.async {
-
-                let image = UIImage(data: imageData)
-                self.parkImage.image = image
-            }
-
-        }
-        task.resume()
         descriptionLabel.text = descriptionLabelText
         super.viewDidLoad()
+            
     }
     
+//1 photo returned to collection view. For future slideshow implementation, return array count
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+ 
+//Configure collectionView cell and load in data
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "slideshowCell", for: indexPath) as! slideshowCollectionViewCell
+    //Hide image and display activity indicator while loading
+        cell.myImage.isHidden = true
+        activityIndicatorView.startAnimating()
+        
+        //Check if image is cached, load in if so
+                var imageURL = URL(string: imageURLString)
+                if let imageFromCache = imageCache.object(forKey: imageURLString as AnyObject) as? UIImage {
+                    //Highest priority queue
+                    DispatchQueue.main.async {
+                        cell.myImage.image = imageFromCache
+                        cell.myImage.isHidden = false
+                        self.activityIndicatorView.stopAnimating()
+                    }
+            //Image not cached, so pull from web, cache, and display
+                } else {
+                let task = URLSession.shared.dataTask(with: imageURL!) { (data,response, error) in
+        
+                    guard let imageData = data else {
+                        return
+                    }
+                    //Highest priority queue
+                    DispatchQueue.main.async {
+                        let imageToCache = UIImage(data: data!)
+                        self.imageCache.setObject(imageToCache!, forKey: self.imageURLString as AnyObject)
+                        cell.myImage.image = imageToCache
+                        cell.myImage.isHidden = false
+                        self.activityIndicatorView.stopAnimating()
+                    }
+                    
+                    
+                }
+                task.resume()
+        }
 
-////Use safariViewControllers to load respective information for each button press
+        return cell
+    }
 
-//
-//    @IBAction func campgroundPressed(_ sender: Any) {
-//        if let url = URL(string: "https://www.nps.gov/" + abbreviation! + "/planyourvisit/campgrounds.htm") {
-//            let safariViewController = SFSafariViewController(url: url)
-//            present(safariViewController,animated: true, completion: nil)
-//        }
-//
-//    }
-//    @IBAction func calendarPressed(_ sender: Any) {
-//        if let url = URL(string: "https://www.nps.gov/" + abbreviation! + "/planyourvisit/calendar.htm") {
-//            let safariViewController = SFSafariViewController(url: url)
-//            present(safariViewController,animated: true, completion: nil)
-//        }
-//
-//    }
-//
-//    @IBAction func funInfoPressed(_ sender: Any) {
-//        if let url = URL(string: "https://www.nps.gov/" + abbreviation! + "/planyourvisit/parkfacts.htm") {
-//            let safariViewController = SFSafariViewController(url: url)
-//            present(safariViewController,animated: true, completion: nil)
-//        }
-//
-//    }
-//    @IBAction func alertsPressed(_ sender: Any) {
-//        if let url = URL(string: "https://www.nps.gov/" + abbreviation! + "/planyourvisit/conditions.htm") {
-//            let safariViewController = SFSafariViewController(url: url)
-//            present(safariViewController,animated: true, completion: nil)
-//        }
-//
-//    }
+//Load network indicator in background
+    override func loadView() {
+        super.loadView()
+        
+        activityIndicatorView = UIActivityIndicatorView(style: .gray)
+        slideshowCollectionView.backgroundView = activityIndicatorView
+    }
     
-    //Prepares data to be passed to next viewController by creating variables
+    
+//Prepares data to be passed to next viewController by creating variables
     var parkName: String?
     var parkCode: String?
     
-    //Sends data to next viewController
+//Sends data to next viewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        //Segue called
+        //Segue to visitor centers
         if(segue.identifier == "VCSegue") {
             let vc = segue.destination as! MoreInfoViewController
             vc.title = "Visitor Centers"
             vc.abbreviation = abbreviation
         }
-        //Segue called
+        //Segue to events
         if(segue.identifier == "eventSegue") {
             let vc = segue.destination as! EventsTableViewController
             vc.title = "Upcoming Events"
             vc.abbreviation = abbreviation
         }
-        //Segue called
+        //Segue to education
         if(segue.identifier == "educationSegue") {
             let vc = segue.destination as! EducationViewController
             vc.title = "Education"
             vc.abbreviation = abbreviation
         }
-        //Segue called
+        //Segue to alerts
         if(segue.identifier == "alertsSegue") {
             let vc = segue.destination as! MoreInfoViewController
             vc.title = "Alerts"
             vc.abbreviation = abbreviation
         }
-        //Segue called
+        //Segue to campgrounds
         if(segue.identifier == "campgroundSegue") {
             let vc = segue.destination as! CampgroundsTableViewController
             vc.title = "Campgrounds"
             vc.abbreviation = abbreviation
         }
         
-        //Segue called
+        //Segue to news
         if(segue.identifier == "newsSegue") {
             let vc = segue.destination as! NewsViewController
             vc.title = "News"
@@ -134,7 +147,7 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate {
     
 
     /*
-     // MARK: -  Unused overrides below for future implementation to extend capabilities
+                    // MARK: -  Unused overrides below
 
 
     // Pass information to another view controller

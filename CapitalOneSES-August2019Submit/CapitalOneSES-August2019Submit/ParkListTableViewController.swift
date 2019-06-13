@@ -11,11 +11,14 @@ import UIKit
 class ParkListTableViewController: UITableViewController, UINavigationControllerDelegate {
     
     var activityIndicatorView: UIActivityIndicatorView!
+    let imageCache = NSCache<AnyObject, AnyObject>()
+
 
     override func viewDidLoad() {
         navigationController?.navigationBar.prefersLargeTitles = true
         super.viewDidLoad()
-//Keyboard can be swiped down
+        
+        //Keyboard can be swiped down
         tableView.keyboardDismissMode = .interactive
 
             }
@@ -23,6 +26,7 @@ class ParkListTableViewController: UITableViewController, UINavigationController
 //Set variables for objects and controllers
     @IBOutlet var parkSearchBar: UISearchBar!
     let itemController = StoreItemController()
+    
 //Array that will hold fetched parks
     var searchItems = [ParkData]()
     
@@ -34,6 +38,7 @@ class ParkListTableViewController: UITableViewController, UINavigationController
     
         let parkName = parkSearchBar.text ?? ""
     
+        //When user enters a search term
         if !parkName.isEmpty {
     
         //Set up query dictionary to search any park
@@ -47,13 +52,14 @@ class ParkListTableViewController: UITableViewController, UINavigationController
 //Call the itemController to fetch items
     itemController.fetchItems(matching: query, completion: { (searchItems) in
     
-    //Searches for items on highest priority queue of Grand Central Dispatch for faster results
+    //Searches for items on highest priority queue
         DispatchQueue.main.async {
             if let searchItems = searchItems {
                 self.searchItems = searchItems
                 self.activityIndicatorView.stopAnimating()
                 self.tableView.separatorStyle = .singleLine
                 self.tableView.reloadData()
+                
                 //When no results, show alert message
                 if self.searchItems.count == 0 {
                     let alertController = UIAlertController(title: "No results", message: "No campgrounds to display. Either the park you selected does not have campground information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
@@ -71,41 +77,47 @@ class ParkListTableViewController: UITableViewController, UINavigationController
            }
           }
 
-//Sets properties of cell
-    func configure(cell: UITableViewCell, forItemAt indexPath: IndexPath) {
+//Sets attributes of cell
+    func configure(cell: searchResultsTableViewCell, forItemAt indexPath: IndexPath) {
         
             let item = searchItems[indexPath.row]
-            cell.textLabel?.text = item.fullName
-            cell.detailTextLabel?.text = item.states
+            cell.titleLabel.text = item.fullName
+            cell.stateCodeLabel.text = item.states
+        
         //Placeholder image for loading
-            cell.imageView?.image = #imageLiteral(resourceName: "NewSolid_gray")
-        //Sets actual cell image
+            cell.cellImage.image = #imageLiteral(resourceName: "NewSolid_gray")
+        
+        //Set actual cell image from cache
             let currentImageURLString = item.images?[0].urlString ?? ""
         
-            let imageURL = URL(string: currentImageURLString)!
-            let task = URLSession.shared.dataTask(with: imageURL) { (data,response, error) in
+            var imageURL = URL(string: currentImageURLString)
+            if let imageFromCache = imageCache.object(forKey: currentImageURLString as AnyObject) as? UIImage {
+                DispatchQueue.main.async {
+                    cell.cellImage.image = imageFromCache
+            }
+        //If not found in cache, pull from web, cache, and load into cell
+        } else {
+            let task = URLSession.shared.dataTask(with: imageURL!) { (data,response, error) in
 
             guard let imageData = data else {
                 return
             }
                 
-        //Loads image on highest priority queue of Grand Central Dispatch for faster results
+            //Highest priority queue
             DispatchQueue.main.async {
 
-                let image = UIImage(data: imageData)
-                cell.imageView?.image = image
-                cell.setNeedsLayout()
-                cell.reloadInputViews()
+                let imageToCache = UIImage(data: imageData)
+                self.imageCache.setObject(imageToCache!, forKey: currentImageURLString as AnyObject)
+                cell.cellImage.image = imageToCache
             }
-                
-
         }
         task.resume()
         
     }
+    }
     
     
-    //MARK: - Table view data source
+                //MARK: - Table view data source
 
 
 //Sets number of tableView rows to number of parks loaded
@@ -114,14 +126,14 @@ class ParkListTableViewController: UITableViewController, UINavigationController
         return searchItems.count
     }
 
-//Loads cell with proper detail
+//Loads cell with proper attributes
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultCell", for: indexPath) as! searchResultsTableViewCell
         configure(cell: cell, forItemAt: indexPath)
         return cell
     }
     
-    //Prepares data to be passed to next viewController by creating variables
+//Prepare data to be passed to proper viewController
         var parkName: String?
         var parkDescription: String?
         var parkImageURLString: String?
@@ -129,28 +141,31 @@ class ParkListTableViewController: UITableViewController, UINavigationController
         var parkImageCaption: String?
         var selectedItemDescription: String?
         var selectedCode: String?
+
     
-//Sends data to next viewController
+//Send data to next viewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let indexPath = self.tableView.indexPathForSelectedRow {
-            selectedItemDescription = self.searchItems[indexPath.row].description
-            parkName = self.searchItems[indexPath.row].name
-            parkImageURLString = self.searchItems[indexPath.row].images?[0].urlString ?? ""
-            parkImageCaption = self.searchItems[indexPath.row].images?[0].caption ?? "Error loading content"
-            selectedCode = self.searchItems[indexPath.row].parkCode
+            let item = self.searchItems[indexPath.row]
+            selectedItemDescription = item.description
+            parkName = item.name
+            parkImageURLString = item.images?[0].urlString ?? ""
+            parkImageCaption = item.images?[0].caption ?? "Error loading content"
+            selectedCode = item.parkCode
         }
-    //Segue called
+    //Segue when park is selected
         if(segue.identifier == "parkSelectedSegue") {
             let vc = segue.destination as! SelectedParkViewController
             vc.title = parkName
             vc.descriptionLabelText = selectedItemDescription
             vc.imageURLString = parkImageURLString ?? " "
             vc.abbreviation = selectedCode
+            
         }
     
     }
     
-    //Load network indicator in background
+//Load network indicator in background
     override func loadView() {
         super.loadView()
         
@@ -158,7 +173,6 @@ class ParkListTableViewController: UITableViewController, UINavigationController
         
         tableView.backgroundView = activityIndicatorView
     }
-    
 }
 
 //Extends controller to load items using UISearchBar
@@ -172,7 +186,10 @@ class ParkListTableViewController: UITableViewController, UINavigationController
         }
     }
 
-        //MARK: - Unused overrides below for future implementation to extend capabilities
+
+
+
+            //MARK: - Unused overrides below
 
 
 
