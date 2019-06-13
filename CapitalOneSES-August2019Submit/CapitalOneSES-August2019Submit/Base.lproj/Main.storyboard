@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--NPS Kiosk-->
+        <!--National Park Kiosk-->
         <scene sceneID="jVe-sc-eqL">
             <objects>
                 <tableViewController id="b8E-JJ-DxR" customClass="ParkListTableViewController" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target" sceneMemberID="viewController">
@@ -89,7 +89,7 @@
                             <outlet property="delegate" destination="b8E-JJ-DxR" id="Kix-tS-tgS"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="NPS Kiosk" id="Nd7-nj-ceK">
+                    <navigationItem key="navigationItem" title="National Park Kiosk" id="Nd7-nj-ceK">
                         <barButtonItem key="backBarButtonItem" title="Kiosk" id="GKC-Tm-RCn"/>
                     </navigationItem>
                     <connections>
@@ -100,6 +100,27 @@
             </objects>
             <point key="canvasLocation" x="1341.5999999999999" y="-188.42364532019704"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="XTB-RH-Nwf">
+            <objects>
+                <viewController id="4ON-fZ-ngu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Jl-TX-7Ma">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="B47-f7-zsE">
+                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="VIm-ut-a1I"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mXA-wH-EV8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1341.5999999999999" y="662.807881773399"/>
+        </scene>
         <!--Selected Park View Controller-->
         <scene sceneID="PeJ-cY-OXd">
             <objects>
@@ -108,8 +129,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ong-ke-l57">
-                                <rect key="frame" x="0.0" y="140" width="375" height="700"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ong-ke-l57">
+                                <rect key="frame" x="0.0" y="140" width="375" height="760"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HNj-AK-v5K">
                                         <rect key="frame" x="8" y="8" width="359" height="192"/>
@@ -154,7 +175,7 @@
                                         </connections>
                                     </collectionView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oA5-GT-oLF">
-                                        <rect key="frame" x="0.0" y="517" width="375" height="41"/>
+                                        <rect key="frame" x="0.0" y="518" width="375" height="41"/>
                                         <color key="backgroundColor" red="0.72549019609999998" green="0.3803921569" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="Education">
@@ -165,7 +186,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNU-Tq-V8g">
-                                        <rect key="frame" x="0.0" y="566" width="375" height="41"/>
+                                        <rect key="frame" x="0.0" y="567" width="375" height="41"/>
                                         <color key="backgroundColor" red="0.72549019609999998" green="0.3803921569" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="Related News">
@@ -176,7 +197,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbY-MR-L6B">
-                                        <rect key="frame" x="0.0" y="468" width="375" height="41"/>
+                                        <rect key="frame" x="0.0" y="469" width="375" height="41"/>
                                         <color key="backgroundColor" red="0.72549019609999998" green="0.3803921569" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="Upcoming Events">
@@ -187,7 +208,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ako-hC-Z1P">
-                                        <rect key="frame" x="0.0" y="419" width="375" height="41"/>
+                                        <rect key="frame" x="0.0" y="420" width="375" height="41"/>
                                         <color key="backgroundColor" red="0.72549019609999998" green="0.3803921569" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="Campgrounds">
@@ -218,7 +239,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MC-Fq-Iar">
-                                        <rect key="frame" x="0.0" y="614" width="375" height="41"/>
+                                        <rect key="frame" x="0.0" y="615" width="375" height="41"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="Alerts">
@@ -240,13 +261,13 @@
                                     <constraint firstAttribute="trailing" secondItem="HNj-AK-v5K" secondAttribute="trailing" constant="8" id="I1O-GO-QWG"/>
                                     <constraint firstAttribute="trailing" secondItem="XHi-v7-HC0" secondAttribute="trailing" constant="8" id="KeK-bR-dos"/>
                                     <constraint firstItem="HNj-AK-v5K" firstAttribute="leading" secondItem="Ong-ke-l57" secondAttribute="leading" constant="8" id="NPB-QG-xT2"/>
-                                    <constraint firstItem="ako-hC-Z1P" firstAttribute="top" secondItem="i5d-Rg-USS" secondAttribute="bottom" constant="8" symbolic="YES" id="Ya1-oo-9Bo"/>
+                                    <constraint firstItem="ako-hC-Z1P" firstAttribute="top" secondItem="i5d-Rg-USS" secondAttribute="bottom" constant="9" id="Ya1-oo-9Bo"/>
                                     <constraint firstItem="i5d-Rg-USS" firstAttribute="leading" secondItem="ako-hC-Z1P" secondAttribute="leading" id="ZMa-Su-ZDS"/>
                                     <constraint firstItem="ako-hC-Z1P" firstAttribute="trailing" secondItem="pbY-MR-L6B" secondAttribute="trailing" id="aiT-hc-aNQ"/>
                                     <constraint firstItem="oA5-GT-oLF" firstAttribute="top" secondItem="pbY-MR-L6B" secondAttribute="bottom" constant="8" symbolic="YES" id="cJF-1X-LYH"/>
                                     <constraint firstItem="i5d-Rg-USS" firstAttribute="trailing" secondItem="ako-hC-Z1P" secondAttribute="trailing" id="cec-ya-VEu"/>
                                     <constraint firstItem="ako-hC-Z1P" firstAttribute="leading" secondItem="pbY-MR-L6B" secondAttribute="leading" id="hMo-DF-xqn"/>
-                                    <constraint firstAttribute="bottom" secondItem="1MC-Fq-Iar" secondAttribute="bottom" constant="60" id="jSh-WT-eI0"/>
+                                    <constraint firstAttribute="bottom" secondItem="1MC-Fq-Iar" secondAttribute="bottom" constant="104" id="jSh-WT-eI0"/>
                                     <constraint firstItem="TNU-Tq-V8g" firstAttribute="top" secondItem="oA5-GT-oLF" secondAttribute="bottom" constant="8" symbolic="YES" id="kFI-iE-0ws"/>
                                     <constraint firstItem="XHi-v7-HC0" firstAttribute="top" secondItem="HNj-AK-v5K" secondAttribute="bottom" constant="30" id="mKi-66-zt5"/>
                                     <constraint firstItem="pbY-MR-L6B" firstAttribute="top" secondItem="ako-hC-Z1P" secondAttribute="bottom" constant="8" symbolic="YES" id="mWV-l1-FBO"/>

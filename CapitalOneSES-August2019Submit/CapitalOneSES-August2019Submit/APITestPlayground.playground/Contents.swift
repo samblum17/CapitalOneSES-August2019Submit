@@ -353,16 +353,18 @@ struct ParkData: Codable {
     var states: String?
     var description: String?
     var name: String?
-    var images: [Images]?
+//    var images: [Images]?
     var parkCode: String?
+    var latLong: String?
     
     enum CodingKeys: String, CodingKey {
         case fullName
         case states
         case description
         case name
-        case images
+//        case images
         case parkCode
+        case latLong
     }
     
     init(from decoder: Decoder) throws {
@@ -372,8 +374,9 @@ struct ParkData: Codable {
         self.states = try valueContainer.decode(String.self, forKey: CodingKeys.states)
         self.description = try valueContainer.decode(String.self, forKey: CodingKeys.description)
         self.name = try valueContainer.decode(String.self, forKey: CodingKeys.name)
-        self.images = try valueContainer.decode([Images].self, forKey: CodingKeys.images)
+//        self.images = try valueContainer.decode([Images].self, forKey: CodingKeys.images)
         self.parkCode = try valueContainer.decode(String.self, forKey: CodingKeys.parkCode)
+        self.latLong = try valueContainer.decode(String.self, forKey: CodingKeys.latLong)
        
     }
 }
@@ -400,18 +403,18 @@ extension URL {
     }
 }
 let query: [String: String] = [
-    "parkCode" : "yell",
+    "parkCode" : "yose",
     "api_key" : "0deJt7XudkZrb2wSMFjaLYrHQESBWIQHMNeuM7o1"
 ]
-let baseURL = URL(string: "https://developer.nps.gov/api/v1/articles?")!
+let baseURL = URL(string: "https://developer.nps.gov/api/v1/parks?")!
 
 let url = baseURL.withQueries(query)!
 let task = URLSession.shared.dataTask(with: url) { (data,
     response, error) in
     let jsonDecoder = JSONDecoder()
     if let data = data,
-        let articleDecoded = try? jsonDecoder.decode(Articles.self, from: data){
-        print(articleDecoded.data)
+        let parkDecoded = try? jsonDecoder.decode(Parks.self, from: data){
+        print(parkDecoded.data)
     } else {
         print("error")
     }

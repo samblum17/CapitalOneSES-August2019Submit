@@ -30,7 +30,7 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     }
 
     
-    //Pull data before view loads for fastest results
+//Pull data before view loads for fastest results
     override func viewWillAppear(_ animated: Bool) {
         //Show network indicator before data loads and then load data for each segment
         activityIndicatorView.startAnimating()
@@ -47,12 +47,13 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         super.loadView()
         
         activityIndicatorView = UIActivityIndicatorView(style: .gray)
-        
         moreInfoTableView.backgroundView = activityIndicatorView
     }
     
  
                         //MARK: - Visitor Center View
+    
+    
 //Main variables to hold VCs returned
     let VCItemController = StoreVCController()
     var returnedData = [VCData]()
@@ -138,6 +139,8 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
 
     
                         //Mark:- Table view data source
+    
+    
     //Load data into cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = moreInfoTableView.dequeueReusableCell(withIdentifier: "moreInfoCell", for: indexPath) as! MoreInfoTableViewCell

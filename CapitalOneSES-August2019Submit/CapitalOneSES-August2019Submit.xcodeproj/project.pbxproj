@@ -417,7 +417,7 @@
 		E4D898132293A49C000419B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AXQRK9KY57;
 				INFOPLIST_FILE = "CapitalOneSES-August2019Submit/Info.plist";
@@ -435,7 +435,7 @@
 		E4D898142293A49C000419B2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AXQRK9KY57;
 				INFOPLIST_FILE = "CapitalOneSES-August2019Submit/Info.plist";

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 //Allows a label from storyboard to become copyable
-    //Subclass this class on the object in storyboard to enable
+    //Subclass this class on object in storyboard to enable
 class CopyableLabel: UILabel {
     
     override init(frame: CGRect) {
