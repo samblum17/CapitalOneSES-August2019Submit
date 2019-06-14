@@ -8,7 +8,7 @@
 
 import Foundation
 
-//Controller for fetching parks from server
+//Controller for fetching each category from server
 struct StoreItemController {
     
    //Fetches items from NPS API- called from search tableView controller

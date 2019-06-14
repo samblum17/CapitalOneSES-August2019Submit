@@ -18,6 +18,7 @@ class EventsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     //Allow cell to have dynamic height
         tableView.estimatedRowHeight = 260.0
         tableView.rowHeight = UITableView.automaticDimension
@@ -30,7 +31,7 @@ class EventsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    //Show network indicator before data loads and then load data
+//Show network indicator before data loads and then load data
     override func viewWillAppear(_ animated: Bool) {
         activityIndicatorView.startAnimating()
         tableView.separatorStyle = .none
@@ -38,7 +39,7 @@ class EventsTableViewController: UITableViewController {
         
     }
 
-    //Load network indicator in background
+//Load network indicator on background view
     override func loadView() {
         super.loadView()
         
@@ -47,7 +48,7 @@ class EventsTableViewController: UITableViewController {
         tableView.backgroundView = activityIndicatorView
     }
     
-    //Pull event data from NPS API and load into respective variables
+//Pull event data from NPS API and load into respective variables
     func fetchMatchingEvents() {
         
         self.returnedEventsData = []
@@ -68,7 +69,8 @@ class EventsTableViewController: UITableViewController {
                     self.activityIndicatorView.stopAnimating()
                     self.tableView.separatorStyle = .singleLine
                     self.tableView.reloadData()
-            //When no results, show alert message
+                    
+                    //When no results, show alert message
                     if self.returnedEventsData.count == 0 {
                         let alertController = UIAlertController(title: "No results", message: "No events to display. Either the park you selected does not have event information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
                         alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
@@ -84,10 +86,9 @@ class EventsTableViewController: UITableViewController {
     }
     
     
-    
-    // MARK: - Table view data source
+                    // MARK: - Table view data source
 
-
+//Number of rows equals number of events returned
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return returnedEventsData.count
@@ -102,7 +103,7 @@ class EventsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventsCell", for: indexPath) as! EventsTableViewCell
 
-        //Configure the cell...
+    //Mutate price returned from JSON
         var price = ""
         if returnedEventsData[indexPath.row].isFree == "false" {
             price = "Price: Additional fee. See NPS site for info"
@@ -112,13 +113,13 @@ class EventsTableViewController: UITableViewController {
     //When eventData is returned
         if !(returnedEventsData.count == 0){
             
-    //Remove unecessary text in description return from JSON
+    //Remove unecessary text found in description return from JSON
            var newDescription =  returnedEventsData[indexPath.row].description?.replacingOccurrences(of: "<p>", with: "")
             newDescription = newDescription?.replacingOccurrences(of: "</p>", with: "")
             newDescription = newDescription?.replacingOccurrences(of: "<em>", with: "")
             newDescription = newDescription?.replacingOccurrences(of: "</em>", with: "")
             
-    //Reformat date return from JSON
+        //Reformat date return from JSON to Date (Swift data type)
             let dateString = returnedEventsData[indexPath.row].dateStart
             let dateFormatterSet = DateFormatter()
             dateFormatterSet.dateFormat = "yyyy-MM-dd"
@@ -137,7 +138,7 @@ class EventsTableViewController: UITableViewController {
             dateFormatterSet2.dateFormat = "MMM dd, yyyy"
             let dateEndString = dateFormatterSet2.string(from: dateObj2!)
 
-//Load information into cell attributes
+        //Load information into cell attributes
             cell.titleLabel.text = returnedEventsData[indexPath.row].title
             cell.descriptionLabel.text = newDescription
             cell.endDateLabel.text = dateEndString

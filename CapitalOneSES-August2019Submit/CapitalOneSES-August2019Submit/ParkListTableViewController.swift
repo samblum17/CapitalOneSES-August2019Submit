@@ -11,7 +11,7 @@ import UIKit
 class ParkListTableViewController: UITableViewController, UINavigationControllerDelegate {
     
     var activityIndicatorView: UIActivityIndicatorView!
-    let imageCache = NSCache<AnyObject, AnyObject>()
+    let imageCache = NSCache<AnyObject, AnyObject>() //Cache images for faster loading
 
 
     override func viewDidLoad() {
@@ -62,7 +62,7 @@ class ParkListTableViewController: UITableViewController, UINavigationController
                 
                 //When no results, show alert message
                 if self.searchItems.count == 0 {
-                    let alertController = UIAlertController(title: "No results", message: "No campgrounds to display. Either the park you selected does not have campground information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "No results", message: "No parks to display. Either the park you searched for was spelled incorrectly or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
                     alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
                     self.present(alertController, animated: true, completion: nil)
                 }
@@ -141,6 +141,7 @@ class ParkListTableViewController: UITableViewController, UINavigationController
         var parkImageCaption: String?
         var selectedItemDescription: String?
         var selectedCode: String?
+        var latLong: String?
 
     
 //Send data to next viewController
@@ -152,6 +153,8 @@ class ParkListTableViewController: UITableViewController, UINavigationController
             parkImageURLString = item.images?[0].urlString ?? ""
             parkImageCaption = item.images?[0].caption ?? "Error loading content"
             selectedCode = item.parkCode
+            latLong = item.latLong
+            parkName = item.fullName
         }
     //Segue when park is selected
         if(segue.identifier == "parkSelectedSegue") {
@@ -160,12 +163,14 @@ class ParkListTableViewController: UITableViewController, UINavigationController
             vc.descriptionLabelText = selectedItemDescription
             vc.imageURLString = parkImageURLString ?? " "
             vc.abbreviation = selectedCode
+            vc.latLong = latLong
+            vc.parkName = parkName
             
         }
     
     }
     
-//Load network indicator in background
+//Load network indicator on background view
     override func loadView() {
         super.loadView()
         

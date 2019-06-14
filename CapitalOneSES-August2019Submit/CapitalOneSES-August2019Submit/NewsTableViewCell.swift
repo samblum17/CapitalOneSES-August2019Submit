@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Custom cell for news data and url button tap
 class NewsTableViewCell: UITableViewCell {
 
     @IBOutlet var titleLabel: UILabel!

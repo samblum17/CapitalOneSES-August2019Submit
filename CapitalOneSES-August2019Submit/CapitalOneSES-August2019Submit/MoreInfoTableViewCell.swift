@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Custom cell for VC, alerts
 class MoreInfoTableViewCell: UITableViewCell {
 
     @IBOutlet var topSectionHeaderLabel: UILabel!

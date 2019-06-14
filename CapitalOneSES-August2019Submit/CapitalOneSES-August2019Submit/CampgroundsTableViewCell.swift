@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Custom cell for campground data
 class CampgroundsTableViewCell: UITableViewCell {
 
 //Cell attributes loaded into variables to change

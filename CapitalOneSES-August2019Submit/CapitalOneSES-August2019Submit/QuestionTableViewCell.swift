@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Custom cell for education data and url button tap
 class QuestionTableViewCell: UITableViewCell {
 
 //Cell attribute labels

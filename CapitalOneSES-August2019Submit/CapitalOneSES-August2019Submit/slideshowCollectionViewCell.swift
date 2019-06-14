@@ -12,6 +12,7 @@ import UIKit
 
 class slideshowCollectionViewCell: UICollectionViewCell {
     
+//Main selected park image and associated urlString
     @IBOutlet var myImage: UIImageView!
     var urlString = ""
     

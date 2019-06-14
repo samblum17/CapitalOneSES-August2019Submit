@@ -18,6 +18,7 @@ class CampgroundsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 //Allow cell to have dynamic height
         tableView.estimatedRowHeight = 260.0
         tableView.rowHeight = UITableView.automaticDimension
@@ -36,7 +37,7 @@ class CampgroundsTableViewController: UITableViewController {
 
     }
 
-//Load network indicator in background
+//Load network indicator on background view
     override func loadView() {
         super.loadView()
         
@@ -82,7 +83,7 @@ class CampgroundsTableViewController: UITableViewController {
     }
  
     
-    // MARK: - Table view data source
+                        // MARK: - Table view data source
 
 //Number of rows equals number of campgrounds returned
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -97,7 +98,7 @@ class CampgroundsTableViewController: UITableViewController {
 //Configure cell with respective variables for labels
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
         let cell = tableView.dequeueReusableCell(withIdentifier: "campgroundCell", for: indexPath) as! CampgroundsTableViewCell
-         //Configure the cell...
+        
         //When campgroundData is returned
         if !(returnedCampgroundData.count == 0){
             cell.titleLabel.text = returnedCampgroundData[indexPath.row].name

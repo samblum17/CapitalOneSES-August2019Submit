@@ -10,7 +10,8 @@ import UIKit
 
 @UIApplicationMain
 
-//AppDelegate using default settings
+//AppDelegate implemented with default settings
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?

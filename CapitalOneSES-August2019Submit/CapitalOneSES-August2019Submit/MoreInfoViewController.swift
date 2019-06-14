@@ -17,16 +17,14 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet var moreInfoTableView: UITableView!
     
     
-
-
-    
     override func viewDidLoad() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        super.viewDidLoad()
+        
         //Allow cell to have dynamic height
         moreInfoTableView.estimatedRowHeight = 260.0
         moreInfoTableView.rowHeight = UITableView.automaticDimension
 
+        super.viewDidLoad()
     }
 
     
@@ -35,6 +33,7 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         //Show network indicator before data loads and then load data for each segment
         activityIndicatorView.startAnimating()
         moreInfoTableView.separatorStyle = .none
+        
         if self.title == "Visitor Centers" {
             fetchMatchingVC()
         } else if self.title == "Alerts" {
@@ -42,7 +41,7 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-    //Load network indicator in background
+//Load network indicator on background view
     override func loadView() {
         super.loadView()
         
@@ -58,7 +57,7 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     let VCItemController = StoreVCController()
     var returnedData = [VCData]()
 
-    //Pull park data from NPS API and load into respective variables
+//Pull VC data from NPS API and load into respective variables
     func fetchMatchingVC() {
         
         self.returnedData = []
@@ -69,7 +68,7 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
                 "parkCode" : abbreviation!,
                 "api_key" : "0deJt7XudkZrb2wSMFjaLYrHQESBWIQHMNeuM7o1"
             ]
-            //Call the itemController to fetch items
+        //Call the itemController to fetch items
             VCItemController.fetchItems(matching: query, completion: { (returnedData) in
             
             //Load in returned data and update views
@@ -79,6 +78,7 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
                         self.activityIndicatorView.stopAnimating()
                         self.moreInfoTableView.separatorStyle = .singleLine
                         self.moreInfoTableView.reloadData()
+                       
                         //When no results, show alert message
                         if self.returnedData.count == 0 {
                             let alertController = UIAlertController(title: "No results", message: "No visitor centers to display. Either the park you selected does not have visitor center information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
@@ -101,7 +101,7 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     let alertsItemController = StoreAlertsController()
     var returnedAlertsData = [AlertData]()
     
-    //Pull park data from NPS API and load into respective variables
+//Pull alert data from NPS API and load into respective variables
     func fetchMatchingAlerts() {
         
         self.returnedAlertsData = []
@@ -141,7 +141,7 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
                         //Mark:- Table view data source
     
     
-    //Load data into cells
+//Load data into cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = moreInfoTableView.dequeueReusableCell(withIdentifier: "moreInfoCell", for: indexPath) as! MoreInfoTableViewCell
         
@@ -179,7 +179,7 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
 
-    //Number of rows corresponds to array item count in each segment
+//Number of rows corresponds to array item count in each segment
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.title == "Visitor Centers" {
             return returnedData.count
@@ -195,7 +195,7 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     
-    //Height of cells is dynamic
+//Height of cells is dynamic
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }

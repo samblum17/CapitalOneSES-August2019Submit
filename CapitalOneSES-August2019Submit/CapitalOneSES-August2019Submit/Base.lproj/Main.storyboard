@@ -100,26 +100,34 @@
             </objects>
             <point key="canvasLocation" x="1341.5999999999999" y="-188.42364532019704"/>
         </scene>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="XTB-RH-Nwf">
             <objects>
-                <viewController id="4ON-fZ-ngu" sceneMemberID="viewController">
+                <viewController id="4ON-fZ-ngu" customClass="MapViewController" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Jl-TX-7Ma">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="B47-f7-zsE">
-                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="B47-f7-zsE">
+                                <rect key="frame" x="0.0" y="140" width="375" height="672"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="B47-f7-zsE" firstAttribute="trailing" secondItem="VIm-ut-a1I" secondAttribute="trailing" id="IBh-SF-XQs"/>
+                            <constraint firstItem="B47-f7-zsE" firstAttribute="top" secondItem="VIm-ut-a1I" secondAttribute="top" id="Q5U-Iu-cAY"/>
+                            <constraint firstItem="B47-f7-zsE" firstAttribute="leading" secondItem="VIm-ut-a1I" secondAttribute="leading" id="YgE-iZ-RK7"/>
+                            <constraint firstAttribute="bottom" secondItem="B47-f7-zsE" secondAttribute="bottom" id="rx5-5Z-BN3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="VIm-ut-a1I"/>
                     </view>
+                    <connections>
+                        <outlet property="parkMapView" destination="B47-f7-zsE" id="zdt-JX-P3E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mXA-wH-EV8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1341.5999999999999" y="662.807881773399"/>
+            <point key="canvasLocation" x="1918" y="1108"/>
         </scene>
         <!--Selected Park View Controller-->
         <scene sceneID="PeJ-cY-OXd">
@@ -196,6 +204,17 @@
                                             <segue destination="nLe-SG-6mV" kind="show" identifier="newsSegue" id="tAZ-CO-tik"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKZ-HO-fSX">
+                                        <rect key="frame" x="0.0" y="616" width="375" height="41"/>
+                                        <color key="backgroundColor" red="0.72549019609999998" green="0.3803921569" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="Map">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="4ON-fZ-ngu" kind="show" identifier="mapSegue" id="trc-oR-ma9"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbY-MR-L6B">
                                         <rect key="frame" x="0.0" y="469" width="375" height="41"/>
                                         <color key="backgroundColor" red="0.72549019609999998" green="0.3803921569" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -239,7 +258,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MC-Fq-Iar">
-                                        <rect key="frame" x="0.0" y="615" width="375" height="41"/>
+                                        <rect key="frame" x="0.0" y="665" width="375" height="41"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="Alerts">
@@ -252,28 +271,31 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="oA5-GT-oLF" firstAttribute="leading" secondItem="1MC-Fq-Iar" secondAttribute="leading" id="1P7-aQ-qEZ"/>
+                                    <constraint firstItem="hKZ-HO-fSX" firstAttribute="top" secondItem="TNU-Tq-V8g" secondAttribute="bottom" constant="8" symbolic="YES" id="1uN-Ub-NES"/>
                                     <constraint firstItem="1MC-Fq-Iar" firstAttribute="leading" secondItem="Ong-ke-l57" secondAttribute="leading" id="3pq-t3-dYb"/>
                                     <constraint firstItem="TNU-Tq-V8g" firstAttribute="leading" secondItem="1MC-Fq-Iar" secondAttribute="leading" id="3ql-Z8-qKE"/>
-                                    <constraint firstItem="1MC-Fq-Iar" firstAttribute="top" secondItem="oA5-GT-oLF" secondAttribute="bottom" constant="56" id="9d9-68-552"/>
+                                    <constraint firstItem="1MC-Fq-Iar" firstAttribute="top" secondItem="oA5-GT-oLF" secondAttribute="bottom" constant="106" id="9d9-68-552"/>
                                     <constraint firstItem="HNj-AK-v5K" firstAttribute="top" secondItem="Ong-ke-l57" secondAttribute="top" constant="8" id="9dn-1n-wgV"/>
                                     <constraint firstItem="pbY-MR-L6B" firstAttribute="leading" secondItem="oA5-GT-oLF" secondAttribute="leading" id="CJG-ab-FFg"/>
                                     <constraint firstItem="TNU-Tq-V8g" firstAttribute="trailing" secondItem="1MC-Fq-Iar" secondAttribute="trailing" id="COe-rq-SNN"/>
                                     <constraint firstAttribute="trailing" secondItem="HNj-AK-v5K" secondAttribute="trailing" constant="8" id="I1O-GO-QWG"/>
                                     <constraint firstAttribute="trailing" secondItem="XHi-v7-HC0" secondAttribute="trailing" constant="8" id="KeK-bR-dos"/>
                                     <constraint firstItem="HNj-AK-v5K" firstAttribute="leading" secondItem="Ong-ke-l57" secondAttribute="leading" constant="8" id="NPB-QG-xT2"/>
+                                    <constraint firstItem="hKZ-HO-fSX" firstAttribute="trailing" secondItem="TNU-Tq-V8g" secondAttribute="trailing" id="XzF-G1-BVl"/>
                                     <constraint firstItem="ako-hC-Z1P" firstAttribute="top" secondItem="i5d-Rg-USS" secondAttribute="bottom" constant="9" id="Ya1-oo-9Bo"/>
                                     <constraint firstItem="i5d-Rg-USS" firstAttribute="leading" secondItem="ako-hC-Z1P" secondAttribute="leading" id="ZMa-Su-ZDS"/>
                                     <constraint firstItem="ako-hC-Z1P" firstAttribute="trailing" secondItem="pbY-MR-L6B" secondAttribute="trailing" id="aiT-hc-aNQ"/>
                                     <constraint firstItem="oA5-GT-oLF" firstAttribute="top" secondItem="pbY-MR-L6B" secondAttribute="bottom" constant="8" symbolic="YES" id="cJF-1X-LYH"/>
                                     <constraint firstItem="i5d-Rg-USS" firstAttribute="trailing" secondItem="ako-hC-Z1P" secondAttribute="trailing" id="cec-ya-VEu"/>
                                     <constraint firstItem="ako-hC-Z1P" firstAttribute="leading" secondItem="pbY-MR-L6B" secondAttribute="leading" id="hMo-DF-xqn"/>
-                                    <constraint firstAttribute="bottom" secondItem="1MC-Fq-Iar" secondAttribute="bottom" constant="104" id="jSh-WT-eI0"/>
+                                    <constraint firstAttribute="bottom" secondItem="1MC-Fq-Iar" secondAttribute="bottom" constant="54" id="jSh-WT-eI0"/>
                                     <constraint firstItem="TNU-Tq-V8g" firstAttribute="top" secondItem="oA5-GT-oLF" secondAttribute="bottom" constant="8" symbolic="YES" id="kFI-iE-0ws"/>
                                     <constraint firstItem="XHi-v7-HC0" firstAttribute="top" secondItem="HNj-AK-v5K" secondAttribute="bottom" constant="30" id="mKi-66-zt5"/>
                                     <constraint firstItem="pbY-MR-L6B" firstAttribute="top" secondItem="ako-hC-Z1P" secondAttribute="bottom" constant="8" symbolic="YES" id="mWV-l1-FBO"/>
                                     <constraint firstItem="i5d-Rg-USS" firstAttribute="top" secondItem="XHi-v7-HC0" secondAttribute="bottom" constant="40" id="opb-zw-ap5"/>
                                     <constraint firstItem="XHi-v7-HC0" firstAttribute="leading" secondItem="Ong-ke-l57" secondAttribute="leading" constant="8" id="qfz-UJ-wBh"/>
                                     <constraint firstItem="pbY-MR-L6B" firstAttribute="trailing" secondItem="oA5-GT-oLF" secondAttribute="trailing" id="sff-Iy-anm"/>
+                                    <constraint firstItem="hKZ-HO-fSX" firstAttribute="leading" secondItem="TNU-Tq-V8g" secondAttribute="leading" id="uLJ-v0-IA5"/>
                                     <constraint firstAttribute="trailing" secondItem="1MC-Fq-Iar" secondAttribute="trailing" id="wmS-7I-z8u"/>
                                     <constraint firstItem="oA5-GT-oLF" firstAttribute="trailing" secondItem="1MC-Fq-Iar" secondAttribute="trailing" id="xho-si-d7U"/>
                                 </constraints>
@@ -528,7 +550,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t4q-gW-LV6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3568.8000000000002" y="788.42364532019712"/>
+            <point key="canvasLocation" x="3569" y="735"/>
         </scene>
         <!--Events Table View Controller-->
         <scene sceneID="EU0-hb-uGz">
@@ -685,7 +707,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hd6-lS-lYb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3569" y="132"/>
+            <point key="canvasLocation" x="3569" y="-10"/>
         </scene>
         <!--Campgrounds Table View Controller-->
         <scene sceneID="XbX-fo-nTY">
@@ -877,7 +899,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qea-Jk-KsD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3570" y="-517"/>
+            <point key="canvasLocation" x="3244" y="-700"/>
         </scene>
         <!--More Info View Controller-->
         <scene sceneID="ylw-FR-jEa">
@@ -981,7 +1003,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wGs-jM-H9y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2850" y="-1086"/>
+            <point key="canvasLocation" x="2393" y="-1165"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vWC-JV-T7z">

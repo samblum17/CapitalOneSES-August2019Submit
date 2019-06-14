@@ -9,6 +9,8 @@
 import UIKit
 import SafariServices
 
+/*This VC loads information for articles and news releases using a segmented control and the same tableView layout for each API pull
+ */
 class NewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //Variable set up to hold objects used throughout controller for each segment
@@ -26,6 +28,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //Allow cell to have dynamic height
         newsTableView.estimatedRowHeight = 260.0
         newsTableView.rowHeight = UITableView.automaticDimension
@@ -41,7 +44,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         fetchMatchingArticles()
     }
 
-//Load network indicator in background
+//Load network indicator on background view
     override func loadView() {
         super.loadView()
         
@@ -65,7 +68,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         //Call the itemController to fetch items
         newsItemController.fetchItems(matching: query, completion: { (returnedNewsData) in
             
-            //Load in returned data and update views
+            //Load in returned data and update views on highest priority queue
             DispatchQueue.main.async {
                 if let returnedNewsData = returnedNewsData {
                     self.returnedNewsData = returnedNewsData
@@ -81,7 +84,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         )
     }
     
-    //Pull articles data from NPS API and load into respective variables
+//Pull articles data from NPS API and load into respective variables
     func fetchMatchingArticles() {
         
         self.returnedArticleData = []
@@ -111,15 +114,13 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         )
     }
     
-    /*Reload data respective to current segment when segment is switched and display error messages accordingly
-     */
+/*Reload data respective to current segment when segment is switched and display error messages accordingly */
     @IBAction func segmentSwitched(_ sender: UISegmentedControl) {
-        /*Use following line to control what happens when each index selected:
-         newsSegmentedControl.selectedSegmentIndex */
+        
+        newsTableView.reloadData()
         
         //When no results, show alert message
         if newsSegmentedControl.selectedSegmentIndex == 0 {
-            newsTableView.reloadData()
             if self.returnedArticleData.count == 0 {
                 let alertController = UIAlertController(title: "No results", message: "No articles to display. Either the park you selected does not have article information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
@@ -128,7 +129,6 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         }
         if newsSegmentedControl.selectedSegmentIndex == 1 {
-            newsTableView.reloadData()
             if self.returnedNewsData.count == 0 {
                 let alertController = UIAlertController(title: "No results", message: "No news releases to display. Either the park you selected does not have news release information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
@@ -138,7 +138,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    //Number of rows corresponds to array item count in each segment
+//Number of rows corresponds to array item count in each segment
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if newsSegmentedControl.selectedSegmentIndex == 1 {
             return returnedNewsData.count
@@ -157,7 +157,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = newsTableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as! NewsTableViewCell
 
             
-//        //Articles segment
+//Articles segment
         if newsSegmentedControl.selectedSegmentIndex == 0 {
             //When data returned
             if !(returnedArticleData.count == 0){
@@ -177,7 +177,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             }
             
-            //News releases segment
+//News releases segment
         } else if newsSegmentedControl.selectedSegmentIndex == 1 {
             //When data returned
             if !(returnedNewsData.count == 0){
@@ -202,7 +202,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     
-    //Height of cells is dynamic
+//Height of cells is dynamic
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }

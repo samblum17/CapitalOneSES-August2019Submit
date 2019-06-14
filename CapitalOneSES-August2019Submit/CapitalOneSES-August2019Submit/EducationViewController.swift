@@ -33,6 +33,7 @@ class EducationViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //Allow cell to have dynamic height
         questionTableView.estimatedRowHeight = 260.0
         questionTableView.rowHeight = UITableView.automaticDimension
@@ -48,7 +49,7 @@ class EducationViewController: UIViewController, UITableViewDelegate, UITableVie
         fetchMatchingPlaces()
     }
     
-//Load network indicator in background
+//Load network indicator on background view
     override func loadView() {
         super.loadView()
         
@@ -178,7 +179,7 @@ class EducationViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
- //Number of rows corresponds to array item count in each segment
+//Number of rows corresponds to array item count in each segment
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if educationSegmentControl.selectedSegmentIndex == 0 {
             return returnedQuestionData.count
@@ -199,13 +200,13 @@ class EducationViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = questionTableView.dequeueReusableCell(withIdentifier: "questionCell", for: indexPath) as! QuestionTableViewCell
         
-    //Lesson segment
+//Lesson segment
         if educationSegmentControl.selectedSegmentIndex == 0 {
         //When data returned
         if !(returnedQuestionData.count == 0){
             var questionItem = returnedQuestionData[indexPath.row]
 
-        //Mutate returned grade data from JSON
+        //Mutate returned grade data from JSON for simplicity
             var grade = "Appropiate Grade Level: "
             var returnedGrade = questionItem.gradeLevel ?? "All"
             if let dotRange = returnedGrade.range(of: ":") {
@@ -228,7 +229,7 @@ class EducationViewController: UIViewController, UITableViewDelegate, UITableVie
             }
             }
             
-    //People segment
+//People segment
         } else if educationSegmentControl.selectedSegmentIndex == 1 {
             //When data returned
             if !(returnedPeopleData.count == 0){
@@ -248,7 +249,7 @@ class EducationViewController: UIViewController, UITableViewDelegate, UITableVie
                     }
                 }
             }
-    //Places segment
+//Places segment
         } else if educationSegmentControl.selectedSegmentIndex == 2 {
             //When data returned
             if !(returnedPlacesData.count == 0){

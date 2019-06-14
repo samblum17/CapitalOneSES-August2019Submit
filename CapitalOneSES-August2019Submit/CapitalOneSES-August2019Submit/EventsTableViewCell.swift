@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Custom cell for event data
 class EventsTableViewCell: UITableViewCell {
 
 //Cell attributes loaded into variables to change

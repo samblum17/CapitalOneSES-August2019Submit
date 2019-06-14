@@ -353,7 +353,7 @@ struct ParkData: Codable {
     var states: String?
     var description: String?
     var name: String?
-//    var images: [Images]?
+    var images: [Images]?
     var parkCode: String?
     var latLong: String?
     
@@ -362,7 +362,7 @@ struct ParkData: Codable {
         case states
         case description
         case name
-//        case images
+        case images
         case parkCode
         case latLong
     }
@@ -404,6 +404,7 @@ extension URL {
 }
 let query: [String: String] = [
     "parkCode" : "yose",
+    "fields" : "images",
     "api_key" : "0deJt7XudkZrb2wSMFjaLYrHQESBWIQHMNeuM7o1"
 ]
 let baseURL = URL(string: "https://developer.nps.gov/api/v1/parks?")!

@@ -32,7 +32,8 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate, UIColl
     var descriptionLabelText: String?
     var imageURLString: String = ""
     var abbreviation: String?
-    let imageCache = NSCache<AnyObject, AnyObject>()
+    var latLong: String?
+    let imageCache = NSCache<AnyObject, AnyObject>() //Cache image for faster loading
 
         override func viewDidLoad() {
         
@@ -87,7 +88,7 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate, UIColl
         return cell
     }
 
-//Load network indicator in background
+//Load network indicator on background view
     override func loadView() {
         super.loadView()
         
@@ -141,15 +142,24 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate, UIColl
             vc.abbreviation = abbreviation
         }
         
+        //Segue to map
+        if (segue.identifier == "mapSegue") {
+            let vc = segue.destination as! MapViewController
+            vc.title = "Map"
+            vc.abbreviation = abbreviation
+            vc.latLong = latLong
+            vc.parkName = parkName
+        }
+        
     }
 
 
     
 
-    /*
+  
                     // MARK: -  Unused overrides below
 
-
+  /*
     // Pass information to another view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.

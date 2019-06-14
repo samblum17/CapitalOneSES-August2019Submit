@@ -37,6 +37,7 @@ struct ParkData: Codable {
     var states: String?
     var images: [Images]?
     var parkCode: String?
+    var latLong: String?
 
   //Enum used because not all JSON returned values are used
     enum CodingKeys: String, CodingKey {
@@ -46,6 +47,7 @@ struct ParkData: Codable {
         case states
         case images
         case parkCode
+        case latLong
     }
    //Initializer used because not all JSON returned values are used
     init(from decoder: Decoder) throws {
@@ -57,7 +59,7 @@ struct ParkData: Codable {
         self.name = try valueContainer.decode(String.self, forKey: CodingKeys.name)
         self.images = try valueContainer.decode([Images].self, forKey: CodingKeys.images)
         self.parkCode = try valueContainer.decode(String.self, forKey: CodingKeys.parkCode)
-
+        self.latLong = try valueContainer.decode(String.self, forKey: CodingKeys.latLong)
 
     }
 }
