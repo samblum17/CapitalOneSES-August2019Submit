@@ -35,10 +35,17 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate, UIColl
     var latLong: String?
     let imageCache = NSCache<AnyObject, AnyObject>() //Cache image for faster loading
 
-        override func viewDidLoad() {
+    override func viewDidLoad() {
         
         navigationController?.navigationBar.prefersLargeTitles = true
         descriptionLabel.text = descriptionLabelText
+        
+        //Allow images in slideshowView to adapt to screen size
+        let width = view.frame.size.width
+        let height = view.frame.size.height
+        let layout = slideshowCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSize(width: width, height: height)
+        
         super.viewDidLoad()
             
     }
