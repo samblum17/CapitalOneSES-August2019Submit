@@ -135,6 +135,7 @@ class ParkListTableViewController: UITableViewController, UINavigationController
     
 //Prepare data to be passed to proper viewController
         var parkName: String?
+        var parkShortName: String?
         var parkDescription: String?
         var parkImageURLString: String?
         var parkImageURL: URL?
@@ -149,7 +150,7 @@ class ParkListTableViewController: UITableViewController, UINavigationController
         if let indexPath = self.tableView.indexPathForSelectedRow {
             let item = self.searchItems[indexPath.row]
             selectedItemDescription = item.description
-            parkName = item.name
+            parkShortName = item.name
             parkImageURLString = item.images?[0].urlString ?? ""
             parkImageCaption = item.images?[0].caption ?? "Error loading content"
             selectedCode = item.parkCode
@@ -159,7 +160,7 @@ class ParkListTableViewController: UITableViewController, UINavigationController
     //Segue when park is selected
         if(segue.identifier == "parkSelectedSegue") {
             let vc = segue.destination as! SelectedParkViewController
-            vc.title = parkName
+            vc.title = parkShortName
             vc.descriptionLabelText = selectedItemDescription
             vc.imageURLString = parkImageURLString ?? " "
             vc.abbreviation = selectedCode

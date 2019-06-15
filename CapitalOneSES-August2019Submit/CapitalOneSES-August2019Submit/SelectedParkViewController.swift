@@ -48,6 +48,7 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate, UIColl
         return 1
     }
  
+    
 //Configure collectionView cell and load in data
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "slideshowCell", for: indexPath) as! slideshowCollectionViewCell
