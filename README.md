@@ -1,7 +1,7 @@
 # National Park Kiosk
 ###### An iOS Application submitted for the Capital One Software Engineering Summit 08/19
 Submission for the semifinalist round of the Capital One Software Engineering Summit. The August 2019 coding challenge can be found [here](https://www.mindsumo.com/contests/national-park-api).
-This project is live on the iOS App Store- [Click to download](https://apps.apple.com/us/app/national-park-kiosk/id1465222121).
+This project is live on the iOS App Store- [Click to download](https://apps.apple.com/us/app/national-park-kiosk/id1465222121). Access Swift files used to build this app in [Project Files](docs/CONTRIBUTING.md)
 
 ## Description
 The National Parks have been a staple of America for 100 years. The National Park Service (NPS) has been the primary contributor to their success in both preserving beauty and ensuring the safety of visitors. National Park Kiosk uses data pulled directly from the NPS API, so it's always updated and accessible. This is your one-stop destination for finding the important, concise answers to help plan your next National Park journey:
@@ -15,8 +15,8 @@ The National Parks have been a staple of America for 100 years. The National Par
 ## Prerequisites
 National Park Kiosk is an iOS Application that is designed to run on iPhones running iOS 12+. 
 
-## Installing
-National Park Kiosk is available on the iOS App Store. It can be downloaded directly from your iPhone running iOS 12+ [here](https://apps.apple.com/us/app/national-park-kiosk/id1465222121).
+## Installing and Testing
+National Park Kiosk is available on the iOS App Store. It can be downloaded directly from your iPhone running iOS 12+ [here](https://apps.apple.com/us/app/national-park-kiosk/id1465222121). Testing of this application can be done in the Xcode iOS Simulator or Xcode 11 live preview. Download all project files onto a Mac running macOS Mojave or later.
 
 ## Built With
 Although the coding challenge called for a live, deployable web app, I consulted with Capital One engineers on the MindSumo forum and was granted permission to create an iOS Application instead, given my passion for iOS development. Therefore, National Park Kiosk was designed, developed, and tested in Xcode 10.2. It uses native iOS Frameworks including [Foundation](https://developer.apple.com/documentation/foundation) and [UIKit](https://developer.apple.com/documentation/uikit) to build table views and a navigation view controller for a seamless user experience. This application decodes JSON using Swift 5 syntax. The JSON data is pulled directly from the [National Park Service API](https://www.nps.gov/subjects/developer/api-documentation.htm#/) and stored into custom Swift types.
