@@ -1,6 +1,6 @@
 # National Park Kiosk
-###### An iOS Application submitted for the Capital One Software Engineering Summit 08/19
-Submission for the semifinalist round of the Capital One Software Engineering Summit. The August 2019 coding challenge can be found [here](https://www.mindsumo.com/contests/national-park-api).
+###### Winning submission of the Capital One Software Engineering summit (August 2019)
+An iOS Application submitted for the August 2019 coding challenge. Challenge can be found [here](https://www.mindsumo.com/contests/national-park-api).
 This project is live on the iOS App Store- [Click to download](https://apps.apple.com/us/app/national-park-kiosk/id1465222121). Access Swift files used to build this app in [Xcode Project Files](https://github.com/samblum17/CapitalOneSES-August2019Submit/tree/master/CapitalOneSES-August2019Submit/CapitalOneSES-August2019Submit)
 
 ## Description
