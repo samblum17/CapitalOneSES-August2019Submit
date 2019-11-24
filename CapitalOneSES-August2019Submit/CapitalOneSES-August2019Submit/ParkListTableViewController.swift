@@ -85,7 +85,7 @@ class ParkListTableViewController: UITableViewController, UINavigationController
             cell.stateCodeLabel.text = item.states
         
         //Placeholder image for loading
-            cell.cellImage.image = #imageLiteral(resourceName: "NewSolid_gray")
+            cell.cellImage.image = #imageLiteral(resourceName: "Solid_gray")
         
         //Set actual cell image from cache
             let currentImageURLString = item.images?[0].urlString ?? ""

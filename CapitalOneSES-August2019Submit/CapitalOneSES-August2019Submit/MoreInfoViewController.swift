@@ -33,7 +33,7 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         //Show network indicator before data loads and then load data for each segment
         activityIndicatorView.startAnimating()
         moreInfoTableView.separatorStyle = .none
-        
+
         if self.title == "Visitor Centers" {
             fetchMatchingVC()
         } else if self.title == "Alerts" {
@@ -44,7 +44,7 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
 //Load network indicator on background view
     override func loadView() {
         super.loadView()
-        
+
         activityIndicatorView = UIActivityIndicatorView(style: .gray)
         moreInfoTableView.backgroundView = activityIndicatorView
     }
