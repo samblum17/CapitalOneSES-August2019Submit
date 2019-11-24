@@ -26,3 +26,5 @@ This application was designed, developed, and tested entirely and solely by Sam 
 
 ## Acknowledgments
 I'd like to thank Capital One for choosing me as a semifinalist for the Software Engineering Summit. I'd like to thank Apple as always for their extremely helpful resources on learning the fundamentals of Swift and Xcode. Additionally I'd like to thank the entire developer community for always being repsonsive to online forums and personal DMs on Twitter. And finally I'd like to thank my family for always pushing me to continue learning and developing even when it got tough.
+
+//Note that this repository will not show commits from iOS 13 and onward. Please contact the developer for questions regarding Version 2.0+ and iOS 13 integration.
