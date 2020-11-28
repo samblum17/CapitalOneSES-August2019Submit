@@ -13,7 +13,7 @@ The National Parks have been a staple of America for 100 years. The National Par
 - Learn from educational information about a selected destination, utilizing available lesson plans as well as relevant people and places associated with the location.
 
 ## Prerequisites
-National Park Kiosk is an iOS Application that is designed to run on iPhones running iOS 12+. 
+National Park Kiosk is an iOS Application that is designed to run on iPhones running iOS 12+ and Macs with Apple silicon.
 
 ## Installing and Testing
 National Park Kiosk is available on the iOS App Store. It can be downloaded directly from your iPhone running iOS 12+ [here](https://apps.apple.com/us/app/national-park-kiosk/id1465222121). Testing of this application can be done in the Xcode iOS Simulator or Xcode 11 live preview. Download all project files onto a Mac running macOS Mojave or later.
