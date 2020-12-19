@@ -12,6 +12,7 @@ class ParkListTableViewController: UITableViewController, UINavigationController
     
     var activityIndicatorView: UIActivityIndicatorView!
     let imageCache = NSCache<AnyObject, AnyObject>() //Cache images for faster loading
+    static let initialDefaultImageURL = "https://www.nps.gov/common/commonspot/templates/images/logos/nps_social_image_02.jpg"
 
 
     override func viewDidLoad() {
@@ -87,10 +88,13 @@ class ParkListTableViewController: UITableViewController, UINavigationController
         //Placeholder image for loading
             cell.cellImage.image = #imageLiteral(resourceName: "Solid_gray")
         
-        //Set actual cell image from cache
-            let currentImageURLString = item.images?[0].urlString ?? ""
+        //Set actual cell image from cache (default to NPS logo)
+        var currentImageURLString = ParkListTableViewController.initialDefaultImageURL
+        if !(item.images?.isEmpty)! {
+            currentImageURLString = item.images?[0].urlString ?? ""
+        }
         
-            var imageURL = URL(string: currentImageURLString)
+            let imageURL = URL(string: currentImageURLString)
             if let imageFromCache = imageCache.object(forKey: currentImageURLString as AnyObject) as? UIImage {
                 DispatchQueue.main.async {
                     cell.cellImage.image = imageFromCache
@@ -137,13 +141,14 @@ class ParkListTableViewController: UITableViewController, UINavigationController
         var parkName: String?
         var parkShortName: String?
         var parkDescription: String?
-        var parkImageURLString: String?
+        var parkImageURLString: String? = ParkListTableViewController.initialDefaultImageURL
         var parkImageURL: URL?
-        var parkImageCaption: String?
+        var parkImageCaption: String? = "Error loading content"
         var selectedItemDescription: String?
         var selectedCode: String?
         var latLong: String?
-
+            
+    
     
 //Send data to next viewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -151,8 +156,10 @@ class ParkListTableViewController: UITableViewController, UINavigationController
             let item = self.searchItems[indexPath.row]
             selectedItemDescription = item.description
             parkShortName = item.name
-            parkImageURLString = item.images?[0].urlString ?? ""
-            parkImageCaption = item.images?[0].caption ?? "Error loading content"
+            if !(item.images?.isEmpty)! {
+                parkImageURLString = item.images?[0].urlString ?? ""
+                parkImageCaption = item.images?[0].caption ?? "Error loading content"
+            }
             selectedCode = item.parkCode
             latLong = item.latLong
             parkName = item.fullName
@@ -175,7 +182,7 @@ class ParkListTableViewController: UITableViewController, UINavigationController
     override func loadView() {
         super.loadView()
         
-        activityIndicatorView = UIActivityIndicatorView(style: .gray)
+        activityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         
         tableView.backgroundView = activityIndicatorView
     }

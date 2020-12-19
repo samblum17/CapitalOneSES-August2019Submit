@@ -43,7 +43,7 @@ class EventsTableViewController: UITableViewController {
     override func loadView() {
         super.loadView()
         
-        activityIndicatorView = UIActivityIndicatorView(style: .gray)
+        activityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         
         tableView.backgroundView = activityIndicatorView
     }

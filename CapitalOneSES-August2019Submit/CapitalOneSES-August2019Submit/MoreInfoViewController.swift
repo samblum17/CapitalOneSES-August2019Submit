@@ -45,7 +45,7 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     override func loadView() {
         super.loadView()
 
-        activityIndicatorView = UIActivityIndicatorView(style: .gray)
+        activityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         moreInfoTableView.backgroundView = activityIndicatorView
     }
     

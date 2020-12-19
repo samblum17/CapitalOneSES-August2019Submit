@@ -53,7 +53,7 @@ class EducationViewController: UIViewController, UITableViewDelegate, UITableVie
     override func loadView() {
         super.loadView()
         
-        activityIndicatorView = UIActivityIndicatorView(style: .gray)
+        activityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         
         questionTableView.backgroundView = activityIndicatorView
     }

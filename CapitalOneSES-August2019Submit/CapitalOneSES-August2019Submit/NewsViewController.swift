@@ -48,7 +48,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func loadView() {
         super.loadView()
         
-        activityIndicatorView = UIActivityIndicatorView(style: .gray)
+        activityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         
         newsTableView.backgroundView = activityIndicatorView
     }

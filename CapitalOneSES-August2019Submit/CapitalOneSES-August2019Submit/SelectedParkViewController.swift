@@ -100,7 +100,7 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate, UIColl
     override func loadView() {
         super.loadView()
         
-        activityIndicatorView = UIActivityIndicatorView(style: .gray)
+        activityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         slideshowCollectionView.backgroundView = activityIndicatorView
     }
     
