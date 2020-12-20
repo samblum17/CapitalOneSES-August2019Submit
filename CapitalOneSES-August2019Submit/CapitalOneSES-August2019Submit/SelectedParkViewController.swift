@@ -41,8 +41,13 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate, UIColl
         descriptionLabel.text = descriptionLabelText
         
         //Allow images in slideshowView to adapt to screen size
-        let width = view.frame.size.width
-        let height = view.frame.size.height
+        var width = view.frame.size.width
+        var height = view.frame.size.height
+        if (UIDevice.current.userInterfaceIdiom == .pad){
+             width = view.frame.size.width/3
+            height = UIScreen.main.bounds.height/3
+            slideshowCollectionView.isScrollEnabled = false
+        }
         let layout = slideshowCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: height)
         

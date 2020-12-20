@@ -142,7 +142,7 @@
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HNj-AK-v5K">
                                         <rect key="frame" x="8" y="8" width="359" height="192"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="192" id="aIj-cu-lZS"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="192" id="eEt-06-I50"/>
@@ -346,7 +346,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Rcb-VF-dvr"/>
-                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Ong-ke-l57" firstAttribute="top" secondItem="Rcb-VF-dvr" secondAttribute="top" id="Phs-3X-TFS"/>
                             <constraint firstItem="Ong-ke-l57" firstAttribute="bottom" secondItem="Rcb-VF-dvr" secondAttribute="bottom" constant="34" id="iLq-re-Rta"/>
@@ -1041,7 +1041,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Iqt-Vm-1Kk"/>
-                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Wa2-lV-eGw" secondAttribute="bottom" id="7Dc-Rg-PEd"/>
                             <constraint firstItem="Wa2-lV-eGw" firstAttribute="leading" secondItem="Iqt-Vm-1Kk" secondAttribute="leading" id="SYC-Eh-SaN"/>
@@ -1115,6 +1115,9 @@
     <resources>
         <image name="NewSolid_gray" width="200" height="200"/>
         <image name="Solid_gray" width="200" height="200"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
