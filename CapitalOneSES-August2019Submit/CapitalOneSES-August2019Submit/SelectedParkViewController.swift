@@ -52,8 +52,9 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate, UIColl
         layout.itemSize = CGSize(width: width, height: height)
         
         super.viewDidLoad()
-            
+        
     }
+
     
 //1 photo returned to collection view. For future slideshow implementation, return array count
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -169,7 +170,6 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate, UIColl
     }
 
 
-    
 
   
                     // MARK: -  Unused overrides below

@@ -104,11 +104,11 @@
             <objects>
                 <viewController id="4ON-fZ-ngu" customClass="MapViewController" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Jl-TX-7Ma">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="B47-f7-zsE">
-                                <rect key="frame" x="0.0" y="140" width="414" height="756"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VIm-ut-a1I"/>
@@ -365,11 +365,9 @@
                         <outlet property="funInfoButton" destination="oA5-GT-oLF" id="PTl-pp-PgQ"/>
                         <outlet property="slideshowCollectionView" destination="HNj-AK-v5K" id="G4q-Hf-2Ql"/>
                         <outlet property="visitorCentersButton" destination="i5d-Rg-USS" id="qNB-pA-oOl"/>
-                        <segue destination="GOk-bu-0v8" kind="unwind" identifier="unwindToA" unwindAction="unwind:" id="QIv-ay-OIk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Dm-zR-Rha" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="GOk-bu-0v8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2181.6546762589928" y="-188.44221105527637"/>
         </scene>
@@ -378,11 +376,11 @@
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="nLe-SG-6mV" customClass="NewsViewController" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ekh-4T-7Cg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LRc-jw-7BC">
-                                <rect key="frame" x="0.0" y="140" width="414" height="32"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
                                 <segments>
                                     <segment title="Articles"/>
                                     <segment title="News Releases"/>
@@ -393,7 +391,7 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="C1A-TT-8Cf">
-                                <rect key="frame" x="0.0" y="173" width="414" height="723"/>
+                                <rect key="frame" x="0.0" y="33" width="414" height="809"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="newsCell" rowHeight="150" id="8DO-Gn-nHh" customClass="NewsTableViewCell" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target">
@@ -489,11 +487,11 @@
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="oCC-6t-Bjz" customClass="EducationViewController" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JVO-jG-dEj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="84n-7X-EGa">
-                                <rect key="frame" x="0.0" y="172" width="414" height="724"/>
+                                <rect key="frame" x="0.0" y="32" width="414" height="810"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="questionCell" rowHeight="214" id="184-MC-iaV" customClass="QuestionTableViewCell" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target">
@@ -568,7 +566,7 @@
                                 </connections>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eXU-Dd-AvO">
-                                <rect key="frame" x="0.0" y="140" width="414" height="32"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
                                 <segments>
                                     <segment title="Lessons"/>
                                     <segment title="People"/>
@@ -606,7 +604,7 @@
             <objects>
                 <tableViewController id="HHP-A7-vdt" customClass="EventsTableViewController" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QTC-zJ-1aE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -764,7 +762,7 @@
             <objects>
                 <tableViewController id="F75-QF-r84" customClass="CampgroundsTableViewController" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zs9-60-ClK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -957,11 +955,11 @@
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="Fw4-6Q-cxC" customClass="MoreInfoViewController" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AT7-MF-jOK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wa2-lV-eGw">
-                                <rect key="frame" x="0.0" y="140" width="414" height="756"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="moreInfoCell" rowHeight="270" id="evE-hU-JHS" customClass="MoreInfoTableViewCell" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target">
@@ -1110,7 +1108,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="399-hq-fWH"/>
-        <segue reference="cbF-nM-OjL"/>
+        <segue reference="ehv-hK-vqt"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="NewSolid_gray" width="200" height="200"/>

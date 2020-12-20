@@ -245,8 +245,8 @@ class ParkListTableViewController: UITableViewController, UINavigationController
         tableView.backgroundView = activityIndicatorView
     }
     
-    @IBAction func unwind( _ seg: UIStoryboardSegue) {
-        navigationController?.navigationController?.popToRootViewController(animated: true)
+    @IBAction func unwind(segue : UIStoryboardSegue) {
+        
     }
 }
 
