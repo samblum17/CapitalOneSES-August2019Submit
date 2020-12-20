@@ -1079,7 +1079,7 @@
         <!--Split View Controller-->
         <scene sceneID="4G4-UL-jz3">
             <objects>
-                <splitViewController allowDoubleColumnStyle="YES" presentsWithGesture="NO" id="EwN-hc-g9e" sceneMemberID="viewController">
+                <splitViewController allowDoubleColumnStyle="YES" preferredDisplayMode="beside" id="EwN-hc-g9e" sceneMemberID="viewController">
                     <connections>
                         <segue destination="qMf-Sy-OiG" kind="relationship" relationship="masterViewController" id="jMj-9Y-g8L"/>
                         <segue destination="4ZB-Uw-O3i" kind="relationship" relationship="detailViewController" id="00R-fg-G0F"/>

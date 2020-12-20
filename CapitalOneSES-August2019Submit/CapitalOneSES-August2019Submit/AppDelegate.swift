@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let window = window,
               let splitViewController
                 = window.rootViewController as? UISplitViewController {
-            splitViewController.preferredDisplayMode = .automatic
+            splitViewController.preferredDisplayMode = .allVisible
                   splitViewController.delegate = self
             }
             return true
@@ -59,7 +59,7 @@ extension AppDelegate: UISplitViewControllerDelegate {
        return true
     
 }
-    
+
     func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController:UIViewController!, ontoPrimaryViewController primaryViewController:UIViewController!) -> Bool {
         if let secondaryAsNavController = secondaryViewController as? UINavigationController {
             if let topAsDetailController = secondaryAsNavController.topViewController as? SelectedParkViewController {
