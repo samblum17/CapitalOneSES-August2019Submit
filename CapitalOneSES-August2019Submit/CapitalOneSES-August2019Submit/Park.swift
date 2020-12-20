@@ -30,7 +30,15 @@ struct Images: Codable {
 }
 
 //ParkData object for park information returned in each Park object
-struct ParkData: Codable {
+struct ParkData: Codable, Equatable {
+    static func == (lhs: ParkData, rhs: ParkData) -> Bool {
+        if lhs.fullName == rhs.fullName {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     var fullName: String?
     var description: String?
     var name: String?
