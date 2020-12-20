@@ -13,6 +13,7 @@
 		E45FBD0B22ADBE9800A9570F /* Campgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FBD0A22ADBE9800A9570F /* Campgrounds.swift */; };
 		E45FBD0F22ADC6DE00A9570F /* CampgroundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FBD0E22ADC6DE00A9570F /* CampgroundsTableViewController.swift */; };
 		E45FBD1122ADCCED00A9570F /* CampgroundsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FBD1022ADCCED00A9570F /* CampgroundsTableViewCell.swift */; };
+		E47F66F6258FF17B00E0A42C /* Main-Pad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47F66F4258FF17B00E0A42C /* Main-Pad.storyboard */; };
 		E49019182297BF3000B42A87 /* SelectedParkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49019172297BF3000B42A87 /* SelectedParkViewController.swift */; };
 		E49CCD8022B1391700F53ECE /* MoreInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49CCD7F22B1391700F53ECE /* MoreInfoTableViewCell.swift */; };
 		E49CCD8222B15F2D00F53ECE /* slideshowCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49CCD8122B15F2D00F53ECE /* slideshowCollectionViewCell.swift */; };
@@ -46,6 +47,7 @@
 		E45FBD0A22ADBE9800A9570F /* Campgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campgrounds.swift; sourceTree = "<group>"; };
 		E45FBD0E22ADC6DE00A9570F /* CampgroundsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampgroundsTableViewController.swift; sourceTree = "<group>"; };
 		E45FBD1022ADCCED00A9570F /* CampgroundsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampgroundsTableViewCell.swift; sourceTree = "<group>"; };
+		E47F66F5258FF17B00E0A42C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "CapitalOneSES-August2019Submit/Base.lproj/Main-Pad.storyboard"; sourceTree = "<group>"; };
 		E49019172297BF3000B42A87 /* SelectedParkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedParkViewController.swift; sourceTree = "<group>"; };
 		E49CCD7F22B1391700F53ECE /* MoreInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoTableViewCell.swift; sourceTree = "<group>"; };
 		E49CCD8122B15F2D00F53ECE /* slideshowCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = slideshowCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			children = (
 				E4D898032293A49B000419B2 /* AppDelegate.swift */,
 				E4D898052293A49B000419B2 /* ViewController.swift */,
+				E47F66F4258FF17B00E0A42C /* Main-Pad.storyboard */,
 				E4D898072293A49B000419B2 /* Main.storyboard */,
 				E4C5C8D222B3F5CC00F234DA /* MapViewController.swift */,
 				E49CCD8122B15F2D00F53ECE /* slideshowCollectionViewCell.swift */,
@@ -238,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4D8980E2293A49C000419B2 /* LaunchScreen.storyboard in Resources */,
+				E47F66F6258FF17B00E0A42C /* Main-Pad.storyboard in Resources */,
 				E4D8980B2293A49C000419B2 /* Assets.xcassets in Resources */,
 				E4D898092293A49B000419B2 /* Main.storyboard in Resources */,
 			);
@@ -283,6 +287,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		E47F66F4258FF17B00E0A42C /* Main-Pad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E47F66F5258FF17B00E0A42C /* Base */,
+			);
+			name = "Main-Pad.storyboard";
+			sourceTree = "<group>";
+		};
 		E4D898072293A49B000419B2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -55,7 +55,6 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate, UIColl
         
     }
 
-    
 //1 photo returned to collection view. For future slideshow implementation, return array count
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1

@@ -78,7 +78,7 @@
                                     <outlet property="cellImage" destination="MbA-Tg-Ons" id="lT4-nd-E9a"/>
                                     <outlet property="stateCodeLabel" destination="UWo-Ts-bEd" id="rr8-cs-mQ3"/>
                                     <outlet property="titleLabel" destination="AND-HD-Csm" id="3OV-4J-2dn"/>
-                                    <segue destination="3ix-Sx-bG3" kind="show" identifier="parkSelectedSegue" id="cbF-nM-OjL"/>
+                                    <segue destination="3ix-Sx-bG3" kind="showDetail" identifier="parkSelectedSegue" id="cbF-nM-OjL"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
