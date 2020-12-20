@@ -64,7 +64,7 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate, UIColl
         activityIndicatorView.startAnimating()
         
         //Check if image is cached, load in if so
-                var imageURL = URL(string: imageURLString)
+                let imageURL = URL(string: imageURLString)
                 if let imageFromCache = imageCache.object(forKey: imageURLString as AnyObject) as? UIImage {
                     //Highest priority queue
                     DispatchQueue.main.async {
@@ -81,7 +81,7 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate, UIColl
                     }
                     //Highest priority queue
                     DispatchQueue.main.async {
-                        let imageToCache = UIImage(data: data!)
+                        let imageToCache = UIImage(data: imageData)
                         self.imageCache.setObject(imageToCache!, forKey: self.imageURLString as AnyObject)
                         cell.myImage.image = imageToCache
                         cell.myImage.isHidden = false
@@ -158,6 +158,8 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate, UIColl
             vc.latLong = latLong
             vc.parkName = parkName
         }
+        
+        
         
     }
 

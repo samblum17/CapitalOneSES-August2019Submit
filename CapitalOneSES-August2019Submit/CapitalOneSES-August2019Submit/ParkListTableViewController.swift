@@ -16,7 +16,11 @@ class ParkListTableViewController: UITableViewController, UINavigationController
     
     
     override func viewDidLoad() {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+        navigationController?.navigationBar.prefersLargeTitles = false
+        } else {
         navigationController?.navigationBar.prefersLargeTitles = true
+        }
         super.viewDidLoad()
         //Keyboard can be swiped down
         tableView.keyboardDismissMode = .interactive
@@ -239,6 +243,10 @@ class ParkListTableViewController: UITableViewController, UINavigationController
         activityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         
         tableView.backgroundView = activityIndicatorView
+    }
+    
+    @IBAction func unwind( _ seg: UIStoryboardSegue) {
+        navigationController?.navigationController?.popToRootViewController(animated: true)
     }
 }
 

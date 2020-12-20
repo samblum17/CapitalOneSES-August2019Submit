@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let window = window,
               let splitViewController
                 = window.rootViewController as? UISplitViewController {
-                  splitViewController.preferredDisplayMode = .allVisible
+            splitViewController.preferredDisplayMode = .automatic
                   splitViewController.delegate = self
             }
             return true
@@ -56,9 +56,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: UISplitViewControllerDelegate {
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-       return false
+       return true
     
 }
+    
+    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController:UIViewController!, ontoPrimaryViewController primaryViewController:UIViewController!) -> Bool {
+        if let secondaryAsNavController = secondaryViewController as? UINavigationController {
+            if let topAsDetailController = secondaryAsNavController.topViewController as? SelectedParkViewController {
+                if topAsDetailController.title == nil {
+                    // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
+    
     @available(iOS 14.0, *)
     func splitViewController(_ svc: UISplitViewController, topColumnForCollapsingToProposedTopColumn proposedTopColumn: UISplitViewController.Column) -> UISplitViewController.Column {
           // This guarantees the app launches in chart list when on portrait mode
