@@ -24,10 +24,10 @@ struct CampgroundData: Codable {
     
     //Enum used because not all JSON returned values are used
     enum CodingKeys: String, CodingKey {
-        case weather = "weatheroverview"
+        case weather = "weatherOverview"
         case name
         case description
-        case directions = "directionsoverview"
+        case directions = "directionsOverview"
         case campsites
     }
     
@@ -53,9 +53,9 @@ struct CampsiteData: Codable {
     
     //Enum used because not all JSON returned values are used
     enum CodingKeys: String, CodingKey {
-        case total = "totalsites"
-        case tent = "tentonly"
-        case rv = "rvonly"
+        case total = "totalSites"
+        case tent = "tentOnly"
+        case rv = "rvOnly"
     }
     //Initializer used because not all JSON returned values are used
     init(from decoder: Decoder) throws {

@@ -20,6 +20,7 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate, UIColl
     @IBOutlet var calendarButton: UIButton! //Renamed to events
     @IBOutlet var funInfoButton: UIButton! //Renamed to education
     @IBOutlet var alertsButton: UIButton!
+    @IBOutlet var moreButton: UIButton!
     
     
 /*Collection View is used to show UIImageView rather than just a UIImageView on top of the scroll view for possible implementation of a slideshow feature in the future. The API data pulling coupled with standard loading images from URL resulted in laggy, unattractive implementation of a slide show throughout testing. For now, a single park image will highlight the selectionViewController but implementation in future should be looked into.
@@ -166,10 +167,29 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate, UIColl
         
         
         
+        
     }
-
-
-
+    
+    //More buttons
+    @IBAction func moreButtonTapped(_ sender: Any) {
+        let base = "https://www.nps.gov/"
+        let fullURLString = base + (abbreviation ?? "yose")
+        if let url = URL(string: fullURLString) {
+            let safariViewController = SFSafariViewController(url: url)
+            self.present(safariViewController,animated: true, completion: nil)
+    }
+    
+    }
+    
+    @IBAction func moreButtonTapped_PadIdiom(_ sender: Any) {
+        let base = "https://www.nps.gov/"
+        let fullURLString = base + (abbreviation ?? "yose")
+        if let url = URL(string: fullURLString) {
+            let safariViewController = SFSafariViewController(url: url)
+            self.present(safariViewController, animated: true, completion: nil)
+    }
+    }
+    
   
                     // MARK: -  Unused overrides below
 
