@@ -53,7 +53,7 @@ struct ArticleData: Codable {
     //Enum used because not all JSON returned values are used
     enum CodingKeys: String, CodingKey {
         case title
-        case description = "listingdescription"
+        case description = "listingDescription"
         case url
     }
     

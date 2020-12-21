@@ -112,7 +112,7 @@
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VIm-ut-a1I"/>
-                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="B47-f7-zsE" firstAttribute="trailing" secondItem="VIm-ut-a1I" secondAttribute="trailing" id="IBh-SF-XQs"/>
                             <constraint firstItem="B47-f7-zsE" firstAttribute="top" secondItem="VIm-ut-a1I" secondAttribute="top" id="Q5U-Iu-cAY"/>
@@ -481,7 +481,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zSk-Di-CiV"/>
-                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="C1A-TT-8Cf" firstAttribute="top" secondItem="LRc-jw-7BC" secondAttribute="bottom" constant="2" id="JLy-uw-qm5"/>
                             <constraint firstItem="LRc-jw-7BC" firstAttribute="leading" secondItem="C1A-TT-8Cf" secondAttribute="leading" id="Y3p-yj-Yuh"/>
@@ -598,7 +598,7 @@
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OLt-fm-Vds"/>
-                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="84n-7X-EGa" firstAttribute="top" secondItem="eXU-Dd-AvO" secondAttribute="bottom" constant="1" id="8lX-ol-MMR"/>
                             <constraint firstItem="eXU-Dd-AvO" firstAttribute="leading" secondItem="84n-7X-EGa" secondAttribute="leading" id="AD1-gJ-xhn"/>
@@ -1135,9 +1135,6 @@
         <image name="Solid_gray" width="200" height="200"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGroupedBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
