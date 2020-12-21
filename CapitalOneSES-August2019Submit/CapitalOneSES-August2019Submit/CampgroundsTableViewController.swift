@@ -71,7 +71,9 @@ class CampgroundsTableViewController: UITableViewController {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     if self.returnedCampgroundData.count == 0 {
                         let alertController = UIAlertController(title: "No results", message: "No campgrounds to display. Either the park you selected does not have campground information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
-                        alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                        alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in
+                            self.navigationController?.popViewController(animated: true)
+                        }))
                         self.present(alertController, animated: true, completion: nil)
                     }
                     }

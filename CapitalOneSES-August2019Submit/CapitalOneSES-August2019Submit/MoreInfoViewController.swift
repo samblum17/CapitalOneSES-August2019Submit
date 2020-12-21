@@ -11,7 +11,7 @@ import UIKit
 //VC for visitor center, alerts
 class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-//Variable set up to hold objects used throughout controller for each VC
+    //Variable set up to hold objects used throughout controller for each VC
     var activityIndicatorView: UIActivityIndicatorView!
     var abbreviation: String?
     @IBOutlet var moreInfoTableView: UITableView!
@@ -23,17 +23,17 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         //Allow cell to have dynamic height
         moreInfoTableView.estimatedRowHeight = 260.0
         moreInfoTableView.rowHeight = UITableView.automaticDimension
-
+        
         super.viewDidLoad()
     }
-
     
-//Pull data before view loads for fastest results
+    
+    //Pull data before view loads for fastest results
     override func viewWillAppear(_ animated: Bool) {
         //Show network indicator before data loads and then load data for each segment
         activityIndicatorView.startAnimating()
         moreInfoTableView.separatorStyle = .none
-
+        
         if self.title == "Visitor Centers" {
             fetchMatchingVC()
         } else if self.title == "Alerts" {
@@ -41,69 +41,71 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-//Load network indicator on background view
+    //Load network indicator on background view
     override func loadView() {
         super.loadView()
-
+        
         activityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         moreInfoTableView.backgroundView = activityIndicatorView
     }
     
- 
-                        //MARK: - Visitor Center View
+    
+    //MARK: - Visitor Center View
     
     
-//Main variables to hold VCs returned
+    //Main variables to hold VCs returned
     let VCItemController = StoreVCController()
     var returnedData = [VCData]()
-
-//Pull VC data from NPS API and load into respective variables
+    
+    //Pull VC data from NPS API and load into respective variables
     func fetchMatchingVC() {
         
         self.returnedData = []
         moreInfoTableView.reloadData()
         
-            //Set up query dictionary to search any park
-            let query: [String: String] = [
-                "parkCode" : abbreviation!,
-                "api_key" : "0deJt7XudkZrb2wSMFjaLYrHQESBWIQHMNeuM7o1"
-            ]
+        //Set up query dictionary to search any park
+        let query: [String: String] = [
+            "parkCode" : abbreviation!,
+            "api_key" : "0deJt7XudkZrb2wSMFjaLYrHQESBWIQHMNeuM7o1"
+        ]
         //Call the itemController to fetch items
-            VCItemController.fetchItems(matching: query, completion: { (returnedData) in
+        VCItemController.fetchItems(matching: query, completion: { (returnedData) in
             
             //Load in returned data and update views
-                DispatchQueue.main.async {
-                    if let returnedData = returnedData {
-                        self.returnedData = returnedData
-                        self.activityIndicatorView.stopAnimating()
-                        self.moreInfoTableView.separatorStyle = .singleLine
-                        self.moreInfoTableView.reloadData()
-                       
-                        //When no results, show alert message
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            DispatchQueue.main.async {
+                if let returnedData = returnedData {
+                    self.returnedData = returnedData
+                    self.activityIndicatorView.stopAnimating()
+                    self.moreInfoTableView.separatorStyle = .singleLine
+                    self.moreInfoTableView.reloadData()
+                    
+                    //When no results, show alert message
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                         if self.returnedData.count == 0 {
                             let alertController = UIAlertController(title: "No results", message: "No visitor centers to display. Either the park you selected does not have visitor center information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
-                            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in
+                                self.navigationController?.popViewController(animated: true)
+                            }))
                             self.present(alertController, animated: true, completion: nil)
                         }
-                        }
-                    } else {
-                        //Accounts for API load error
-                        print("Unable to reload")
                     }
+                } else {
+                    //Accounts for API load error
+                    print("Unable to reload")
                 }
+            }
         }
         )
     }
- 
-                        //MARK: - Alerts View
+    
+    //MARK: - Alerts View
     
     
     //Main variables to hold alerts returned
     let alertsItemController = StoreAlertsController()
     var returnedAlertsData = [AlertData]()
     
-//Pull alert data from NPS API and load into respective variables
+    //Pull alert data from NPS API and load into respective variables
     func fetchMatchingAlerts() {
         
         self.returnedAlertsData = []
@@ -126,11 +128,13 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
                     self.moreInfoTableView.reloadData()
                     //When no results, show alert message
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                    if self.returnedAlertsData.count == 0 {
-                        let alertController = UIAlertController(title: "No results", message: "No alerts to display. Either the park you selected does not have alert information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
-                        alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-                        self.present(alertController, animated: true, completion: nil)
-                    }
+                        if self.returnedAlertsData.count == 0 {
+                            let alertController = UIAlertController(title: "No results", message: "No alerts to display. Either the park you selected does not have alert information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
+                            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: handler: {_ in
+                                                                    self.navigationController?.popViewController(animated: true)
+                                                                    }))
+                            self.present(alertController, animated: true, completion: nil)
+                        }
                     }
                 } else {
                     //Accounts for API load error
@@ -140,12 +144,12 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         )
     }
-
-    
-                        //Mark:- Table view data source
     
     
-//Load data into cells
+    //Mark:- Table view data source
+    
+    
+    //Load data into cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = moreInfoTableView.dequeueReusableCell(withIdentifier: "moreInfoCell", for: indexPath) as! MoreInfoTableViewCell
         
@@ -176,14 +180,14 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
                 cell.topSectionTextLabel.text = alertItem.description
                 cell.bottomSectionHeaderLabel.isHidden = true
                 cell.bottomSectionTextLabel.isHidden = true
-            
+                
             }
         }
         return cell
     }
     
-
-//Number of rows corresponds to array item count in each segment
+    
+    //Number of rows corresponds to array item count in each segment
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.title == "Visitor Centers" {
             return returnedData.count
@@ -199,7 +203,7 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     
-//Height of cells is dynamic
+    //Height of cells is dynamic
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
@@ -207,15 +211,15 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     
-            //MARK: - Unused overrides
+    //MARK: - Unused overrides
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

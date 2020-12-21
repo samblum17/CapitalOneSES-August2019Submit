@@ -84,7 +84,9 @@ class EducationViewController: UIViewController, UITableViewDelegate, UITableVie
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     if self.returnedQuestionData.count == 0 {
                         let alertController = UIAlertController(title: "No results", message: "No lessons to display. Either the park you selected does not have lesson information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
-                        alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                        alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in
+                            self.navigationController?.popViewController(animated: true)
+                        }))
                         self.present(alertController, animated: true, completion: nil)
                     }
                     }
@@ -170,7 +172,9 @@ class EducationViewController: UIViewController, UITableViewDelegate, UITableVie
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             if self.returnedPeopleData.count == 0 {
                 let alertController = UIAlertController(title: "No results", message: "No people to display. Either the park you selected does not have relevant people information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in
+                    self.navigationController?.popViewController(animated: true)
+                }))
                 self.present(alertController, animated: true, completion: nil)
             }
             }
@@ -178,7 +182,9 @@ class EducationViewController: UIViewController, UITableViewDelegate, UITableVie
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
         if self.returnedPlacesData.count == 0 {
             let alertController = UIAlertController(title: "No results", message: "No places to display. Either the park you selected does not have relevant places information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in
+                self.navigationController?.popViewController(animated: true)
+            }))
             self.present(alertController, animated: true, completion: nil)
         }
             }

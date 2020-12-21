@@ -73,7 +73,9 @@ class ParkListTableViewController: UITableViewController, UINavigationController
                         //When no results, show alert message
                         if self.searchItems.count == 0 {
                             let alertController = UIAlertController(title: "No results", message: "No parks to display. Either the park you searched for was spelled incorrectly or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
-                            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in
+                                self.navigationController?.popViewController(animated: true)
+                            }))
                             self.present(alertController, animated: true, completion: nil)
                         }
                         
