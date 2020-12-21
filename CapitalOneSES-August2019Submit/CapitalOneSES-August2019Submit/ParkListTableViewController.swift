@@ -77,6 +77,7 @@ class ParkListTableViewController: UITableViewController, UINavigationController
                             self.present(alertController, animated: true, completion: nil)
                         }
                         
+                        
                     } else {
                         //Accounts for API load error
                         print("Unable to reload")

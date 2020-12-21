@@ -80,10 +80,12 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
                         self.moreInfoTableView.reloadData()
                        
                         //When no results, show alert message
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                         if self.returnedData.count == 0 {
                             let alertController = UIAlertController(title: "No results", message: "No visitor centers to display. Either the park you selected does not have visitor center information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
                             alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
                             self.present(alertController, animated: true, completion: nil)
+                        }
                         }
                     } else {
                         //Accounts for API load error
@@ -123,10 +125,12 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
                     self.moreInfoTableView.separatorStyle = .singleLine
                     self.moreInfoTableView.reloadData()
                     //When no results, show alert message
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     if self.returnedAlertsData.count == 0 {
                         let alertController = UIAlertController(title: "No results", message: "No alerts to display. Either the park you selected does not have alert information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
                         alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
                         self.present(alertController, animated: true, completion: nil)
+                    }
                     }
                 } else {
                     //Accounts for API load error

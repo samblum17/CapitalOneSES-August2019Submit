@@ -71,10 +71,12 @@ class EventsTableViewController: UITableViewController {
                     self.tableView.reloadData()
                     
                     //When no results, show alert message
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     if self.returnedEventsData.count == 0 {
                         let alertController = UIAlertController(title: "No results", message: "No events to display. Either the park you selected does not have event information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
                         alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
                         self.present(alertController, animated: true, completion: nil)
+                    }
                     }
                 } else {
                     //Accounts for API load error

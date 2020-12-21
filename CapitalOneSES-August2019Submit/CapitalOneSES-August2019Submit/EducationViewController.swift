@@ -81,10 +81,12 @@ class EducationViewController: UIViewController, UITableViewDelegate, UITableVie
                     self.questionTableView.reloadData()
                     
                     //When no results, show alert message
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     if self.returnedQuestionData.count == 0 {
                         let alertController = UIAlertController(title: "No results", message: "No lessons to display. Either the park you selected does not have lesson information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
                         alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
                         self.present(alertController, animated: true, completion: nil)
+                    }
                     }
                 } else {
                     //Accounts for API load error
@@ -165,17 +167,21 @@ class EducationViewController: UIViewController, UITableViewDelegate, UITableVie
         
         //When no results, show alert message
         if educationSegmentControl.selectedSegmentIndex == 1 {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             if self.returnedPeopleData.count == 0 {
                 let alertController = UIAlertController(title: "No results", message: "No people to display. Either the park you selected does not have relevant people information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
                 self.present(alertController, animated: true, completion: nil)
             }
+            }
         } else if educationSegmentControl.selectedSegmentIndex == 2 {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
         if self.returnedPlacesData.count == 0 {
             let alertController = UIAlertController(title: "No results", message: "No places to display. Either the park you selected does not have relevant places information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
             self.present(alertController, animated: true, completion: nil)
         }
+            }
         }
     }
     

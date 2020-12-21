@@ -121,18 +121,22 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         //When no results, show alert message
         if newsSegmentedControl.selectedSegmentIndex == 0 {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             if self.returnedArticleData.count == 0 {
                 let alertController = UIAlertController(title: "No results", message: "No articles to display. Either the park you selected does not have article information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
                 self.present(alertController, animated: true, completion: nil)
             }
+            }
             
         }
         if newsSegmentedControl.selectedSegmentIndex == 1 {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             if self.returnedNewsData.count == 0 {
                 let alertController = UIAlertController(title: "No results", message: "No news releases to display. Either the park you selected does not have news release information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
                 self.present(alertController, animated: true, completion: nil)
+            }
             }
        
         }
