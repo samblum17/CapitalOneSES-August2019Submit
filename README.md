@@ -1,16 +1,24 @@
-# National Park Kiosk
+<img src="https://github.com/samblum17/CapitalOneSES-August2019Submit/blob/master/CapitalOneSES-August2019Submit/CapitalOneSES-August2019Submit/Assets.xcassets/NPS%20Kiosk%202.1%20Marketing.001.png?raw=true">
+
+[Download today on the App Store](https://apps.apple.com/us/app/national-park-kiosk/id1465222121)
+
 ###### Winning submission of the Capital One Software Engineering summit (August 2019)
-An iOS Application submitted for the August 2019 coding challenge. Challenge can be found [here](https://www.mindsumo.com/contests/national-park-api).
-This project is live on the iOS App Store- [Click to download](https://apps.apple.com/us/app/national-park-kiosk/id1465222121). Access Swift files used to build this app in [Xcode Project Files](https://github.com/samblum17/CapitalOneSES-August2019Submit/tree/master/CapitalOneSES-August2019Submit/CapitalOneSES-August2019Submit)
+An iOS Application submitted for the [August 2019 coding challenge.](https://www.mindsumo.com/contests/national-park-api).
 
 ## Description
-The National Parks have been a staple of America for 100 years. The National Park Service (NPS) has been the primary contributor to their success in both preserving beauty and ensuring the safety of visitors. National Park Kiosk uses data pulled directly from the NPS API, so it's always updated and accessible. This is your one-stop destination for finding the important, concise answers to help plan your next National Park journey:
+National Park Kiosk is your go-to quick guide for planning your next adventure to any US National Park.
 
-- Search for specific information with state filtering and keyword search
-- Find details about specific visitor centers, as well as nearby campgrounds.
-- Stay up to date with alerts, articles, events, and news releases about a selected destination.
+The National Parks have been a staple of America for over 100 years, and the National Park Service (NPS) has been the primary contributor to their success in both preserving beauty and ensuring the safety of visitors. National Park Kiosk uses data pulled directly from the NPS API, so it's always updated and accessible. This is your one-stop destination for finding important, concise information to help plan your next National Park adventure. 
+
+You can use NPS Kiosk to:
+- Search for specific information with state filtering and relevance-based keyword search
+- Find details about specific visitor centers and nearby campgrounds.
+- Stay up to date with alerts, articles, events, and news releases
 - View an interactive map of the park and surrounding area
-- Learn from educational information about a selected destination, utilizing available lesson plans as well as relevant people and places associated with the location.
+- Learn more about your destination with educational information including classroom lesson plans and guides on relevant people and places
+- Access the full park website directly within the app
+
+National Park Kiosk was proudly recognized as a coding challenge winning submission to the 2019 Capital One Software Engineering Summit.
 
 ## Prerequisites
 National Park Kiosk is an iOS Application that is designed to run on iPhones running iOS 12+ and Macs with Apple silicon.
@@ -27,4 +35,22 @@ This application was designed, developed, and tested entirely and solely by Sam 
 ## Acknowledgments
 I'd like to thank Capital One for choosing me as a semifinalist for the Software Engineering Summit. I'd like to thank Apple as always for their extremely helpful resources on learning the fundamentals of Swift and Xcode. Additionally I'd like to thank the entire developer community for always being repsonsive to online forums and personal DMs on Twitter. And finally I'd like to thank my family for always pushing me to continue learning and developing even when it got tough.
 
-//Note that this repository will not show commits from iOS 13 and onward. Please contact the developer for questions regarding Version 2.0+ and iOS 13 integration.
+
+
+//Last updated for Version 3.0 on December 21, 2020:
+2020 has motivated many of us to spend more time outdoors and explore the beautiful National Parks, so we're super excited to bring new features and enhancements to National Park Kiosk that will help you plan your next adventure. 
+
+Today's update brings you the following improvements:
+- An all-new interface designed for iPad and Mac
+- Optimized search experience with faster loading and results more accurately sorted by relevance
+- Direct, in-app access to each park's website for more info
+- Refinements to the park overview screen design
+- Improved image loading
+- Navigation automatically returns back to previous screen when no results alert is dismissed
+- Fixes a bug where loading some parks caused the app to crash
+- Fixes a bug that prevented some park data from not loading
+- Fixes a bug where results loaded but the an alert still popped up that read "No results"
+- Support for Macs with Apple silicon
+- Updated for iOS 14
+
+Wishing you a wonderful, healthy 2021 and happy exploring!
