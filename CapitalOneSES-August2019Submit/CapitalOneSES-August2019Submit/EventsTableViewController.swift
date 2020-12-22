@@ -76,7 +76,7 @@ class EventsTableViewController: UITableViewController {
                             let alertController = UIAlertController(title: "No results", message: "No events to display. Either the park you selected does not have event information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
                             alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in
                                 self.navigationController?.popViewController(animated: true)
-                                }))
+                            }))
                             self.present(alertController, animated: true, completion: nil)
                         }
                     }

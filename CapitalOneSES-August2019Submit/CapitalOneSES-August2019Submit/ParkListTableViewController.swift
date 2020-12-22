@@ -17,15 +17,14 @@ class ParkListTableViewController: UITableViewController, UINavigationController
     
     override func viewDidLoad() {
         if UIDevice.current.userInterfaceIdiom == .pad {
-        navigationController?.navigationBar.prefersLargeTitles = false
+            navigationController?.navigationBar.prefersLargeTitles = false
         } else {
-        navigationController?.navigationBar.prefersLargeTitles = true
+            navigationController?.navigationBar.prefersLargeTitles = true
         }
         super.viewDidLoad()
         //Keyboard can be swiped down
         tableView.keyboardDismissMode = .interactive
     }
-    
     
     //Set variables for objects and controllers
     @IBOutlet var parkSearchBar: UISearchBar!
@@ -157,7 +156,7 @@ class ParkListTableViewController: UITableViewController, UINavigationController
                 let substring = secondParkName[...indexOfSpace]
                 secondParkName = String(substring)
             }
-         
+            
             //Sort by relevance
             if firstParkName == lowerKey && secondParkName != lowerKey {
                 return true
@@ -166,14 +165,14 @@ class ParkListTableViewController: UITableViewController, UINavigationController
                 return true
             }
             else if firstParkName.hasPrefix(lowerKey) && secondParkName.hasPrefix(lowerKey)
-                && firstParkName.count < secondParkName.count  {
+                        && firstParkName.count < secondParkName.count  {
                 return true
             }
             else if firstParkName.contains(lowerKey) && !secondParkName.contains(lowerKey) {
                 return true
             }
             else if firstParkName.contains(lowerKey) && secondParkName.contains(lowerKey)
-                && firstParkName.count < secondParkName.count {
+                        && firstParkName.count < secondParkName.count {
                 return true
             }
             return false
@@ -237,6 +236,7 @@ class ParkListTableViewController: UITableViewController, UINavigationController
             
         }
         
+        
     }
     
     //Load network indicator on background view
@@ -244,11 +244,12 @@ class ParkListTableViewController: UITableViewController, UINavigationController
         super.loadView()
         
         activityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
-        self.tableView.backgroundView = activityIndicatorView
+        if (UIDevice.current.userInterfaceIdiom != .pad){
+            self.tableView.backgroundView = activityIndicatorView
+        }
     }
-
+    
     @IBAction func unwind(segue : UIStoryboardSegue) {
-        
     }
 }
 
@@ -256,6 +257,10 @@ class ParkListTableViewController: UITableViewController, UINavigationController
 extension ParkListTableViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ parkSearchBar: UISearchBar) {
+        if (UIDevice.current.userInterfaceIdiom == .pad) {
+            parkSearchBar.addSubview(activityIndicatorView)
+            activityIndicatorView.center = CGPoint(x: parkSearchBar.bounds.maxX - 50, y: parkSearchBar.bounds.midY)
+        }
         activityIndicatorView.startAnimating()
         tableView.separatorStyle = .none
         fetchMatchingItems()

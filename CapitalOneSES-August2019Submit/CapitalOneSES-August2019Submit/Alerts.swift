@@ -19,11 +19,11 @@ struct Alerts: Decodable {
 struct AlertData: Codable {
     var title: String?
     var description: String?
-
-//Initializer because not all JSON returned values are used
+    
+    //Initializer because not all JSON returned values are used
     init(from decoder: Decoder) throws {
         let valueContainer = try decoder.container(keyedBy:
-            CodingKeys.self)
+                                                    CodingKeys.self)
         self.description = try valueContainer.decode(String.self, forKey: CodingKeys.description)
         self.title = try valueContainer.decode(String.self, forKey: CodingKeys.title)
     }

@@ -30,7 +30,7 @@ struct NewsReleaseData: Codable {
     //Initializer used because not all JSON returned values are used
     init(from decoder: Decoder) throws {
         let valueContainer = try decoder.container(keyedBy:
-            CodingKeys.self)
+                                                    CodingKeys.self)
         self.title = try valueContainer.decode(String.self, forKey: CodingKeys.title)
         self.description = try valueContainer.decode(String.self, forKey: CodingKeys.description)
         self.url = try valueContainer.decode(String.self, forKey: CodingKeys.url)
@@ -60,7 +60,7 @@ struct ArticleData: Codable {
     //Initializer used because not all JSON returned values are used
     init(from decoder: Decoder) throws {
         let valueContainer = try decoder.container(keyedBy:
-            CodingKeys.self)
+                                                    CodingKeys.self)
         self.title = try valueContainer.decode(String.self, forKey: CodingKeys.title)
         self.description = try valueContainer.decode(String.self, forKey: CodingKeys.description)
         self.url = try valueContainer.decode(String.self, forKey: CodingKeys.url)

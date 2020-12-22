@@ -34,7 +34,7 @@ struct CampgroundData: Codable {
     //Initializer used because not all JSON returned values are used
     init(from decoder: Decoder) throws {
         let valueContainer = try decoder.container(keyedBy:
-            CodingKeys.self)
+                                                    CodingKeys.self)
         self.weather = try valueContainer.decode(String.self, forKey: CodingKeys.weather)
         self.name = try valueContainer.decode(String.self, forKey: CodingKeys.name)
         self.description = try valueContainer.decode(String.self, forKey: CodingKeys.description)
@@ -60,7 +60,7 @@ struct CampsiteData: Codable {
     //Initializer used because not all JSON returned values are used
     init(from decoder: Decoder) throws {
         let valueContainer = try decoder.container(keyedBy:
-            CodingKeys.self)
+                                                    CodingKeys.self)
         self.total = try valueContainer.decode(String.self, forKey: CodingKeys.total)
         self.tent = try valueContainer.decode(String.self, forKey: CodingKeys.tent)
         self.rv = try valueContainer.decode(String.self, forKey: CodingKeys.rv)

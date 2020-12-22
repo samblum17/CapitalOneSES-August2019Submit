@@ -24,7 +24,7 @@ struct VCData: Codable {
     //Initializer used because not all JSON returned values are used
     init(from decoder: Decoder) throws {
         let valueContainer = try decoder.container(keyedBy:
-            CodingKeys.self)
+                                                    CodingKeys.self)
         self.description = try valueContainer.decode(String.self, forKey: CodingKeys.description)
         self.name = try valueContainer.decode(String.self, forKey: CodingKeys.name)
         self.directions = try valueContainer.decode(String.self, forKey: CodingKeys.directions)

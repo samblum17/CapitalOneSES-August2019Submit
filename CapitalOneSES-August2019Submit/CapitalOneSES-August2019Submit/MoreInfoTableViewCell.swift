@@ -10,7 +10,7 @@ import UIKit
 
 //Custom cell for VC, alerts
 class MoreInfoTableViewCell: UITableViewCell {
-
+    
     @IBOutlet var topSectionHeaderLabel: UILabel!
     @IBOutlet var topSectionTextLabel: UILabel!
     @IBOutlet var bottomSectionHeaderLabel: UILabel!
@@ -20,11 +20,11 @@ class MoreInfoTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }

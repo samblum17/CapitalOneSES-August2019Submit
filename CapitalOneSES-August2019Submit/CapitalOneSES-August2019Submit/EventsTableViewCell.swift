@@ -10,9 +10,9 @@ import UIKit
 
 //Custom cell for event data
 class EventsTableViewCell: UITableViewCell {
-
-//Cell attributes loaded into variables to change
-
+    
+    //Cell attributes loaded into variables to change
+    
     @IBOutlet var dateStackView: UIStackView!
     @IBOutlet var startDateLabel: UILabel!
     @IBOutlet var endDateLabel: UILabel!
@@ -29,11 +29,11 @@ class EventsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }

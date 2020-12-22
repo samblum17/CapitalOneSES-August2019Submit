@@ -32,19 +32,19 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         //Allow cell to have dynamic height
         newsTableView.estimatedRowHeight = 260.0
         newsTableView.rowHeight = UITableView.automaticDimension
-
+        
         // Do any additional setup after loading the view.
     }
     
-//Show network indicator before data loads and then load data for each segment
+    //Show network indicator before data loads and then load data for each segment
     override func viewWillAppear(_ animated: Bool) {
         activityIndicatorView.startAnimating()
         newsTableView.separatorStyle = .none
         fetchMatchingNews()
         fetchMatchingArticles()
     }
-
-//Load network indicator on background view
+    
+    //Load network indicator on background view
     override func loadView() {
         super.loadView()
         
@@ -54,7 +54,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-//Pull news data from NPS API and load into respective variables
+    //Pull news data from NPS API and load into respective variables
     func fetchMatchingNews() {
         
         self.returnedNewsData = []
@@ -84,7 +84,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         )
     }
     
-//Pull articles data from NPS API and load into respective variables
+    //Pull articles data from NPS API and load into respective variables
     func fetchMatchingArticles() {
         
         self.returnedArticleData = []
@@ -114,7 +114,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         )
     }
     
-/*Reload data respective to current segment when segment is switched and display error messages accordingly */
+    /*Reload data respective to current segment when segment is switched and display error messages accordingly */
     @IBAction func segmentSwitched(_ sender: UISegmentedControl) {
         
         newsTableView.reloadData()
@@ -122,55 +122,55 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         //When no results, show alert message
         if newsSegmentedControl.selectedSegmentIndex == 0 {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            if self.returnedArticleData.count == 0 {
-                let alertController = UIAlertController(title: "No results", message: "No articles to display. Either the park you selected does not have article information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in
-                    self.navigationController?.popViewController(animated: true)
-                }))
-                self.present(alertController, animated: true, completion: nil)
-            }
+                if self.returnedArticleData.count == 0 {
+                    let alertController = UIAlertController(title: "No results", message: "No articles to display. Either the park you selected does not have article information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in
+                        self.navigationController?.popViewController(animated: true)
+                    }))
+                    self.present(alertController, animated: true, completion: nil)
+                }
             }
             
         }
         if newsSegmentedControl.selectedSegmentIndex == 1 {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            if self.returnedNewsData.count == 0 {
-                let alertController = UIAlertController(title: "No results", message: "No news releases to display. Either the park you selected does not have news release information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in
-                    self.navigationController?.popViewController(animated: true)
-                }))
-                self.present(alertController, animated: true, completion: nil)
+                if self.returnedNewsData.count == 0 {
+                    let alertController = UIAlertController(title: "No results", message: "No news releases to display. Either the park you selected does not have news release information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in
+                        self.navigationController?.popViewController(animated: true)
+                    }))
+                    self.present(alertController, animated: true, completion: nil)
+                }
             }
-            }
-       
+            
         }
     }
     
-//Number of rows corresponds to array item count in each segment
+    //Number of rows corresponds to array item count in each segment
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if newsSegmentedControl.selectedSegmentIndex == 1 {
             return returnedNewsData.count
-
+            
         } else if newsSegmentedControl.selectedSegmentIndex == 0 {
             return returnedArticleData.count
-
+            
         } else {
             return 0
         }
         
     }
     
-//Load data into cells
+    //Load data into cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = newsTableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as! NewsTableViewCell
-
-            
-//Articles segment
+        
+        
+        //Articles segment
         if newsSegmentedControl.selectedSegmentIndex == 0 {
             //When data returned
             if !(returnedArticleData.count == 0){
                 var articleItem = returnedArticleData[indexPath.row]
-
+                
                 //Load in attributes
                 cell.titleLabel.text = articleItem.title
                 cell.descriptionLabel.text = articleItem.description
@@ -185,7 +185,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             }
             
-//News releases segment
+            //News releases segment
         } else if newsSegmentedControl.selectedSegmentIndex == 1 {
             //When data returned
             if !(returnedNewsData.count == 0){
@@ -198,31 +198,31 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 //Open safari view controller on url button tap
                 cell.urlButtonAction = { [unowned self] in
-                if let url = URL(string: newsItem.url ?? "nps.gov/") {
-                    let safariViewController = SFSafariViewController(url: url)
-                    self.present(safariViewController,animated: true, completion: nil)
+                    if let url = URL(string: newsItem.url ?? "nps.gov/") {
+                        let safariViewController = SFSafariViewController(url: url)
+                        self.present(safariViewController,animated: true, completion: nil)
+                    }
                 }
             }
-          }
         }
         return cell
     }
     
     
     
-//Height of cells is dynamic
+    //Height of cells is dynamic
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

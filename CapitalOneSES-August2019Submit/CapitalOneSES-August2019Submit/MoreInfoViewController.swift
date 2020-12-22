@@ -132,7 +132,7 @@ class MoreInfoViewController: UIViewController, UITableViewDataSource, UITableVi
                             let alertController = UIAlertController(title: "No results", message: "No alerts to display. Either the park you selected does not have alert information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
                             alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in
                                 self.navigationController?.popViewController(animated: true)
-                                }))
+                            }))
                             self.present(alertController, animated: true, completion: nil)
                         }
                     }
