@@ -24,8 +24,8 @@ class ParkListTableViewController: UITableViewController, UINavigationController
         super.viewDidLoad()
         //Keyboard can be swiped down
         tableView.keyboardDismissMode = .interactive
-        
     }
+    
     
     //Set variables for objects and controllers
     @IBOutlet var parkSearchBar: UISearchBar!
@@ -244,10 +244,9 @@ class ParkListTableViewController: UITableViewController, UINavigationController
         super.loadView()
         
         activityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
-        
-        tableView.backgroundView = activityIndicatorView
+        self.tableView.backgroundView = activityIndicatorView
     }
-    
+
     @IBAction func unwind(segue : UIStoryboardSegue) {
         
     }

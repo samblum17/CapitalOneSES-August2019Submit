@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
               let splitViewController
                 = window.rootViewController as? UISplitViewController {
             splitViewController.preferredDisplayMode = .allVisible
-                  splitViewController.delegate = self
+            splitViewController.delegate = self
             }
             return true
         }
