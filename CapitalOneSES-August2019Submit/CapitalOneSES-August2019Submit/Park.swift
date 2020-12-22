@@ -15,22 +15,30 @@ struct Images: Codable {
     var caption: String?
     var urlString: String?
     
-  //Enum used because url key has different name in JSON return
+    //Enum used because url key has different name in JSON return
     enum CodingKeys: String, CodingKey {
         case caption
         case urlString = "url"
     }
-   //Initializer used because not all JSON returned values are used
+    //Initializer used because not all JSON returned values are used
     init(from decoder: Decoder) throws {
         let valueContainer = try decoder.container(keyedBy:
-            CodingKeys.self)
+                                                    CodingKeys.self)
         self.caption = try valueContainer.decode(String.self, forKey: CodingKeys.caption)
         self.urlString = try valueContainer.decode(String.self, forKey: CodingKeys.urlString)
     }
 }
 
 //ParkData object for park information returned in each Park object
-struct ParkData: Codable {
+struct ParkData: Codable, Equatable {
+    static func == (lhs: ParkData, rhs: ParkData) -> Bool {
+        if lhs.fullName == rhs.fullName {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     var fullName: String?
     var description: String?
     var name: String?
@@ -38,8 +46,8 @@ struct ParkData: Codable {
     var images: [Images]?
     var parkCode: String?
     var latLong: String?
-
-  //Enum used because not all JSON returned values are used
+    
+    //Enum used because not all JSON returned values are used
     enum CodingKeys: String, CodingKey {
         case fullName
         case description
@@ -49,10 +57,10 @@ struct ParkData: Codable {
         case parkCode
         case latLong
     }
-   //Initializer used because not all JSON returned values are used
+    //Initializer used because not all JSON returned values are used
     init(from decoder: Decoder) throws {
         let valueContainer = try decoder.container(keyedBy:
-            CodingKeys.self)
+                                                    CodingKeys.self)
         self.fullName = try valueContainer.decode(String.self, forKey:CodingKeys.fullName)
         self.states = try valueContainer.decode(String.self, forKey: CodingKeys.states)
         self.description = try valueContainer.decode(String.self, forKey: CodingKeys.description)
@@ -60,15 +68,15 @@ struct ParkData: Codable {
         self.images = try valueContainer.decode([Images].self, forKey: CodingKeys.images)
         self.parkCode = try valueContainer.decode(String.self, forKey: CodingKeys.parkCode)
         self.latLong = try valueContainer.decode(String.self, forKey: CodingKeys.latLong)
-
+        
     }
 }
 
 //Park object for parent array returned in JSON that holds other objects creted above
-    struct Parks: Decodable {
-        var total: String?
+struct Parks: Decodable {
+    var total: String?
     //Data array nests objects created above
-        var data: [ParkData]?
+    var data: [ParkData]?
 }
 
 

@@ -1,0 +1,33 @@
+{
+  "images" : [
+    {
+      "filename" : "Screen Shot 2019-06-13 at 7.01.27 PM.png",
+      "idiom" : "iphone",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Screen Shot 2019-06-13 at 7.01.27 PM-1.png",
+      "idiom" : "iphone",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Screen Shot 2019-06-13 at 7.01.27 PM-2.png",
+      "idiom" : "iphone",
+      "scale" : "3x"
+    },
+    {
+      "filename" : "NPS Kiosk 2.1 Marketing.001-1.png",
+      "idiom" : "ipad",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "NPS Kiosk 2.1 Marketing.001-2.png",
+      "idiom" : "ipad",
+      "scale" : "2x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

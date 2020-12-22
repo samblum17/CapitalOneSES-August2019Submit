@@ -11,23 +11,23 @@ import Foundation
 //Controller for fetching each category from server
 struct StoreItemController {
     
-   //Fetches items from NPS API- called from search tableView controller
+    //Fetches items from NPS API- called from search tableView controller
     func fetchItems(matching query: [String: String], completion: @escaping ([ParkData]?) -> Void) {
-    
+        
         let baseURL = URL(string: "https://developer.nps.gov/api/v1/parks?")!
-
+        
         guard let url = baseURL.withQueries(query) else {
-         //Accounts for bad query call
+            //Accounts for bad query call
             completion(nil)
             print("Unable to build URL with supplied queries. Please try again.")
             return
         }
-    //Decodes JSON returned from API into active Park objects
+        //Decodes JSON returned from API into active Park objects
         let task = URLSession.shared.dataTask(with: url) { (data,
-            response, error) in
+                                                            response, error) in
             let jsonDecoder = JSONDecoder()
             if let data = data,
-                let parkDecoded = try? jsonDecoder.decode(Parks.self, from: data){
+               let parkDecoded = try? jsonDecoder.decode(Parks.self, from: data){
                 completion(parkDecoded.data)
                 
             } else {
@@ -46,7 +46,7 @@ struct StoreVCController {
     func fetchItems(matching query: [String: String], completion: @escaping ([VCData]?) -> Void) {
         
         let baseURL = URL(string: "https://developer.nps.gov/api/v1/visitorcenters?")!
-
+        
         guard let url = baseURL.withQueries(query) else {
             //Accounts for bad query call
             completion(nil)
@@ -54,12 +54,12 @@ struct StoreVCController {
             return
         }
         //Decodes JSON returned from API into active Park objects
-       
+        
         let task = URLSession.shared.dataTask(with: url) { (data,
-            response, error) in
+                                                            response, error) in
             let jsonDecoder = JSONDecoder()
             if let data = data,
-                let VCDecoded = try? jsonDecoder.decode(VisitorCenter.self, from: data){
+               let VCDecoded = try? jsonDecoder.decode(VisitorCenter.self, from: data){
                 completion(VCDecoded.data)
             } else {
                 completion(nil)
@@ -68,7 +68,7 @@ struct StoreVCController {
         task.resume()
         
     }
-        
+    
 }
 
 //Controller for fetching alerts from server
@@ -87,10 +87,10 @@ struct StoreAlertsController {
         //Decodes JSON returned from API into active Park objects
         
         let task = URLSession.shared.dataTask(with: url) { (data,
-            response, error) in
+                                                            response, error) in
             let jsonDecoder = JSONDecoder()
             if let data = data,
-                let alertDecoded = try? jsonDecoder.decode(Alerts.self, from: data){
+               let alertDecoded = try? jsonDecoder.decode(Alerts.self, from: data){
                 completion(alertDecoded.data)
             } else {
                 completion(nil)
@@ -117,10 +117,10 @@ struct StoreCampgroundsController {
         //Decodes JSON returned from API into active Park objects
         
         let task = URLSession.shared.dataTask(with: url) { (data,
-            response, error) in
+                                                            response, error) in
             let jsonDecoder = JSONDecoder()
             if let data = data,
-                let campgroundDecoded = try? jsonDecoder.decode(Campgrounds.self, from: data){
+               let campgroundDecoded = try? jsonDecoder.decode(Campgrounds.self, from: data){
                 completion(campgroundDecoded.data)
             } else {
                 completion(nil)
@@ -128,7 +128,7 @@ struct StoreCampgroundsController {
         }
         task.resume()
         
-}
+    }
 }
 
 
@@ -148,10 +148,10 @@ struct StoreEventsController {
         //Decodes JSON returned from API into active Park objects
         
         let task = URLSession.shared.dataTask(with: url) { (data,
-            response, error) in
+                                                            response, error) in
             let jsonDecoder = JSONDecoder()
             if let data = data,
-                let eventDecoded = try? jsonDecoder.decode(Events.self, from: data){
+               let eventDecoded = try? jsonDecoder.decode(Events.self, from: data){
                 completion(eventDecoded.data)
             } else {
                 completion(nil)
@@ -178,10 +178,10 @@ struct StoreQuestionsController {
         //Decodes JSON returned from API into active Park objects
         
         let task = URLSession.shared.dataTask(with: url) { (data,
-            response, error) in
+                                                            response, error) in
             let jsonDecoder = JSONDecoder()
             if let data = data,
-                let questionDecoded = try? jsonDecoder.decode(Questions.self, from: data){
+               let questionDecoded = try? jsonDecoder.decode(Questions.self, from: data){
                 completion(questionDecoded.data)
             } else {
                 completion(nil)
@@ -208,10 +208,10 @@ struct StorePeopleController {
         //Decodes JSON returned from API into active Park objects
         
         let task = URLSession.shared.dataTask(with: url) { (data,
-            response, error) in
+                                                            response, error) in
             let jsonDecoder = JSONDecoder()
             if let data = data,
-                let peopleDecoded = try? jsonDecoder.decode(People.self, from: data){
+               let peopleDecoded = try? jsonDecoder.decode(People.self, from: data){
                 completion(peopleDecoded.data)
             } else {
                 completion(nil)
@@ -238,10 +238,10 @@ struct StorePlacesController {
         //Decodes JSON returned from API into active Park objects
         
         let task = URLSession.shared.dataTask(with: url) { (data,
-            response, error) in
+                                                            response, error) in
             let jsonDecoder = JSONDecoder()
             if let data = data,
-                let placesDecoded = try? jsonDecoder.decode(Places.self, from: data){
+               let placesDecoded = try? jsonDecoder.decode(Places.self, from: data){
                 completion(placesDecoded.data)
             } else {
                 completion(nil)
@@ -268,10 +268,10 @@ struct StoreNewsController {
         //Decodes JSON returned from API into active Park objects
         
         let task = URLSession.shared.dataTask(with: url) { (data,
-            response, error) in
+                                                            response, error) in
             let jsonDecoder = JSONDecoder()
             if let data = data,
-                let newsDecoded = try? jsonDecoder.decode(NewsReleases.self, from: data){
+               let newsDecoded = try? jsonDecoder.decode(NewsReleases.self, from: data){
                 completion(newsDecoded.data)
             } else {
                 completion(nil)
@@ -298,10 +298,10 @@ struct StoreArticlesController {
         //Decodes JSON returned from API into active Park objects
         
         let task = URLSession.shared.dataTask(with: url) { (data,
-            response, error) in
+                                                            response, error) in
             let jsonDecoder = JSONDecoder()
             if let data = data,
-                let articleDecoded = try? jsonDecoder.decode(Articles.self, from: data){
+               let articleDecoded = try? jsonDecoder.decode(Articles.self, from: data){
                 completion(articleDecoded.data)
             } else {
                 completion(nil)

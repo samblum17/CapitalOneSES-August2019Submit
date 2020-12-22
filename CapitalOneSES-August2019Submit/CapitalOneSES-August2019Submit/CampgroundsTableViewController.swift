@@ -9,8 +9,8 @@
 import UIKit
 
 class CampgroundsTableViewController: UITableViewController {
-
-//Variable set up to hold objects used throughout controller
+    
+    //Variable set up to hold objects used throughout controller
     var activityIndicatorView: UIActivityIndicatorView!
     var abbreviation: String?
     let campgroundItemController = StoreCampgroundsController()
@@ -19,39 +19,39 @@ class CampgroundsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//Allow cell to have dynamic height
+        //Allow cell to have dynamic height
         tableView.estimatedRowHeight = 260.0
         tableView.rowHeight = UITableView.automaticDimension
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
-    
+        
+        
     }
-
-//Show network indicator before data loads and then load data
+    
+    //Show network indicator before data loads and then load data
     override func viewWillAppear(_ animated: Bool) {
         activityIndicatorView.startAnimating()
         tableView.separatorStyle = .none
         fetchMatchingCampgrounds()
-
+        
     }
-
-//Load network indicator on background view
+    
+    //Load network indicator on background view
     override func loadView() {
         super.loadView()
         
-        activityIndicatorView = UIActivityIndicatorView(style: .gray)
+        activityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         
         tableView.backgroundView = activityIndicatorView
     }
     
-//Pull campground data from NPS API and load into respective variables
+    //Pull campground data from NPS API and load into respective variables
     func fetchMatchingCampgrounds() {
         
         self.returnedCampgroundData = []
         self.tableView.reloadData()
-
+        
         //Set up query dictionary to search any park
         let query: [String: String] = [
             "parkCode" : abbreviation!,
@@ -67,11 +67,15 @@ class CampgroundsTableViewController: UITableViewController {
                     self.activityIndicatorView.stopAnimating()
                     self.tableView.separatorStyle = .singleLine
                     self.tableView.reloadData()
-            //When no results, show alert message
-                    if self.returnedCampgroundData.count == 0 {
-                        let alertController = UIAlertController(title: "No results", message: "No campgrounds to display. Either the park you selected does not have campground information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
-                        alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-                        self.present(alertController, animated: true, completion: nil)
+                    //When no results, show alert message
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                        if self.returnedCampgroundData.count == 0 {
+                            let alertController = UIAlertController(title: "No results", message: "No campgrounds to display. Either the park you selected does not have campground information to display or network connection was lost. Please try again or check the NPS website for more info.", preferredStyle: .alert)
+                            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in
+                                self.navigationController?.popViewController(animated: true)
+                            }))
+                            self.present(alertController, animated: true, completion: nil)
+                        }
                     }
                 } else {
                     //Accounts for API load error
@@ -81,21 +85,21 @@ class CampgroundsTableViewController: UITableViewController {
         }
         )
     }
- 
     
-                        // MARK: - Table view data source
-
-//Number of rows equals number of campgrounds returned
+    
+    // MARK: - Table view data source
+    
+    //Number of rows equals number of campgrounds returned
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return returnedCampgroundData.count
     }
-//Height of cells is dynamic
+    //Height of cells is dynamic
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
     
-//Configure cell with respective variables for labels
+    //Configure cell with respective variables for labels
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
         let cell = tableView.dequeueReusableCell(withIdentifier: "campgroundCell", for: indexPath) as! CampgroundsTableViewCell
         
@@ -108,66 +112,66 @@ class CampgroundsTableViewController: UITableViewController {
             cell.rvSites.text = returnedCampgroundData[indexPath.row].campsites?.rv
             cell.tentSites.text = returnedCampgroundData[indexPath.row].campsites?.tent
             cell.totalSites.text = returnedCampgroundData[indexPath.row].campsites?.total
-
+            
         }
         
         return cell
     }
     
     
-                                //MARK:- Unused overrides
-   
-
+    //MARK:- Unused overrides
+    
+    
     //    override func numberOfSections(in tableView: UITableView) -> Int {
     //        // #warning Incomplete implementation, return the number of sections
     //        return 0
     //    }
-
+    
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
+     // Override to support conditional editing of the table view.
+     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
+    
     /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
+     // Override to support editing the table view.
+     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+     if editingStyle == .delete {
+     // Delete the row from the data source
+     tableView.deleteRows(at: [indexPath], with: .fade)
+     } else if editingStyle == .insert {
+     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }    
+     }
+     */
+    
     /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
+     // Override to support rearranging the table view.
+     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+     
+     }
+     */
+    
     /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+     // Override to support conditional rearranging of the table view.
+     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 //
 //public extension UIAlertController {

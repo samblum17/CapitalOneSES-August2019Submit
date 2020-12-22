@@ -36,7 +36,7 @@ struct EventData: Codable {
     //Initializer used because not all JSON returned values are used
     init(from decoder: Decoder) throws {
         let valueContainer = try decoder.container(keyedBy:
-            CodingKeys.self)
+                                                    CodingKeys.self)
         self.title = try valueContainer.decode(String.self, forKey: CodingKeys.title)
         self.description = try valueContainer.decode(String.self, forKey: CodingKeys.description)
         self.isFree = try valueContainer.decode(String.self, forKey: CodingKeys.isFree)
@@ -61,7 +61,7 @@ struct TimeInfo: Codable {
     //Initializer used because not all JSON returned values are used
     init(from decoder: Decoder) throws {
         let valueContainer = try decoder.container(keyedBy:
-            CodingKeys.self)
+                                                    CodingKeys.self)
         self.timeStart = try valueContainer.decode(String.self, forKey: CodingKeys.timeStart)
         self.timeEnd = try valueContainer.decode(String.self, forKey: CodingKeys.timeEnd)
         

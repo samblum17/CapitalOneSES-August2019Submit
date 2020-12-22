@@ -24,17 +24,17 @@ struct CampgroundData: Codable {
     
     //Enum used because not all JSON returned values are used
     enum CodingKeys: String, CodingKey {
-        case weather = "weatheroverview"
+        case weather = "weatherOverview"
         case name
         case description
-        case directions = "directionsoverview"
+        case directions = "directionsOverview"
         case campsites
     }
     
     //Initializer used because not all JSON returned values are used
     init(from decoder: Decoder) throws {
         let valueContainer = try decoder.container(keyedBy:
-            CodingKeys.self)
+                                                    CodingKeys.self)
         self.weather = try valueContainer.decode(String.self, forKey: CodingKeys.weather)
         self.name = try valueContainer.decode(String.self, forKey: CodingKeys.name)
         self.description = try valueContainer.decode(String.self, forKey: CodingKeys.description)
@@ -53,14 +53,14 @@ struct CampsiteData: Codable {
     
     //Enum used because not all JSON returned values are used
     enum CodingKeys: String, CodingKey {
-        case total = "totalsites"
-        case tent = "tentonly"
-        case rv = "rvonly"
+        case total = "totalSites"
+        case tent = "tentOnly"
+        case rv = "rvOnly"
     }
     //Initializer used because not all JSON returned values are used
     init(from decoder: Decoder) throws {
         let valueContainer = try decoder.container(keyedBy:
-            CodingKeys.self)
+                                                    CodingKeys.self)
         self.total = try valueContainer.decode(String.self, forKey: CodingKeys.total)
         self.tent = try valueContainer.decode(String.self, forKey: CodingKeys.tent)
         self.rv = try valueContainer.decode(String.self, forKey: CodingKeys.rv)
