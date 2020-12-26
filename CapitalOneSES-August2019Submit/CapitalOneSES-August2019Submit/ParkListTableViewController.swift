@@ -112,14 +112,14 @@ class ParkListTableViewController: UITableViewController, UINavigationController
             currentImageURLString = item.images?[0].urlString ?? ""
         }
         
-        let imageURL = URL(string: currentImageURLString)
+        let imageURL = URL(string: currentImageURLString) ?? URL(string: ParkListTableViewController.initialDefaultImageURL)!
         if let imageFromCache = imageCache.object(forKey: currentImageURLString as AnyObject) as? UIImage {
             DispatchQueue.main.async {
                 cell.cellImage.image = imageFromCache
             }
             //If not found in cache, pull from web, cache, and load into cell
         } else {
-            let task = URLSession.shared.dataTask(with: imageURL!) { (data,response, error) in
+            let task = URLSession.shared.dataTask(with: imageURL) { (data,response, error) in
                 
                 guard let imageData = data else {
                     return
