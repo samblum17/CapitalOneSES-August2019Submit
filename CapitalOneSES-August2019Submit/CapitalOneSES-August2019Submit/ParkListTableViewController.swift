@@ -34,7 +34,7 @@ class ParkListTableViewController: UITableViewController, UINavigationController
         if UIDevice.current.userInterfaceIdiom == .phone {
             addBannerViewToView(bannerView)
 //            let testID = "ca-app-pub-3940256099942544/2934735716"
-            let prodID = "ca-app-pub-3264342285166813~6784350334"
+            let prodID = "ca-app-pub-3264342285166813/1748959151"
             bannerView.adUnitID = prodID
             bannerView.rootViewController = self
             bannerView.load(GADRequest())
