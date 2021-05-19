@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class ParkListTableViewController: UITableViewController, UINavigationControllerDelegate {
     
     var activityIndicatorView: UIActivityIndicatorView!
+    var bannerView: GADBannerView! //Admob banner for iphone
     let imageCache = NSCache<AnyObject, AnyObject>() //Cache images for faster loading
     static let initialDefaultImageURL = "https://www.nps.gov/common/commonspot/templates/images/logos/nps_social_image_02.jpg"
     
@@ -20,10 +22,23 @@ class ParkListTableViewController: UITableViewController, UINavigationController
             navigationController?.navigationBar.prefersLargeTitles = false
         } else {
             navigationController?.navigationBar.prefersLargeTitles = true
+            bannerView = GADBannerView()
+            let viewWidth = UIScreen.main.bounds.width
+            bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
         }
         super.viewDidLoad()
         //Keyboard can be swiped down
         tableView.keyboardDismissMode = .interactive
+        
+        //Init admob banner for iPhone
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            addBannerViewToView(bannerView)
+//            let testID = "ca-app-pub-3940256099942544/2934735716"
+            let prodID = "ca-app-pub-3264342285166813~6784350334"
+            bannerView.adUnitID = prodID
+            bannerView.rootViewController = self
+            bannerView.load(GADRequest())
+        }
     }
     
     //Set variables for objects and controllers
@@ -178,6 +193,28 @@ class ParkListTableViewController: UITableViewController, UINavigationController
             return false
         })
         return sorted
+    }
+    
+    //Admob banner ad
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: view.safeAreaLayoutGuide,
+                                attribute: .bottom,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
     }
     
     

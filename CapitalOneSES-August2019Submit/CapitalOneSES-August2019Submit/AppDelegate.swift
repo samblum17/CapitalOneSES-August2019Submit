@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 @UIApplicationMain
 
@@ -26,6 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             splitViewController.preferredDisplayMode = .allVisible
             splitViewController.delegate = self
         }
+        
+        //Banner ad for iphone only
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            GADMobileAds.sharedInstance().start(completionHandler: nil)
+        }
+
         return true
     }
     

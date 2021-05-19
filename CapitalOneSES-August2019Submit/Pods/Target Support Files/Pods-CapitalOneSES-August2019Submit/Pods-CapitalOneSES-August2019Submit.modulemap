@@ -1,0 +1,6 @@
+framework module Pods_CapitalOneSES_August2019Submit {
+  umbrella header "Pods-CapitalOneSES-August2019Submit-umbrella.h"
+
+  export *
+  module * { export * }
+}
