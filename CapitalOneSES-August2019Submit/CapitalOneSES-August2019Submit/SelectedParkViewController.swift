@@ -70,7 +70,7 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate, UIColl
         activityIndicatorView.startAnimating()
         
         //Check if image is cached, load in if so
-        let imageURL = URL(string: imageURLString)
+        let imageURL = URL(string: imageURLString) ?? URL(string: ParkListTableViewController.initialDefaultImageURL)!
         if let imageFromCache = imageCache.object(forKey: imageURLString as AnyObject) as? UIImage {
             //Highest priority queue
             DispatchQueue.main.async {
@@ -80,7 +80,7 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate, UIColl
             }
             //Image not cached, so pull from web, cache, and display
         } else {
-            let task = URLSession.shared.dataTask(with: imageURL!) { (data,response, error) in
+            let task = URLSession.shared.dataTask(with: imageURL) { (data,response, error) in
                 
                 guard let imageData = data else {
                     return

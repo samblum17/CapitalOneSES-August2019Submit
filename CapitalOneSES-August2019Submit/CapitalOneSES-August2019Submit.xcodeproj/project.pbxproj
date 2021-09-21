@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		E40B55FA22AB5AF500EF455C /* VisitorCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40B55F922AB5AF500EF455C /* VisitorCenter.swift */; };
 		E40B55FC22AB5F2800EF455C /* MoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40B55FB22AB5F2800EF455C /* MoreInfoViewController.swift */; };
+		E44146FF26F64CB2005874A8 /* Pods_CapitalOneSES_August2019Submit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44146FE26F64CB2005874A8 /* Pods_CapitalOneSES_August2019Submit.framework */; };
 		E45FBD0922AD894500A9570F /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FBD0822AD894500A9570F /* Alerts.swift */; };
 		E45FBD0B22ADBE9800A9570F /* Campgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FBD0A22ADBE9800A9570F /* Campgrounds.swift */; };
 		E45FBD0F22ADC6DE00A9570F /* CampgroundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FBD0E22ADC6DE00A9570F /* CampgroundsTableViewController.swift */; };
@@ -41,8 +42,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		854A606FFA9D3BCE5B030843 /* Pods_CapitalOneSES_August2019Submit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CapitalOneSES_August2019Submit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F619C2E97BC30FF7DF278AC /* Pods-CapitalOneSES-August2019Submit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapitalOneSES-August2019Submit.release.xcconfig"; path = "Target Support Files/Pods-CapitalOneSES-August2019Submit/Pods-CapitalOneSES-August2019Submit.release.xcconfig"; sourceTree = "<group>"; };
+		B5850451EE9C55099C4F46DC /* Pods-CapitalOneSES-August2019Submit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapitalOneSES-August2019Submit.debug.xcconfig"; path = "Target Support Files/Pods-CapitalOneSES-August2019Submit/Pods-CapitalOneSES-August2019Submit.debug.xcconfig"; sourceTree = "<group>"; };
 		E40B55F922AB5AF500EF455C /* VisitorCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorCenter.swift; sourceTree = "<group>"; };
 		E40B55FB22AB5F2800EF455C /* MoreInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoViewController.swift; sourceTree = "<group>"; };
+		E44146FC26F64C77005874A8 /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
+		E44146FE26F64CB2005874A8 /* Pods_CapitalOneSES_August2019Submit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_CapitalOneSES_August2019Submit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E45FBD0822AD894500A9570F /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		E45FBD0A22ADBE9800A9570F /* Campgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campgrounds.swift; sourceTree = "<group>"; };
 		E45FBD0E22ADC6DE00A9570F /* CampgroundsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampgroundsTableViewController.swift; sourceTree = "<group>"; };
@@ -81,12 +87,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E44146FF26F64CB2005874A8 /* Pods_CapitalOneSES_August2019Submit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18664364C914AA1A2B5E5CE3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B5850451EE9C55099C4F46DC /* Pods-CapitalOneSES-August2019Submit.debug.xcconfig */,
+				9F619C2E97BC30FF7DF278AC /* Pods-CapitalOneSES-August2019Submit.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D81DCD3695ED032EC4F8CF23 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E44146FE26F64CB2005874A8 /* Pods_CapitalOneSES_August2019Submit.framework */,
+				E44146FC26F64C77005874A8 /* GoogleMobileAds.xcframework */,
+				854A606FFA9D3BCE5B030843 /* Pods_CapitalOneSES_August2019Submit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E4D0BC8D22B0261200C7AF98 /* Events */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +159,8 @@
 			children = (
 				E4D898022293A49B000419B2 /* CapitalOneSES-August2019Submit */,
 				E4D898012293A49B000419B2 /* Products */,
+				18664364C914AA1A2B5E5CE3 /* Pods */,
+				D81DCD3695ED032EC4F8CF23 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -189,9 +217,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4D898122293A49C000419B2 /* Build configuration list for PBXNativeTarget "CapitalOneSES-August2019Submit" */;
 			buildPhases = (
+				D2BFB2DD3F85D4D762347CEC /* [CP] Check Pods Manifest.lock */,
 				E4D897FC2293A49B000419B2 /* Sources */,
 				E4D897FD2293A49B000419B2 /* Frameworks */,
 				E4D897FE2293A49B000419B2 /* Resources */,
+				4EB67207BC5B45641F8F4687 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -248,6 +278,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4EB67207BC5B45641F8F4687 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CapitalOneSES-August2019Submit/Pods-CapitalOneSES-August2019Submit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CapitalOneSES-August2019Submit/Pods-CapitalOneSES-August2019Submit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CapitalOneSES-August2019Submit/Pods-CapitalOneSES-August2019Submit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2BFB2DD3F85D4D762347CEC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CapitalOneSES-August2019Submit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E4D897FC2293A49B000419B2 /* Sources */ = {
@@ -434,19 +506,21 @@
 		};
 		E4D898132293A49C000419B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5850451EE9C55099C4F46DC /* Pods-CapitalOneSES-August2019Submit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 4.2.2;
 				DEVELOPMENT_TEAM = AXQRK9KY57;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "CapitalOneSES-August2019Submit/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.0;
-				OTHER_LDFLAGS = "";
+				MARKETING_VERSION = 4.2;
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.myexample.CapitalOneSES-August2019Submit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -456,19 +530,21 @@
 		};
 		E4D898142293A49C000419B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F619C2E97BC30FF7DF278AC /* Pods-CapitalOneSES-August2019Submit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 4.2.2;
 				DEVELOPMENT_TEAM = AXQRK9KY57;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "CapitalOneSES-August2019Submit/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.0;
-				OTHER_LDFLAGS = "";
+				MARKETING_VERSION = 4.2;
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.myexample.CapitalOneSES-August2019Submit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
