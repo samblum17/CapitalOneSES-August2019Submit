@@ -10,6 +10,7 @@ The National Parks have been a staple of America for over 100 years, and the Nat
 
 You can use NPS Kiosk to:
 - Search for specific information with state filtering and relevance-based keyword search
+- Explore suggested things to do recommended by and for specific national parks
 - Find details about specific visitor centers and nearby campgrounds.
 - Stay up to date with alerts, articles, events, and news releases
 - View an interactive map of the park and surrounding area
@@ -36,20 +37,8 @@ I'd like to thank Capital One for choosing me as a semifinalist for the Software
 
 
 
-//Last updated for Version 3.0 on December 21, 2020:
-2020 has motivated many of us to spend more time outdoors and explore the beautiful National Parks, so we're super excited to bring new features and enhancements to National Park Kiosk that will help you plan your next adventure. 
+//Last updated for Version 3.3 on January 6, 2022:
+- Introducing "Things To Do"
+NPS Kiosk now helps you brainstorm activities for popular National Parks! After selecting a park, explore suggested things to do recommended by the National Park Service for that specific park. Each activity displays location, description, price, and reservation information. Never run out of ideas for your itinerary again!
 
-Today's update brings you the following improvements:
-- An all-new interface designed for iPad and Mac
-- Optimized search experience with faster loading and results more accurately sorted by relevance
-- Direct, in-app access to each park's website for more info
-- Refinements to the park overview screen design
-- Improved image loading
-- Navigation automatically returns back to previous screen when no results alert is dismissed
-- Fixes a bug where loading some parks caused the app to crash
-- Fixes a bug that prevented some park data from not loading
-- Fixes a bug where results loaded but the an alert still popped up that read "No results"
-- Support for Macs with Apple silicon
-- Updated for iOS 14
-
-Wishing you a wonderful, healthy 2021 and happy exploring!
+- Minor bug fixes
