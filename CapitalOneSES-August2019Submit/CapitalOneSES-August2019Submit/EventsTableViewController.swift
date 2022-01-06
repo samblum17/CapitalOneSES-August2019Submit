@@ -122,6 +122,7 @@ class EventsTableViewController: UITableViewController {
             newDescription = newDescription?.replacingOccurrences(of: "</p>", with: "")
             newDescription = newDescription?.replacingOccurrences(of: "<em>", with: "")
             newDescription = newDescription?.replacingOccurrences(of: "</em>", with: "")
+            newDescription = newDescription?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
             
             //Reformat date return from JSON to Date (Swift data type)
             let dateString = returnedEventsData[indexPath.row].dateStart

@@ -311,3 +311,30 @@ struct StoreArticlesController {
         
     }
 }
+
+struct StoreThingsToDoController {
+    func fetchItems(matching query: [String: String], completion: @escaping ([ThingsData]?) -> Void) {
+                
+        let baseURL = URL(string: "https://developer.nps.gov/api/v1/thingstodo?")!
+
+        guard let url = baseURL.withQueries(query) else {
+            //Accounts for bad query call
+            completion(nil)
+            print("Unable to build URL with supplied queries. Please try again.")
+            return
+        }
+        //Decodes JSON returned from API into active Park objects
+        
+        let task = URLSession.shared.dataTask(with: url) { (data,
+                                                            response, error) in
+            let jsonDecoder = JSONDecoder()
+            if let data = data,
+               let thingsDecoded = try? jsonDecoder.decode(Things.self, from: data){
+                completion(thingsDecoded.data)
+            } else {
+                completion(nil)
+            }
+        }
+        task.resume()
+    }
+}

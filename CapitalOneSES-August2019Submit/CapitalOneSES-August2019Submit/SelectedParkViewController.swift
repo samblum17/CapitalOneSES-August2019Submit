@@ -21,6 +21,7 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate, UIColl
     @IBOutlet var funInfoButton: UIButton! //Renamed to education
     @IBOutlet var alertsButton: UIButton!
     @IBOutlet var moreButton: UIButton!
+    @IBOutlet var thingstodoButton: UIButton!
     
     
     /*Collection View is used to show UIImageView rather than just a UIImageView on top of the scroll view for possible implementation of a slideshow feature in the future. The API data pulling coupled with standard loading images from URL resulted in laggy, unattractive implementation of a slide show throughout testing. For now, a single park image will highlight the selectionViewController but implementation in future should be looked into.
@@ -165,6 +166,13 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate, UIColl
             vc.parkName = parkName
         }
         
+        //Segue to thingstodo
+        if (segue.identifier == "thingstodoSegue") {
+            let vc = segue.destination as! ThingsToDoViewController
+            vc.title = "Things To Do"
+            vc.abbreviation = abbreviation
+            vc.parkName = parkName
+        }
         
         
         
