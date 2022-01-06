@@ -396,11 +396,13 @@ struct Things: Decodable {
 struct ThingsData: Codable {
     var title: String
     var longDescription: String
+    var shortDescription: String
     
     
     enum CodingKeys: String, CodingKey {
         case title
         case longDescription
+        case shortDescription
     }
     
     init(from decoder: Decoder) throws {
@@ -408,6 +410,7 @@ struct ThingsData: Codable {
             CodingKeys.self)
         self.title = try valueContainer.decode(String.self, forKey:CodingKeys.title)
         self.longDescription = try valueContainer.decode(String.self, forKey: CodingKeys.longDescription)
+        self.shortDescription = try valueContainer.decode(String.self, forKey: CodingKeys.shortDescription)
     }
 }
 
@@ -425,7 +428,7 @@ extension URL {
     }
 }
 let query: [String: String] = [
-    "parkcode" : "yose",
+    "parkcode" : "yell",
     "api_key" : "0deJt7XudkZrb2wSMFjaLYrHQESBWIQHMNeuM7o1"
 ]
 let baseURL = URL(string: "https://developer.nps.gov/api/v1/thingstodo?")!

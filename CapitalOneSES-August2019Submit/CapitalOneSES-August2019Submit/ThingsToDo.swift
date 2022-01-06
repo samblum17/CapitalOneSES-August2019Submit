@@ -13,9 +13,19 @@ struct Things: Decodable {
     var data: [ThingsData]?
 }
 
-struct ThingsData: Codable {
+struct ThingsData: Codable, Hashable {
+    static func == (lhs: ThingsData, rhs: ThingsData) -> Bool {
+        return rhs.id == lhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    var id = UUID()
     var title: String?
     var longDescription: String?
+    var shortDescription: String?
     var images: [Images]?
     var location: String?
     var isReservationRequired: String?
@@ -25,17 +35,19 @@ struct ThingsData: Codable {
     enum CodingKeys: String, CodingKey {
         case title
         case longDescription
+        case shortDescription
         case images
         case location
         case isReservationRequired
         case doFeesApply
     }
     
-     init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let valueContainer = try decoder.container(keyedBy:
-            CodingKeys.self)
+                                                    CodingKeys.self)
         self.title = try valueContainer.decode(String.self, forKey:CodingKeys.title)
         self.longDescription = try valueContainer.decode(String.self, forKey: CodingKeys.longDescription)
+        self.shortDescription = try valueContainer.decode(String.self, forKey: CodingKeys.shortDescription)
         self.images = try valueContainer.decode([Images].self, forKey: CodingKeys.images)
         self.location = try valueContainer.decode(String.self, forKey: CodingKeys.location)
         self.isReservationRequired = try valueContainer.decode(String.self, forKey: CodingKeys.isReservationRequired)

@@ -9,21 +9,20 @@
 import SwiftUI
 
 struct ThingsToDoView: View {
-    @StateObject var test = ParkDataToPass()
+    @StateObject var dataToPass = ParkDataToPass()
     
     var body: some View {
-        Text((test.data.first?.longDescription?.replacingOccurrences(of: "<[^>]+>", with: "\n", options: .regularExpression, range: nil)) ?? "here")
-            .onTapGesture{
-                let query: [String: String] = [
-                    "parkCode" : "yose",
-                    "api_key" : "0deJt7XudkZrb2wSMFjaLYrHQESBWIQHMNeuM7o1"
-                ]
-                let controller = StoreThingsToDoController()
-                controller.fetchItems(matching: query, completion: { (returnedData) in
-                    test.data = returnedData!
-            })
+        ScrollView {
+            VStack(alignment: .leading) {
+                ForEach(dataToPass.data, id: \.self) { thing in
+                    ActivityView(activity: thing)
+                    Divider()
+                }
+                .listStyle(PlainListStyle())
+            }
+        }.padding([.top, .horizontal])
+        
     }
-}
 }
 
 struct ThingsToDoView_Previews: PreviewProvider {
@@ -33,5 +32,8 @@ struct ThingsToDoView_Previews: PreviewProvider {
 }
 
 class ParkDataToPass: ObservableObject {
+    @Published var abbreviation: String = ""
     @Published var data: [ThingsData] = []
 }
+
+

@@ -15,6 +15,8 @@
 		E45FBD0F22ADC6DE00A9570F /* CampgroundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FBD0E22ADC6DE00A9570F /* CampgroundsTableViewController.swift */; };
 		E45FBD1122ADCCED00A9570F /* CampgroundsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FBD1022ADCCED00A9570F /* CampgroundsTableViewCell.swift */; };
 		E47F66F6258FF17B00E0A42C /* Main-Pad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47F66F4258FF17B00E0A42C /* Main-Pad.storyboard */; };
+		E4845593278777FD00A0B3E9 /* ThingsToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4845592278777FD00A0B3E9 /* ThingsToDoViewController.swift */; };
+		E4845597278786B500A0B3E9 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4845596278786B500A0B3E9 /* ActivityView.swift */; };
 		E49019182297BF3000B42A87 /* SelectedParkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49019172297BF3000B42A87 /* SelectedParkViewController.swift */; };
 		E49CCD8022B1391700F53ECE /* MoreInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49CCD7F22B1391700F53ECE /* MoreInfoTableViewCell.swift */; };
 		E49CCD8222B15F2D00F53ECE /* slideshowCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49CCD8122B15F2D00F53ECE /* slideshowCollectionViewCell.swift */; };
@@ -56,6 +58,8 @@
 		E45FBD0E22ADC6DE00A9570F /* CampgroundsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampgroundsTableViewController.swift; sourceTree = "<group>"; };
 		E45FBD1022ADCCED00A9570F /* CampgroundsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampgroundsTableViewCell.swift; sourceTree = "<group>"; };
 		E47F66F5258FF17B00E0A42C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "CapitalOneSES-August2019Submit/Base.lproj/Main-Pad.storyboard"; sourceTree = "<group>"; };
+		E4845592278777FD00A0B3E9 /* ThingsToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingsToDoViewController.swift; sourceTree = "<group>"; };
+		E4845596278786B500A0B3E9 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		E49019172297BF3000B42A87 /* SelectedParkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedParkViewController.swift; sourceTree = "<group>"; };
 		E49CCD7F22B1391700F53ECE /* MoreInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoTableViewCell.swift; sourceTree = "<group>"; };
 		E49CCD8122B15F2D00F53ECE /* slideshowCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = slideshowCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -163,6 +167,8 @@
 			children = (
 				E4D7880E2786BC53000F06B1 /* ThingsToDo.swift */,
 				E4D788102786BED7000F06B1 /* ThingsToDoView.swift */,
+				E4845596278786B500A0B3E9 /* ActivityView.swift */,
+				E4845592278777FD00A0B3E9 /* ThingsToDoViewController.swift */,
 			);
 			name = ThingsToDo;
 			sourceTree = "<group>";
@@ -365,6 +371,8 @@
 				E4CFEA0F22AEF3EE006E5C48 /* EventsTableViewCell.swift in Sources */,
 				E4D0BC9722B029D600C7AF98 /* EducationViewController.swift in Sources */,
 				E4C5C8D322B3F5CC00F234DA /* MapViewController.swift in Sources */,
+				E4845593278777FD00A0B3E9 /* ThingsToDoViewController.swift in Sources */,
+				E4845597278786B500A0B3E9 /* ActivityView.swift in Sources */,
 				E45FBD0F22ADC6DE00A9570F /* CampgroundsTableViewController.swift in Sources */,
 				E4FAAEFD22B09E9B000E62EC /* News.swift in Sources */,
 				E49019182297BF3000B42A87 /* SelectedParkViewController.swift in Sources */,

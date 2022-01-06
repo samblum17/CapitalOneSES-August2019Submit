@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EwN-hc-g9e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EwN-hc-g9e">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -27,10 +27,10 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="searchResultCell" rowHeight="70" id="0Kd-LX-aGr" customClass="searchResultsTableViewCell" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="414" height="70"/>
+                                <rect key="frame" x="0.0" y="88.5" width="414" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Kd-LX-aGr" id="lFL-iW-G1u">
-                                    <rect key="frame" x="0.0" y="0.0" width="383" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="385.5" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWo-Ts-bEd">
@@ -134,11 +134,11 @@
             <objects>
                 <viewController id="3ix-Sx-bG3" customClass="SelectedParkViewController" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YZV-Ca-2xf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="948"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ong-ke-l57">
-                                <rect key="frame" x="0.0" y="140" width="375" height="760"/>
+                                <rect key="frame" x="0.0" y="140" width="375" height="808"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HNj-AK-v5K">
                                         <rect key="frame" x="8" y="8" width="359" height="192"/>
@@ -183,7 +183,7 @@
                                         </connections>
                                     </collectionView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oA5-GT-oLF">
-                                        <rect key="frame" x="0.0" y="518" width="375" height="41"/>
+                                        <rect key="frame" x="0.0" y="567" width="375" height="41"/>
                                         <color key="backgroundColor" red="0.72549019609999998" green="0.3803921569" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="Education">
@@ -199,7 +199,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNU-Tq-V8g">
-                                        <rect key="frame" x="0.0" y="567" width="375" height="41"/>
+                                        <rect key="frame" x="0.0" y="616" width="375" height="41"/>
                                         <color key="backgroundColor" red="0.72549019609999998" green="0.3803921569" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="Related News">
@@ -215,7 +215,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKZ-HO-fSX">
-                                        <rect key="frame" x="0.0" y="616" width="375" height="41"/>
+                                        <rect key="frame" x="0.0" y="665" width="375" height="41"/>
                                         <color key="backgroundColor" red="0.72549019609999998" green="0.3803921569" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="Map">
@@ -231,7 +231,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbY-MR-L6B">
-                                        <rect key="frame" x="0.0" y="469" width="375" height="41"/>
+                                        <rect key="frame" x="0.0" y="518" width="375" height="41"/>
                                         <color key="backgroundColor" red="0.72549019609999998" green="0.3803921569" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="Upcoming Events">
@@ -247,7 +247,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i5d-Rg-USS">
-                                        <rect key="frame" x="0.0" y="370" width="375" height="41"/>
+                                        <rect key="frame" x="0.0" y="419" width="375" height="41"/>
                                         <color key="backgroundColor" red="0.72549019609999998" green="0.3803921569" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="Visitor Centers">
@@ -272,7 +272,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MC-Fq-Iar">
-                                        <rect key="frame" x="0.0" y="665" width="375" height="41"/>
+                                        <rect key="frame" x="0.0" y="714" width="375" height="41"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="Alerts">
@@ -288,7 +288,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ako-hC-Z1P">
-                                        <rect key="frame" x="0.0" y="420" width="375" height="41"/>
+                                        <rect key="frame" x="0.0" y="469" width="375" height="41"/>
                                         <color key="backgroundColor" red="0.72549019609999998" green="0.3803921569" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="Campgrounds">
@@ -304,7 +304,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bmi-Gh-iai">
-                                        <rect key="frame" x="0.0" y="714" width="375" height="41"/>
+                                        <rect key="frame" x="0.0" y="763" width="375" height="41"/>
                                         <color key="backgroundColor" red="0.72549019609999998" green="0.3803921569" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="More...">
@@ -319,13 +319,31 @@
                                             <action selector="moreButtonTapped:" destination="3ix-Sx-bG3" eventType="touchUpInside" id="BcM-gJ-s9u"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAh-eP-Bo5">
+                                        <rect key="frame" x="0.0" y="370" width="375" height="41"/>
+                                        <color key="backgroundColor" red="0.72549019609999998" green="0.3803921569" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="Things To Do">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="k0r-Zw-vOd" kind="show" identifier="thingstodoSegue" id="7pJ-sa-6rz"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="oA5-GT-oLF" firstAttribute="leading" secondItem="1MC-Fq-Iar" secondAttribute="leading" id="1P7-aQ-qEZ"/>
                                     <constraint firstItem="hKZ-HO-fSX" firstAttribute="top" secondItem="TNU-Tq-V8g" secondAttribute="bottom" constant="8" symbolic="YES" id="1uN-Ub-NES"/>
+                                    <constraint firstItem="xAh-eP-Bo5" firstAttribute="leading" secondItem="i5d-Rg-USS" secondAttribute="leading" id="2sP-FY-IuZ"/>
+                                    <constraint firstItem="i5d-Rg-USS" firstAttribute="top" secondItem="xAh-eP-Bo5" secondAttribute="bottom" constant="8" symbolic="YES" id="3B8-1O-0kp"/>
                                     <constraint firstItem="1MC-Fq-Iar" firstAttribute="leading" secondItem="Ong-ke-l57" secondAttribute="leading" id="3pq-t3-dYb"/>
                                     <constraint firstItem="TNU-Tq-V8g" firstAttribute="leading" secondItem="1MC-Fq-Iar" secondAttribute="leading" id="3ql-Z8-qKE"/>
-                                    <constraint firstAttribute="bottom" secondItem="Bmi-Gh-iai" secondAttribute="bottom" constant="54" id="5DI-O5-69Z"/>
+                                    <constraint firstAttribute="bottom" secondItem="Bmi-Gh-iai" secondAttribute="bottom" constant="-2" id="5DI-O5-69Z"/>
                                     <constraint firstItem="1MC-Fq-Iar" firstAttribute="top" secondItem="oA5-GT-oLF" secondAttribute="bottom" constant="106" id="9d9-68-552"/>
                                     <constraint firstItem="HNj-AK-v5K" firstAttribute="top" secondItem="Ong-ke-l57" secondAttribute="top" constant="8" id="9dn-1n-wgV"/>
                                     <constraint firstItem="oA5-GT-oLF" firstAttribute="width" secondItem="Ong-ke-l57" secondAttribute="width" id="B1D-41-ICM"/>
@@ -333,10 +351,12 @@
                                     <constraint firstItem="TNU-Tq-V8g" firstAttribute="trailing" secondItem="1MC-Fq-Iar" secondAttribute="trailing" id="COe-rq-SNN"/>
                                     <constraint firstItem="HNj-AK-v5K" firstAttribute="centerX" secondItem="Ong-ke-l57" secondAttribute="centerX" id="DH3-Qj-goT"/>
                                     <constraint firstItem="Bmi-Gh-iai" firstAttribute="top" secondItem="1MC-Fq-Iar" secondAttribute="bottom" constant="8" symbolic="YES" id="Dcv-6t-BAc"/>
+                                    <constraint firstItem="xAh-eP-Bo5" firstAttribute="trailing" secondItem="i5d-Rg-USS" secondAttribute="trailing" id="Hwd-KZ-iBo"/>
                                     <constraint firstAttribute="trailing" secondItem="HNj-AK-v5K" secondAttribute="trailing" constant="8" id="I1O-GO-QWG"/>
                                     <constraint firstAttribute="trailing" secondItem="XHi-v7-HC0" secondAttribute="trailing" constant="8" id="KeK-bR-dos"/>
                                     <constraint firstItem="HNj-AK-v5K" firstAttribute="leading" secondItem="Ong-ke-l57" secondAttribute="leading" constant="8" id="NPB-QG-xT2"/>
                                     <constraint firstItem="XHi-v7-HC0" firstAttribute="centerX" secondItem="Ong-ke-l57" secondAttribute="centerX" id="Nsk-Xh-G01"/>
+                                    <constraint firstItem="xAh-eP-Bo5" firstAttribute="top" secondItem="XHi-v7-HC0" secondAttribute="bottom" constant="40" id="UHQ-ud-g55"/>
                                     <constraint firstItem="hKZ-HO-fSX" firstAttribute="trailing" secondItem="TNU-Tq-V8g" secondAttribute="trailing" id="XzF-G1-BVl"/>
                                     <constraint firstItem="ako-hC-Z1P" firstAttribute="top" secondItem="i5d-Rg-USS" secondAttribute="bottom" constant="9" id="Ya1-oo-9Bo"/>
                                     <constraint firstItem="i5d-Rg-USS" firstAttribute="leading" secondItem="Ong-ke-l57" secondAttribute="leading" id="ZMa-Su-ZDS"/>
@@ -352,7 +372,6 @@
                                     <constraint firstItem="XHi-v7-HC0" firstAttribute="top" secondItem="HNj-AK-v5K" secondAttribute="bottom" constant="30" id="mKi-66-zt5"/>
                                     <constraint firstItem="pbY-MR-L6B" firstAttribute="top" secondItem="ako-hC-Z1P" secondAttribute="bottom" constant="8" symbolic="YES" id="mWV-l1-FBO"/>
                                     <constraint firstItem="pbY-MR-L6B" firstAttribute="width" secondItem="Ong-ke-l57" secondAttribute="width" id="oIR-lM-v6O"/>
-                                    <constraint firstItem="i5d-Rg-USS" firstAttribute="top" secondItem="XHi-v7-HC0" secondAttribute="bottom" constant="40" id="opb-zw-ap5"/>
                                     <constraint firstItem="TNU-Tq-V8g" firstAttribute="width" secondItem="Ong-ke-l57" secondAttribute="width" id="pAc-C2-L9U"/>
                                     <constraint firstItem="XHi-v7-HC0" firstAttribute="leading" secondItem="Ong-ke-l57" secondAttribute="leading" constant="8" id="qfz-UJ-wBh"/>
                                     <constraint firstItem="i5d-Rg-USS" firstAttribute="width" secondItem="Ong-ke-l57" secondAttribute="width" id="qzO-0d-85l"/>
@@ -375,7 +394,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="zRl-OW-LIW"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="900"/>
+                    <size key="freeformSize" width="375" height="948"/>
                     <connections>
                         <outlet property="alertsButton" destination="1MC-Fq-Iar" id="jSJ-CG-BMB"/>
                         <outlet property="calendarButton" destination="pbY-MR-L6B" id="25c-bb-1h7"/>
@@ -384,12 +403,13 @@
                         <outlet property="funInfoButton" destination="oA5-GT-oLF" id="PTl-pp-PgQ"/>
                         <outlet property="moreButton" destination="Bmi-Gh-iai" id="WRa-mt-1lf"/>
                         <outlet property="slideshowCollectionView" destination="HNj-AK-v5K" id="G4q-Hf-2Ql"/>
+                        <outlet property="thingstodoButton" destination="xAh-eP-Bo5" id="fXs-Fy-vHY"/>
                         <outlet property="visitorCentersButton" destination="i5d-Rg-USS" id="qNB-pA-oOl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Dm-zR-Rha" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2181.6546762589928" y="-188.44221105527637"/>
+            <point key="canvasLocation" x="2180.434782608696" y="-188.16964285714286"/>
         </scene>
         <!--News View Controller-->
         <scene sceneID="LdX-3H-RI6">
@@ -415,7 +435,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="newsCell" rowHeight="150" id="8DO-Gn-nHh" customClass="NewsTableViewCell" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="150"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8DO-Gn-nHh" id="hgy-yZ-GIw">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
@@ -515,7 +535,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="questionCell" rowHeight="214" id="184-MC-iaV" customClass="QuestionTableViewCell" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="214"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="214"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="184-MC-iaV" id="674-du-ueF">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="214"/>
@@ -629,7 +649,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventsCell" rowHeight="272" id="Wb8-lS-BsC" customClass="EventsTableViewCell" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="272"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="272"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wb8-lS-BsC" id="SbK-u2-h1v">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="272"/>
@@ -787,7 +807,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="campgroundCell" rowHeight="264" id="DJp-lo-90l" customClass="CampgroundsTableViewCell" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="264"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="264"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DJp-lo-90l" id="C7Y-Nd-wDH">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="264"/>
@@ -983,7 +1003,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="moreInfoCell" rowHeight="270" id="evE-hU-JHS" customClass="MoreInfoTableViewCell" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="270"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="270"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="evE-hU-JHS" id="iSx-JZ-YYl">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="270"/>
@@ -1125,9 +1145,25 @@
             </objects>
             <point key="canvasLocation" x="1484" y="-1059"/>
         </scene>
+        <!--Things To Do View Controller-->
+        <scene sceneID="PYP-i5-B4A">
+            <objects>
+                <viewController id="k0r-Zw-vOd" customClass="ThingsToDoViewController" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xvl-Z6-gpF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="t9d-dN-veE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cgG-Wh-EMg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m0C-sA-Hh1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2346" y="-1599"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="399-hq-fWH"/>
+        <segue reference="9lw-39-jiQ"/>
         <segue reference="cbF-nM-OjL"/>
     </inferredMetricsTieBreakers>
     <resources>
