@@ -388,6 +388,28 @@ struct Parks: Decodable {
    
 }
 
+struct Things: Decodable {
+    var total: String?
+    var data: [ThingsData]
+}
+
+struct ThingsData: Codable {
+    var title: String
+    var longDescription: String
+    
+    
+    enum CodingKeys: String, CodingKey {
+        case title
+        case longDescription
+    }
+    
+    init(from decoder: Decoder) throws {
+        let valueContainer = try decoder.container(keyedBy:
+            CodingKeys.self)
+        self.title = try valueContainer.decode(String.self, forKey:CodingKeys.title)
+        self.longDescription = try valueContainer.decode(String.self, forKey: CodingKeys.longDescription)
+    }
+}
 
 
 
@@ -403,18 +425,17 @@ extension URL {
     }
 }
 let query: [String: String] = [
-    "parkCode" : "yose",
-    "fields" : "images",
+    "parkcode" : "yose",
     "api_key" : "0deJt7XudkZrb2wSMFjaLYrHQESBWIQHMNeuM7o1"
 ]
-let baseURL = URL(string: "https://developer.nps.gov/api/v1/parks?")!
+let baseURL = URL(string: "https://developer.nps.gov/api/v1/thingstodo?")!
 
 let url = baseURL.withQueries(query)!
 let task = URLSession.shared.dataTask(with: url) { (data,
     response, error) in
     let jsonDecoder = JSONDecoder()
     if let data = data,
-        let parkDecoded = try? jsonDecoder.decode(Parks.self, from: data){
+        let parkDecoded = try? jsonDecoder.decode(Things.self, from: data){
         print(parkDecoded.data)
     } else {
         print("error")

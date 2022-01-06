@@ -27,6 +27,8 @@
 		E4D0BC9722B029D600C7AF98 /* EducationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D0BC9622B029D600C7AF98 /* EducationViewController.swift */; };
 		E4D0BC9922B0524100C7AF98 /* CopyPaste.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D0BC9822B0524100C7AF98 /* CopyPaste.swift */; };
 		E4D6302222B1F7D600225A20 /* searchResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6302122B1F7D600225A20 /* searchResultsTableViewCell.swift */; };
+		E4D7880F2786BC53000F06B1 /* ThingsToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D7880E2786BC53000F06B1 /* ThingsToDo.swift */; };
+		E4D788112786BED7000F06B1 /* ThingsToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D788102786BED7000F06B1 /* ThingsToDoView.swift */; };
 		E4D898042293A49B000419B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D898032293A49B000419B2 /* AppDelegate.swift */; };
 		E4D898062293A49B000419B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D898052293A49B000419B2 /* ViewController.swift */; };
 		E4D898092293A49B000419B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4D898072293A49B000419B2 /* Main.storyboard */; };
@@ -66,6 +68,8 @@
 		E4D0BC9622B029D600C7AF98 /* EducationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationViewController.swift; sourceTree = "<group>"; };
 		E4D0BC9822B0524100C7AF98 /* CopyPaste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyPaste.swift; sourceTree = "<group>"; };
 		E4D6302122B1F7D600225A20 /* searchResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchResultsTableViewCell.swift; sourceTree = "<group>"; };
+		E4D7880E2786BC53000F06B1 /* ThingsToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingsToDo.swift; sourceTree = "<group>"; };
+		E4D788102786BED7000F06B1 /* ThingsToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingsToDoView.swift; sourceTree = "<group>"; };
 		E4D898002293A49B000419B2 /* CapitalOneSES-August2019Submit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CapitalOneSES-August2019Submit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4D898032293A49B000419B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4D898052293A49B000419B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +158,15 @@
 			name = Education;
 			sourceTree = "<group>";
 		};
+		E4D7880D2786BC3C000F06B1 /* ThingsToDo */ = {
+			isa = PBXGroup;
+			children = (
+				E4D7880E2786BC53000F06B1 /* ThingsToDo.swift */,
+				E4D788102786BED7000F06B1 /* ThingsToDoView.swift */,
+			);
+			name = ThingsToDo;
+			sourceTree = "<group>";
+		};
 		E4D897F72293A49B000419B2 = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +201,7 @@
 				E4D8981D2293B983000419B2 /* StoreItemsController.swift */,
 				E4D898172293B3CD000419B2 /* Park.swift */,
 				E4D0BC9822B0524100C7AF98 /* CopyPaste.swift */,
+				E4D7880D2786BC3C000F06B1 /* ThingsToDo */,
 				E4D0BC9022B0268800C7AF98 /* VC,Alerts */,
 				E4D0BC8F22B0264600C7AF98 /* Campgrounds */,
 				E4D0BC8D22B0261200C7AF98 /* Events */,
@@ -328,6 +342,7 @@
 			files = (
 				E4D898062293A49B000419B2 /* ViewController.swift in Sources */,
 				E4D8981E2293B983000419B2 /* StoreItemsController.swift in Sources */,
+				E4D788112786BED7000F06B1 /* ThingsToDoView.swift in Sources */,
 				E4D0BC9922B0524100C7AF98 /* CopyPaste.swift in Sources */,
 				E4D8981C2293B97A000419B2 /* URL+Helpers.swift in Sources */,
 				E45FBD1122ADCCED00A9570F /* CampgroundsTableViewCell.swift in Sources */,
@@ -344,6 +359,7 @@
 				E4D898182293B3CD000419B2 /* Park.swift in Sources */,
 				E45FBD0922AD894500A9570F /* Alerts.swift in Sources */,
 				E40B55FC22AB5F2800EF455C /* MoreInfoViewController.swift in Sources */,
+				E4D7880F2786BC53000F06B1 /* ThingsToDo.swift in Sources */,
 				E4FAAEFF22B09EA8000E62EC /* NewsViewController.swift in Sources */,
 				E49CCD8222B15F2D00F53ECE /* slideshowCollectionViewCell.swift in Sources */,
 				E4CFEA0F22AEF3EE006E5C48 /* EventsTableViewCell.swift in Sources */,
