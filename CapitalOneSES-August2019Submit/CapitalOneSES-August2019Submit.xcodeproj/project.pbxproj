@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		E40B55FA22AB5AF500EF455C /* VisitorCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40B55F922AB5AF500EF455C /* VisitorCenter.swift */; };
 		E40B55FC22AB5F2800EF455C /* MoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40B55FB22AB5F2800EF455C /* MoreInfoViewController.swift */; };
+		E43A611C28BF1D2D000AAD55 /* ImageCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43A611B28BF1D2D000AAD55 /* ImageCarouselView.swift */; };
 		E44146FF26F64CB2005874A8 /* Pods_CapitalOneSES_August2019Submit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44146FE26F64CB2005874A8 /* Pods_CapitalOneSES_August2019Submit.framework */; };
 		E45FBD0922AD894500A9570F /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FBD0822AD894500A9570F /* Alerts.swift */; };
 		E45FBD0B22ADBE9800A9570F /* Campgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FBD0A22ADBE9800A9570F /* Campgrounds.swift */; };
@@ -40,6 +41,7 @@
 		E4D8981A2293B8FA000419B2 /* ParkListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D898192293B8FA000419B2 /* ParkListTableViewController.swift */; };
 		E4D8981C2293B97A000419B2 /* URL+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8981B2293B97A000419B2 /* URL+Helpers.swift */; };
 		E4D8981E2293B983000419B2 /* StoreItemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8981D2293B983000419B2 /* StoreItemsController.swift */; };
+		E4E9E42E28BF1DE4005C617D /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = E4E9E42D28BF1DE4005C617D /* CachedAsyncImage */; };
 		E4FAAEFD22B09E9B000E62EC /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FAAEFC22B09E9B000E62EC /* News.swift */; };
 		E4FAAEFF22B09EA8000E62EC /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FAAEFE22B09EA8000E62EC /* NewsViewController.swift */; };
 		E4FAAF0122B09EC5000E62EC /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FAAF0022B09EC5000E62EC /* NewsTableViewCell.swift */; };
@@ -51,6 +53,7 @@
 		B5850451EE9C55099C4F46DC /* Pods-CapitalOneSES-August2019Submit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapitalOneSES-August2019Submit.debug.xcconfig"; path = "Target Support Files/Pods-CapitalOneSES-August2019Submit/Pods-CapitalOneSES-August2019Submit.debug.xcconfig"; sourceTree = "<group>"; };
 		E40B55F922AB5AF500EF455C /* VisitorCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorCenter.swift; sourceTree = "<group>"; };
 		E40B55FB22AB5F2800EF455C /* MoreInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoViewController.swift; sourceTree = "<group>"; };
+		E43A611B28BF1D2D000AAD55 /* ImageCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCarouselView.swift; sourceTree = "<group>"; };
 		E44146FC26F64C77005874A8 /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
 		E44146FE26F64CB2005874A8 /* Pods_CapitalOneSES_August2019Submit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_CapitalOneSES_August2019Submit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E45FBD0822AD894500A9570F /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
@@ -96,6 +99,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E44146FF26F64CB2005874A8 /* Pods_CapitalOneSES_August2019Submit.framework in Frameworks */,
+				E4E9E42E28BF1DE4005C617D /* CachedAsyncImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +211,7 @@
 				E4D8981D2293B983000419B2 /* StoreItemsController.swift */,
 				E4D898172293B3CD000419B2 /* Park.swift */,
 				E4D0BC9822B0524100C7AF98 /* CopyPaste.swift */,
+				E43A611B28BF1D2D000AAD55 /* ImageCarouselView.swift */,
 				E4D7880D2786BC3C000F06B1 /* ThingsToDo */,
 				E4D0BC9022B0268800C7AF98 /* VC,Alerts */,
 				E4D0BC8F22B0264600C7AF98 /* Campgrounds */,
@@ -248,6 +253,9 @@
 			dependencies = (
 			);
 			name = "CapitalOneSES-August2019Submit";
+			packageProductDependencies = (
+				E4E9E42D28BF1DE4005C617D /* CachedAsyncImage */,
+			);
 			productName = "CapitalOneSES-August2019Submit";
 			productReference = E4D898002293A49B000419B2 /* CapitalOneSES-August2019Submit.app */;
 			productType = "com.apple.product-type.application";
@@ -276,6 +284,9 @@
 				Base,
 			);
 			mainGroup = E4D897F72293A49B000419B2;
+			packageReferences = (
+				E4E9E42C28BF1DE4005C617D /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
+			);
 			productRefGroup = E4D898012293A49B000419B2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -360,6 +371,7 @@
 				E4FAAF0122B09EC5000E62EC /* NewsTableViewCell.swift in Sources */,
 				E4D898042293A49B000419B2 /* AppDelegate.swift in Sources */,
 				E45FBD0B22ADBE9800A9570F /* Campgrounds.swift in Sources */,
+				E43A611C28BF1D2D000AAD55 /* ImageCarouselView.swift in Sources */,
 				E4D0BC8822B0247100C7AF98 /* Education.swift in Sources */,
 				E4CFEA0D22AEF3E1006E5C48 /* EventsTableViewController.swift in Sources */,
 				E4D898182293B3CD000419B2 /* Park.swift in Sources */,
@@ -534,7 +546,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4.2.2;
+				CURRENT_PROJECT_VERSION = 4.3.1;
 				DEVELOPMENT_TEAM = AXQRK9KY57;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "CapitalOneSES-August2019Submit/Info.plist";
@@ -543,7 +555,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.2;
+				MARKETING_VERSION = 4.3;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.myexample.CapitalOneSES-August2019Submit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -558,7 +570,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4.2.2;
+				CURRENT_PROJECT_VERSION = 4.3.1;
 				DEVELOPMENT_TEAM = AXQRK9KY57;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "CapitalOneSES-August2019Submit/Info.plist";
@@ -567,7 +579,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.2;
+				MARKETING_VERSION = 4.3;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.myexample.CapitalOneSES-August2019Submit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -598,6 +610,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E4E9E42C28BF1DE4005C617D /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E4E9E42D28BF1DE4005C617D /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4E9E42C28BF1DE4005C617D /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
+			productName = CachedAsyncImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E4D897F82293A49B000419B2 /* Project object */;
 }
