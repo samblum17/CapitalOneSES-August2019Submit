@@ -11,7 +11,7 @@ import Foundation
 //Different structs created below to handle nested JSON return
 
 //Images object for the array of images returned in each Park
-struct Images: Codable {
+struct Images: Codable, Hashable {
     var caption: String?
     var urlString: String?
     
@@ -27,6 +27,10 @@ struct Images: Codable {
         self.caption = try valueContainer.decode(String.self, forKey: CodingKeys.caption)
         self.urlString = try valueContainer.decode(String.self, forKey: CodingKeys.urlString)
     }
+    
+    static func == (lhs: Images, rhs: Images) -> Bool {
+            return lhs.urlString == rhs.urlString 
+        }
 }
 
 //ParkData object for park information returned in each Park object

@@ -580,6 +580,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 4.3;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.myexample.CapitalOneSES-August2019Submit";
 				PRODUCT_NAME = "$(TARGET_NAME)";

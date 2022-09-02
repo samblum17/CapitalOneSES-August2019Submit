@@ -240,6 +240,7 @@ class ParkListTableViewController: UITableViewController, UINavigationController
     var parkShortName: String?
     var parkDescription: String?
     var parkImageURLString: String? = ParkListTableViewController.initialDefaultImageURL
+    var parkImageArray: [Images]?
     var parkImageURL: URL?
     var parkImageCaption: String? = "Error loading content"
     var selectedItemDescription: String?
@@ -256,6 +257,7 @@ class ParkListTableViewController: UITableViewController, UINavigationController
             parkShortName = item.name
             if !(item.images?.isEmpty)! {
                 parkImageURLString = item.images?[0].urlString ?? ""
+                parkImageArray = item.images
                 parkImageCaption = item.images?[0].caption ?? "Error loading content"
             }
             selectedCode = item.parkCode
@@ -268,6 +270,7 @@ class ParkListTableViewController: UITableViewController, UINavigationController
             vc.title = parkShortName
             vc.descriptionLabelText = selectedItemDescription
             vc.imageURLString = parkImageURLString ?? " "
+            vc.imageArray = parkImageArray ?? []
             vc.abbreviation = selectedCode
             vc.latLong = latLong
             vc.parkName = parkName

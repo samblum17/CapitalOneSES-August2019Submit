@@ -7,40 +7,46 @@
 //
 
 import SwiftUI
-import CachedAsyncImage
 
 struct ImageCarouselView: View {
     @StateObject var imagesPassed = ImagesToPass()
+    var imageURLPassed: String = ""
+    var defaultImageURL = "https://www.nps.gov/common/commonspot/templates/images/logos/nps_social_image_02.jpg"
     
     var body: some View {
+        if #available(iOS 15.0, *) {
         ZStack {
             Section {
                 //Photo carousel section
                 ScrollView(.horizontal) {
                     HStack(spacing: 20) {
-                        ForEach(imagesPassed.images, id: \.url) { photo in
-                            CachedAsyncImage(url: URL(string: photo)) { phase in
+                        ForEach(imagesPassed.images, id: \.self) { photo in
+                            AsyncImage(url: URL(string: photo.urlString ?? defaultImageURL)) { phase in
                                 switch phase {
                                 case .success(let image):
                                     image
                                         .resizable()
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                         .aspectRatio(contentMode: .fit)
-                                        .frame(maxWidth: 300, maxHeight: 200)
+                                        .frame(maxWidth: 359, maxHeight: 192)
                                 default:
-                                    AsyncImage(url: URL(string: "https://www.nps.gov/common/commonspot/templates/images/logos/nps_social_image_02.jpg")) {
+                                    AsyncImage(url: URL(string: defaultImageURL)) {
                                         image in
                                         image.resizable()
-
-                                    }.frame(maxWidth: 200, maxHeight: 200)
+                                    } placeholder: {
+                                    RoundedRectangle(cornerRadius: 10)
+                                    }.frame(maxWidth: 359, maxHeight: 192)
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
-      
+
                                 }
                             }
                         }
                     }
                 }
-            }.padding([.leading, .bottom])
+            }
+        }
+        } else {
+
         }
     }
 }

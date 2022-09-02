@@ -8,6 +8,7 @@
 
 import UIKit
 import SafariServices
+import SwiftUI
 
 class SelectedParkViewController: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -33,6 +34,7 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate, UIColl
     //Variables for segue to pass data into from table view
     var descriptionLabelText: String?
     var imageURLString: String = ""
+    var imageArray: [Images] = []
     var abbreviation: String?
     var latLong: String?
     let imageCache = NSCache<AnyObject, AnyObject>() //Cache image for faster loading
@@ -69,37 +71,50 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate, UIColl
         //Hide image and display activity indicator while loading
         cell.myImage.isHidden = true
         activityIndicatorView.startAnimating()
-        
-        //Check if image is cached, load in if so
-        let imageURL = URL(string: imageURLString) ?? URL(string: ParkListTableViewController.initialDefaultImageURL)!
-        if let imageFromCache = imageCache.object(forKey: imageURLString as AnyObject) as? UIImage {
-            //Highest priority queue
-            DispatchQueue.main.async {
-                cell.myImage.image = imageFromCache
-                cell.myImage.isHidden = false
-                self.activityIndicatorView.stopAnimating()
-            }
-            //Image not cached, so pull from web, cache, and display
-        } else {
-            let task = URLSession.shared.dataTask(with: imageURL) { (data,response, error) in
-                
-                guard let imageData = data else {
-                    return
+            if #available(iOS 16.0, *) {
+                let imagesToPass = ImagesToPass()
+                imagesToPass.images = self.imageArray
+//                let imageCarouselView = ImageCarouselView(imagesPassed: imagesToPass)
+//                let hostingController = UIHostingController(rootView: imageCarouselView)
+//                cell.addSubview(hostingController.view)
+                cell.contentConfiguration = UIHostingConfiguration {
+                    ImageCarouselView(imagesPassed: imagesToPass)
                 }
-                //Highest priority queue
-                DispatchQueue.main.async {
-                    let imageToCache = UIImage(data: imageData)
-                    self.imageCache.setObject(imageToCache!, forKey: self.imageURLString as AnyObject)
-                    cell.myImage.image = imageToCache
-                    cell.myImage.isHidden = false
-                    self.activityIndicatorView.stopAnimating()
+//                hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+            } else {
+                //Check if image is cached, load in if so
+                let imageURL = URL(string: self.imageURLString) ?? URL(string: ParkListTableViewController.initialDefaultImageURL)!
+                if let imageFromCache = self.imageCache.object(forKey: self.imageURLString as AnyObject) as? UIImage {
+                    //Highest priority queue
+                    DispatchQueue.main.async {
+                        cell.myImage.image = imageFromCache
+                        cell.myImage.isHidden = false
+                        self.activityIndicatorView.stopAnimating()
+                    }
+                    //Image not cached, so pull from web, cache, and display
+                } else {
+                    let task = URLSession.shared.dataTask(with: imageURL) { (data,response, error) in
+                        
+                        guard let imageData = data else {
+                            return
+                        }
+                        //Highest priority queue
+                        DispatchQueue.main.async {
+                            let imageToCache = UIImage(data: imageData)
+                            self.imageCache.setObject(imageToCache!, forKey: self.imageURLString as AnyObject)
+                            cell.myImage.image = imageToCache
+                            cell.myImage.isHidden = false
+                            self.activityIndicatorView.stopAnimating()
+                        }
+                        
+                        
+                    }
+                    task.resume()
                 }
-                
-                
             }
-            task.resume()
-        }
-        
+            
+            cell.myImage.isHidden = false
+            self.activityIndicatorView.stopAnimating()
         return cell
     }
     
