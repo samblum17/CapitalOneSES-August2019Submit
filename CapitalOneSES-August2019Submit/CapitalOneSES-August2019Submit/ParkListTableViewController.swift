@@ -207,7 +207,7 @@ class ParkListTableViewController: UITableViewController, UINavigationController
                                 toItem: view.safeAreaLayoutGuide,
                                 attribute: .bottom,
                                 multiplier: 1,
-                                constant: 0),
+                                constant: -15),
              NSLayoutConstraint(item: bannerView,
                                 attribute: .centerX,
                                 relatedBy: .equal,
