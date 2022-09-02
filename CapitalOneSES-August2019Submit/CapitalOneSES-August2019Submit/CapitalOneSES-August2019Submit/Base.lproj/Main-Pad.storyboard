@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EwN-hc-g9e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21223" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EwN-hc-g9e">
     <device id="ipad12_9" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21204"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search for a National Park..." id="7gE-CY-37S">
-                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="420" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="yes" enablesReturnKeyAutomatically="YES" textContentType="location"/>
                             <connections>
@@ -27,10 +27,10 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="searchResultCell" rowHeight="70" id="0Kd-LX-aGr" customClass="searchResultsTableViewCell" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88.5" width="420" height="70"/>
+                                <rect key="frame" x="0.0" y="94" width="420" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Kd-LX-aGr" id="lFL-iW-G1u">
-                                    <rect key="frame" x="100" y="0.0" width="295.5" height="70"/>
+                                    <rect key="frame" x="100" y="0.0" width="293.5" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWo-Ts-bEd">
@@ -155,14 +155,14 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="slideshowCell" id="MxZ-YK-6IO" customClass="slideshowCollectionViewCell" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="12" width="470" height="232"/>
+                                                <rect key="frame" x="0.0" y="12" width="900" height="232"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="470" height="232"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="900" height="232"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NewSolid_gray" translatesAutoresizingMaskIntoConstraints="NO" id="XIK-lp-HIH">
-                                                            <rect key="frame" x="0.0" y="0.0" width="470" height="232"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="900" height="232"/>
                                                         </imageView>
                                                     </subviews>
                                                 </view>
@@ -172,7 +172,7 @@
                                                     <constraint firstItem="XIK-lp-HIH" firstAttribute="top" secondItem="MxZ-YK-6IO" secondAttribute="top" id="mwh-hG-pNm"/>
                                                     <constraint firstItem="XIK-lp-HIH" firstAttribute="leading" secondItem="MxZ-YK-6IO" secondAttribute="leading" id="ogm-BI-ZEG"/>
                                                 </constraints>
-                                                <size key="customSize" width="470" height="232"/>
+                                                <size key="customSize" width="900" height="232"/>
                                                 <connections>
                                                     <outlet property="myImage" destination="XIK-lp-HIH" id="anI-9I-xdt"/>
                                                 </connections>
@@ -433,7 +433,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="newsCell" rowHeight="150" id="8DO-Gn-nHh" customClass="NewsTableViewCell" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="704" height="150"/>
+                                        <rect key="frame" x="0.0" y="50" width="704" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8DO-Gn-nHh" id="hgy-yZ-GIw">
                                             <rect key="frame" x="0.0" y="0.0" width="704" height="150"/>
@@ -533,7 +533,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="questionCell" rowHeight="214" id="184-MC-iaV" customClass="QuestionTableViewCell" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="704" height="214"/>
+                                        <rect key="frame" x="0.0" y="50" width="704" height="214"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="184-MC-iaV" id="674-du-ueF">
                                             <rect key="frame" x="0.0" y="0.0" width="704" height="214"/>
@@ -647,7 +647,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventsCell" rowHeight="272" id="Wb8-lS-BsC" customClass="EventsTableViewCell" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="704" height="272"/>
+                                <rect key="frame" x="0.0" y="50" width="704" height="272"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wb8-lS-BsC" id="SbK-u2-h1v">
                                     <rect key="frame" x="0.0" y="0.0" width="704" height="272"/>
@@ -805,7 +805,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="campgroundCell" rowHeight="264" id="DJp-lo-90l" customClass="CampgroundsTableViewCell" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="704" height="264"/>
+                                <rect key="frame" x="0.0" y="50" width="704" height="264"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DJp-lo-90l" id="C7Y-Nd-wDH">
                                     <rect key="frame" x="0.0" y="0.0" width="704" height="264"/>
@@ -1001,7 +1001,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="moreInfoCell" rowHeight="270" id="evE-hU-JHS" customClass="MoreInfoTableViewCell" customModule="CapitalOneSES_August2019Submit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="704" height="270"/>
+                                        <rect key="frame" x="0.0" y="50" width="704" height="270"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="evE-hU-JHS" id="iSx-JZ-YYl">
                                             <rect key="frame" x="0.0" y="0.0" width="704" height="270"/>

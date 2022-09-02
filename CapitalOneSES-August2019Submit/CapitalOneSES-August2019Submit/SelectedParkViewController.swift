@@ -48,7 +48,7 @@ class SelectedParkViewController: UIViewController, UIScrollViewDelegate, UIColl
         var width = view.frame.size.width
         var height = view.frame.size.height
         if (UIDevice.current.userInterfaceIdiom == .pad){
-            width = view.frame.size.width/3
+            width = view.frame.size.width/1.25
             height = UIScreen.main.bounds.height/3
             slideshowCollectionView.isScrollEnabled = false
         }
